@@ -1,0 +1,75 @@
+.about-section {
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+
+
+.title-header{
+    color: white;
+    align-items: flex-start;
+    font-size: 2.4em;
+    letter-spacing: -1px;
+    font-size: clamp(1.8em, 4vw, 2.4em);
+
+
+}
+
+#description {
+    font-size: 1.2em;
+    color: white;
+    width: 60%;
+    border-left: 0.7px solid white;
+    padding-left: 30px;
+    font-weight: 250;
+    font-size: 1.8em;
+    letter-spacing: -0.7px;
+    font-size: clamp(1em, 3vw, 1.8em);
+
+}
+
+#about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;  /* Change from center to flex-start */
+    height: fit-content;
+    width: 90%;
+    max-width: 1200px;  /* Add a max-width to constrain the content */
+    margin: 0 auto;
+    padding: 80px;  /* Use padding instead of padding-top and padding-bottom */
+    background-color: black;
+    border-radius: 10px;
+}
+
+#name-highlight{
+    color:orange;
+}
+
+#junior-highlight{
+    text-decoration: underline;
+    text-decoration-thickness: 0.7px;
+    font-style: italic;
+}
+
+#underline{
+    text-decoration: underline;
+    text-decoration-thickness: 0.7px;
+}
+
+#notice{
+    color: white;
+    opacity: 0.7;
+}
+
+
+
+@media (max-width: 768px) {
+    #about-container {
+        padding: 20px;
+    }
+    
+    #description {
+        border-left: none;
+        padding-left: 0;
+    }
+}

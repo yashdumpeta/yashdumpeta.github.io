@@ -1,0 +1,98 @@
+src/components/Header.css .main-container {
+  width: 100%;
+}
+
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 20px;
+  padding-top: 34px;
+  height: 80px;
+}
+
+.main-container header {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+
+.home-button {
+  font-size: 1.7em;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+  letter-spacing: -1px;
+}
+
+.home-button:hover {
+  opacity: 0.8;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+
+.navbar-right a {
+  margin-left: 40px;
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+  font-weight: 400;
+  transition: opacity 0.25s ease;
+  letter-spacing: -0.6px;
+}
+
+.navbar-right a:hover {
+  opacity: 0.8;
+}
+
+.navbar-right .Projects,
+.navbar-right .Experience,
+.navbar-right .home {
+  margin-left: 40px;
+  /* Additional spacing for the Projects element */
+  font-weight: 600;
+  font-size: 0.96em;
+  transition: 0.5s ease;
+}
+
+.navbar-right .Projects:hover,
+.navbar-right .Experience:hover,
+.navbar-right .home:hover,
+.navbar-right .resume:hover {
+  border-bottom: 1px solid #fff;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-right {
+    margin-top: 10px;
+  }
+
+  .navbar-right a {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+}

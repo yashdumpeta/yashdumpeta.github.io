@@ -1,0 +1,17 @@
+.app-container {
+    background-image: url('./assets/images/pic6.jpg');
+    background-size: cover;
+    /* Ensure the background image covers the entire element */
+    background-position: center;
+    /* Center the background image */
+    background-repeat: no-repeat;
+    /* Prevent the image from repeating */
+    min-height: 100vh;
+    /* Ensure the container takes the full height of the viewport */
+    width: 100%;
+    /* Ensure the container takes the full width of the viewport */
+}
+
+html {
+    scroll-behavior: smooth;
+}
