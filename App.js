@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
-import LandingPage from './pages/LandingPage';
-import ExperiencePage from './pages/ExperiencePage';
-import ProjectPage from './pages/ProjectPage';
-import Header from './components/Header';
+import LandingPage from './src/pages/LandingPage'
+import ExperiencePage from './src/pages/ExperiencePage';
+import ProjectPage from './src/pages/Projects';
+import Header from './src/components/Header';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
 function App() {
-  return (
+  return ( 
     <div className="app-container">
       <Router>
         <Header />
