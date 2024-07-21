@@ -89,10 +89,6 @@
 }
 
 
-.menu-icon.open {
-  transform: rotate(90deg);
-}
-
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -137,10 +133,6 @@
     top: 20px;
     right: 20px;
     transition: transform 0.5s ease;
-  }
-
-  .menu-icon.open {
-    transform: rotate(90deg);
   }
   
 }
