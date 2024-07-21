@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.1a6f10a4.css",
-    "main.js": "/static/js/main.ad9d5045.js",
+    "main.css": "/static/css/main.64b47c9d.css",
+    "main.js": "/static/js/main.abfe73f8.js",
     "static/js/453.acca0757.chunk.js": "/static/js/453.acca0757.chunk.js",
     "static/media/recipeFind.png": "/static/media/recipeFind.8a7564b0d90ff6747d1d.png",
     "static/media/soccerquiz2.png": "/static/media/soccerquiz2.dd8b0ea6b676d0cfdd6b.png",
@@ -14,7 +14,7 @@
     "static/media/mine.png": "/static/media/mine.8a6861f726c5792c987b.png",
     "static/media/p1.png": "/static/media/p1.4cd9976fd5296a978cc7.png",
     "static/media/p4.png": "/static/media/p4.c2292a2b5d19833eab21.png",
-    "static/media/pic6.jpg": "/static/media/pic6.b8ce058049878a2182ba.jpg",
+    "static/media/pic20.jpg": "/static/media/pic20.e1e38438ebbcd76affb5.jpg",
     "static/media/nlp.png": "/static/media/nlp.a067319128244d944912.png",
     "static/media/recalld.png": "/static/media/recalld.98db811e910298786481.png",
     "static/media/euchre.png": "/static/media/euchre.d70ed96e8cc03196b937.png",
@@ -24,12 +24,12 @@
     "static/media/skylark.jpg": "/static/media/skylark.6c748b3adcd62802c34f.jpg",
     "static/media/merc.jpeg": "/static/media/merc.182188414064cd966229.jpeg",
     "index.html": "/index.html",
-    "main.1a6f10a4.css.map": "/static/css/main.1a6f10a4.css.map",
-    "main.ad9d5045.js.map": "/static/js/main.ad9d5045.js.map",
+    "main.64b47c9d.css.map": "/static/css/main.64b47c9d.css.map",
+    "main.abfe73f8.js.map": "/static/js/main.abfe73f8.js.map",
     "453.acca0757.chunk.js.map": "/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a6f10a4.css",
-    "static/js/main.ad9d5045.js"
+    "static/css/main.64b47c9d.css",
+    "static/js/main.abfe73f8.js"
   ]
 }
