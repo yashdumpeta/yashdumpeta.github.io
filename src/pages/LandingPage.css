@@ -1,8 +1,12 @@
+/* LandingPage.css */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 
 .main-container {
     flex-direction: column;
     display: flex;
+    min-height: 100vh;
+    padding: 20vh 10px;
 }
 
 .section {
@@ -10,7 +14,43 @@
     display: flex;
     flex-direction: column;
     padding: 0;
+    margin: 0;
 }
 
+header {
+    height: 80px; /* Ensure this matches the value in .section */
+}
 
+#scroll-top {
+    background: transparent;
+    border: none;
+    color: white;
+    scale: 2;
+    transition: 0.3s ease;
+}
 
+#scroll-top:hover {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 40px 20px;
+    }
+
+    #scroll-top {
+        background: transparent;
+        border: none;
+        color: white;
+        scale: 2;
+        transition: 0.3s ease;
+    }
+
+    #scroll-top:hover {
+        transform: translateY(-3px);
+    }
+
+    #footer-left {
+        margin-bottom: 20px;
+    }
+}

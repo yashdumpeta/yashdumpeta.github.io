@@ -1,14 +1,13 @@
-.main-container {
+/* .main-container {
     flex-direction: column;
     display: flex;
     margin: 0 auto;
-    padding-top: 10vh;
+    padding: 10vh 20px 15vh;
     justify-content: flex-start;
     align-items: flex-start;
     max-width: 1220px;
     width: 100%;
-    padding-bottom: 15vh;
-}
+} */
 
 .education {
     width: 100%;
@@ -152,4 +151,64 @@
     color: rgb(229, 229, 229);
     font-weight: 500;
     letter-spacing: -0.3px;
+}
+
+@media (max-width: 768px) {
+    .education-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #mich-logo {
+        width: 30%;
+        margin-bottom: 15px;
+    }
+
+    .work-info {
+        grid-template-columns: 1fr;
+    }
+
+    .work-logo {
+        width: 80px;
+        height: 80px;
+        margin: 0 0 15px 0;
+    }
+
+    #education-header, #work-header {
+        font-size: 1.5em;
+    }
+
+    #college-info {
+        font-size: 1.2em;
+    }
+
+    .organization-name {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    #mich-logo {
+        width: 50%;
+    }
+
+    .education-info, .work-info {
+        padding: 15px;
+    }
+
+    #education-header, #work-header {
+        font-size: 1.3em;
+    }
+
+    #college-info {
+        font-size: 1.1em;
+    }
+
+    .organization-name {
+        font-size: 1.1em;
+    }
+
+    .work-description {
+        font-size: 0.85em;
+    }
 }

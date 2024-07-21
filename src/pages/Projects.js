@@ -8,6 +8,8 @@ import recalld2 from '../assets/images/recalld-2.png'
 import recalld from '../assets/images/recalld.png'
 import recipeFind from '../assets/images/recipeFind.png'
 import soccerQuiz from '../assets/images/soccerQuiz.png'
+import soccerquiz2 from '../assets/images/soccerquiz2.png'
+
 import google from '../assets/images/google.png'
 import mine from '../assets/images/mine.png'
 import nlp from '../assets/images/nlp.png'
@@ -17,7 +19,7 @@ import pq from '../assets/images/pq.png'
 import sillyql from '../assets/images/sillyql.png'
 import euchre from '../assets/images/euchre.png'
 import portfolio from '../assets/images/portfolio.png'
-
+import Footer from '../components/Footer'
 const ProjectPage = () => {
 
   const projects = [
@@ -85,7 +87,7 @@ const ProjectPage = () => {
 
       ],
       concept_tags: [
-        "UI/UX Design", "Front-end Development", 
+        "UI/UX Design", "Front-end Development",
       ],
       description: ["My portfolio is what you're currently seeing, it's sleek, modern and responsive. This website demonstrates my proficiency in front-end development and UI/UX design. "]
     },
@@ -105,7 +107,7 @@ const ProjectPage = () => {
 
       ],
       concept_tags: [
-        "Data Analysis", "Data Visualization", "Database Management", "Statistical Analysis", "API Management & Integration", 
+        "Data Analysis", "Data Visualization", "Database Management", "Statistical Analysis", "API Management & Integration",
       ],
       description: ["This project analyzes the relationships between Google search trends, weather data, and baseball statistics. It utilizes multiple APIs to collect data on Google search volumes, MLB team batting averages, and local weather conditions.",
         "Visualizations are generated to explore correlations between factors such as MLB team batting averages and search frequency for team names, local temparature and searches for food-related terms, and also searches for ice cream based on temperature.",
@@ -113,7 +115,7 @@ const ProjectPage = () => {
     },
     {
       title: "Soccer Quiz",
-      image: soccerQuiz,
+      image: soccerquiz2,
       source_code: "https://github.com/yashdumpeta/soccerQuiz",
       tech_used: [
 
@@ -287,6 +289,7 @@ const ProjectPage = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

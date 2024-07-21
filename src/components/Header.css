@@ -1,8 +1,8 @@
-src/components/Header.css .main-container {
+/* Header.css */
+.header-container {
   width: 100%;
+  height: 20vh;
 }
-
-
 
 .navbar {
   display: flex;
@@ -15,20 +15,20 @@ src/components/Header.css .main-container {
   height: 80px;
 }
 
-.main-container header {
+.header-container header {
   background-color: transparent;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+  margin-bottom: 20vh;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
 }
-
 
 .home-button {
   font-size: 1.7em;
@@ -49,7 +49,6 @@ src/components/Header.css .main-container {
   margin-left: auto;
 }
 
-
 .navbar-right a {
   margin-left: 40px;
   text-decoration: none;
@@ -68,7 +67,6 @@ src/components/Header.css .main-container {
 .navbar-right .Experience,
 .navbar-right .home {
   margin-left: 40px;
-  /* Additional spacing for the Projects element */
   font-weight: 600;
   font-size: 0.96em;
   transition: 0.5s ease;
@@ -81,18 +79,52 @@ src/components/Header.css .main-container {
   border-bottom: 1px solid #fff;
 }
 
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: white;
+  z-index: 1001;
+}
+
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
+    padding-top: 20px;
+    height: auto;
   }
 
   .navbar-right {
-    margin-top: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 40%;
+    top: 80px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-right.show {
+    display: flex;
+    align-items: flex-end;
   }
 
   .navbar-right a {
     margin-left: 0;
-    margin-right: 15px;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
 }

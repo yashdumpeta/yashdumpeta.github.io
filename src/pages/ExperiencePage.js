@@ -6,6 +6,7 @@ import skylark from '../assets/images/skylark.jpg'
 import spire from '../assets/images/spire.png'
 import nobe from '../assets/images/nobe.png'
 import rec from '../assets/images/recsports.png'
+import Footer from '../components/Footer'
 
 
 const ExperiencePage = () => {
@@ -86,6 +87,7 @@ const ExperiencePage = () => {
                     </div>
                 ))}
             </div>
+            <Footer />
         </div>
     )
 }
