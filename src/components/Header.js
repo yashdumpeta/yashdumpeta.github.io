@@ -15,15 +15,16 @@ const Header = () => {
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+        document.querySelector('.menu-icon').classList.toggle('open');
     };
 
     return (
-        <div className="header-container">
+        <div className="header-container" id='header-id'>
             <header>
                 <nav className="navbar">
                     <div className="navbar-left">
                         <Link className="home-button" to="/" onClick={back_home}>
-                            yash d
+                            Yash Dumpeta
                         </Link>
                     </div>
                     <div className={`navbar-right ${isMenuOpen ? 'show' : ''}`}>

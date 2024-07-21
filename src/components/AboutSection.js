@@ -3,6 +3,11 @@ import './AboutSection.css'
 
 
 const AboutSection = () => {
+
+    const direct_to_about_section = () => {
+        document.getElementById('skill-container').scrollIntoView({ behavior: 'smooth' });
+    };
+
     return (
         <div className="section about-section">
             <div id="about-container">
@@ -14,8 +19,9 @@ const AboutSection = () => {
                     An aspiring <strong>Software Engineer</strong> with proficiency in a <strong>range of programming languages,</strong> both in <strong>front-end & back-end.</strong>
                     <br />
                     <br />
-                    Passionate about building technology-driven solutions that are both functional and enhance user experience. 
+                    Passionate about building technology-driven solutions that are both functional and enhance user experience.
                 </p>
+                <button className="scroll_to_about" onClick={direct_to_about_section}><strong> ⌄ </strong></button>
             </div>
         </div>
     )

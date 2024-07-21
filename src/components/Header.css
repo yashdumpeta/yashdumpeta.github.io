@@ -1,7 +1,7 @@
 /* Header.css */
 .header-container {
   width: 100%;
-  height: 20vh;
+  height: 22vh;
 }
 
 .navbar {
@@ -17,7 +17,7 @@
 
 .header-container header {
   background-color: transparent;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -85,6 +85,12 @@
   font-size: 1.5em;
   color: white;
   z-index: 1001;
+  transition: transform 0.3s ease;
+}
+
+
+.menu-icon.open {
+  transform: rotate(90deg);
 }
 
 @media (max-width: 768px) {
@@ -105,11 +111,15 @@
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
   }
 
   .navbar-right.show {
     display: flex;
     align-items: flex-end;
+    max-height: 300px;
   }
 
   .navbar-right a {
@@ -126,5 +136,21 @@
     position: absolute;
     top: 20px;
     right: 20px;
+    transition: transform 0.5s ease;
   }
+
+  .menu-icon.open {
+    transform: rotate(90deg);
+  }
+  
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(0px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header-container {
+  animation: fadeIn 1.2s ease-out;
+}
+

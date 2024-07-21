@@ -53,4 +53,8 @@ header {
     #footer-left {
         margin-bottom: 20px;
     }
+
+    .section{
+        min-height: 80vh;
+    }
 }

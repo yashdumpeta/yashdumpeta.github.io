@@ -1,6 +1,7 @@
 .about-section {
     justify-content: flex-start;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 
@@ -18,7 +19,7 @@
 #description {
     font-size: 1.2em;
     color: white;
-    width: 60%;
+    width: 95%;
     border-left: 0.7px solid white;
     padding-left: 30px;
     font-weight: 250;
@@ -60,6 +61,27 @@
     color: white;
     opacity: 0.7;
 }
+
+.scroll_to_about {
+    display: flex;
+    align-items: center; 
+    background: transparent;
+    border: none;
+    padding-top: 20px;
+    transition-duration: 0.3s ease;
+    padding-left: 10px;
+}
+
+.scroll_to_about strong{
+    display: flex;
+    align-items: center; 
+    background: transparent;
+    color: whitesmoke;
+    padding: 2px;
+    scale: 1.9;
+    transition-duration: 0.3s ease;
+}
+
 
 
 

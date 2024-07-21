@@ -9,7 +9,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 const LandingPage = () => {
 
   const scrollTop = () => {
-    document.getElementById('intro-box').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('header-id').scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -23,10 +23,10 @@ const LandingPage = () => {
         </div>
         <div id='footer-name'> Yash Dumpeta</div>
         <div id='footer-right'>
-          <a href='https://github.com/yashdumpeta' target='_blank'>
+          <a href='https://github.com/yashdumpeta' target='_blank' rel="noreferrer">
             <FaGithub id='github-logo' />
           </a>
-          <a href='https://www.linkedin.com/in/ydumpeta/' target='_blank'>
+          <a href='https://www.linkedin.com/in/ydumpeta/' target='_blank' rel="noreferrer">
             <FaLinkedin id='linkedin-logo' />
           </a>
         </div>
