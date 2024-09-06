@@ -16,7 +16,7 @@ const ExperiencePage = () => {
             company: "Spire Investment Partners",
             period: "(June 2024 - Present)",
             position: "Technology & Cybersecurity Intern",
-            description: "Loading...",
+            description: "In progress",
             logo: spire
         },
         {

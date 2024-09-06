@@ -1,7 +1,7 @@
 import React from 'react'
 import './SkillSection.css'
 import { FaJs, FaHtml5, FaCss3, FaRProject, FaDatabase } from 'react-icons/fa'
-import { SiCplusplus, SiC, SiJulia, SiAnaconda, SiVisualstudiocode, SiPython, SiPostgresql, SiPowerbi, SiMicrosoftsharepoint, SiJupyter, SiNumpy, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs } from "react-icons/si";
+import { SiCplusplus, SiC, SiJulia, SiAnaconda, SiVisualstudiocode, SiPython, SiPostgresql, SiPowerbi, SiMicrosoftsharepoint, SiJupyter, SiNumpy, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiExpress } from "react-icons/si";
 import { SiDjango, SiReact, SiPandas, SiSqlite, SiGithub } from "react-icons/si";
 import { DiMysql } from 'react-icons/di';
 import { BiSolidBarChartAlt2 } from 'react-icons/bi';
@@ -62,6 +62,9 @@ const SkillSection = () => {
             </div>
             <div className="skill-item">
               <SiNodedotjs /> <span className='skill-name'>Node.js</span>
+            </div>
+            <div className="skill-item">
+              <SiExpress /> <span className='skill-name'>Express.js</span>
             </div>
             <div className="skill-item">
               <SiDjango /> <span className='skill-name'>Django</span>
