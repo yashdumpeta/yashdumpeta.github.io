@@ -57,8 +57,6 @@ const ExperiencePage = () => {
             logo: nobe
         },
         
-
-        // Add more experiences as needed
     ];
 
 
