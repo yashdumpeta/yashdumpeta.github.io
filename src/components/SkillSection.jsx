@@ -1,9 +1,9 @@
 import React from 'react'
 import './SkillSection.css'
 import { FaJs, FaHtml5, FaCss3, FaRProject, FaDatabase } from 'react-icons/fa'
-import { SiCplusplus, SiC, SiJulia, SiAnaconda, SiVisualstudiocode, SiPython, SiPostgresql, SiPowerbi, SiMicrosoftsharepoint, SiJupyter, SiNumpy, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiExpress } from "react-icons/si";
+import { SiCplusplus, SiC, SiJulia, SiAnaconda, SiVisualstudiocode, SiPython, SiPostgresql, SiPowerbi, SiMicrosoftsharepoint, SiJupyter, SiNumpy, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiExpress, SiGo, SiDocker, SiRailway, SiAmazonaws, SiApachekafka, SiTensorflow } from "react-icons/si";
 import { SiDjango, SiReact, SiPandas, SiSqlite, SiGithub } from "react-icons/si";
-import { DiMysql } from 'react-icons/di';
+import { DiGo, DiMysql } from 'react-icons/di';
 import { BiSolidBarChartAlt2 } from 'react-icons/bi';
 
 const SkillSection = () => {
@@ -35,10 +35,13 @@ const SkillSection = () => {
               <FaCss3 /> <span className='skill-name'>CSS</span>
             </div>
             <div className="skill-item">
-              <SiC /> <span className='skill-name'>C</span>
+              <SiTypescript /> <span className='skill-name'>Typescript</span>
             </div>
             <div className="skill-item">
-              <SiTypescript /> <span className='skill-name'>Typescript</span>
+              <SiGo /> <span className='skill-name'>Go</span>
+            </div>
+            <div className="skill-item">
+              <SiC /> <span className='skill-name'>C</span>
             </div>
             <div className="skill-item">
               <FaDatabase /> <span className='skill-name'>SQL</span>
@@ -85,6 +88,9 @@ const SkillSection = () => {
               <SiSqlite /> <span className='skill-name'>SQLite</span>
             </div>
             <div className="skill-item">
+              <SiPostgresql /> <span className='skill-name'>PostgreSQL</span>
+            </div>
+            <div className="skill-item">
               <DiMysql /> <span className='skill-name'>MySQL</span>
             </div>
           </div>
@@ -103,6 +109,18 @@ const SkillSection = () => {
             </div>
             <div className="skill-item">
               <SiJupyter /><span className='skill-name'>Jupyter Notebooks</span>
+            </div>
+            <div className="skill-item">
+              <SiDocker /><span className='skill-name'>Docker</span>
+            </div>
+            <div className="skill-item">
+              <SiRailway /><span className='skill-name'>Railway</span>
+            </div>
+            <div className="skill-item">
+              <SiApachekafka /><span className='skill-name'>Kafka</span>
+            </div>
+            <div className="skill-item">
+              <SiTensorflow /><span className='skill-name'>Tensorflow</span>
             </div>
             <div className="skill-item">
               <SiMicrosoftsharepoint /><span className='skill-name'>Microsoft Sharepoint</span>

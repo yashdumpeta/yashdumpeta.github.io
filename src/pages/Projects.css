@@ -155,6 +155,7 @@ body {
     border: 0.1px solid rgb(0, 138, 0);
     font-size: 1em;
     font-weight: 550;
+    margin: 4px;
 }
 
 #code:hover {
@@ -164,6 +165,31 @@ body {
 #code svg {
     margin-right: 7px;
 }
+
+#link{
+    display: flex;
+    align-items: center;
+    background-color: rgb(14, 165, 233);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 0.1px solid rgb(14, 165, 233);
+    font-size: 1em;
+    font-weight: 550;
+    margin: 4px;
+}
+
+#link:hover {
+    background-color: rgb(0, 179, 0);
+}
+
+#link svg {
+    margin-right: 7px;
+}
+
+
 
 /* Responsive styles */
 @media (max-width: 768px) {

@@ -7,23 +7,32 @@ import spire from '../assets/images/spire.png'
 import nobe from '../assets/images/nobe.png'
 import rec from '../assets/images/recsports.png'
 import Footer from '../components/Footer'
+import pjtl from '../assets/images/pjtl.png'
 
 
 const ExperiencePage = () => {
 
     const workExperiences = [
         {
+            company: "University of Michigan - Center for Entrepreneurship - Perot Jain Techlab",
+            period: "(August 2024 - Present)",
+            position: "Student Researcher",
+            description: "Data Scientist - InceptEV (August 2024 - December 2024) :Conducting a data validation study of simulation accuracy by comparing real-world data against software outputs, identifying discrepancies, and collaborating with project sponsor InceptEV by coordinating project execution deliverables. Collaborated on Julia and Python codebase to implement a data pipeline for 20+ hours of data using Pandas. Processed raw OBDLink data from Ford Mach-E EV and developed a custom simulation process tailored to Ann Arbor driving conditions.",
+            logo: pjtl
+        },
+
+        {
             company: "Spire Investment Partners",
-            period: "(June 2024 - Present)",
+            period: "(June 2024 - August 2024)",
             position: "Technology & Cybersecurity Intern",
-            description: "In progress",
+            description: "During my internship as a Technology and Cybersecurity Intern at Spire Investment Partners in McLean, VA, from June to August 2024, I spearheaded multiple projects from initiation to completion, ensuring timely delivery and strategic alignment through effective project management practices and daily standup meetings within the SDLC. I engineered a centralized web portal to streamline onboarding and offboarding processes, utilizing RESTful APIs and automated workflows to enhance efficiency and approval processes. Additionally, I designed and implemented a secure, scalable employee directory database to centralize data for over 200 clients and employees, integrating data analytics features that bolstered business reporting capabilities.",
             logo: spire
         },
         {
             company: "Skylark Drones",
             period: "(June 2023 - August 2023)",
             position: "Research Intern",
-            description: "As a research intern, I was incharge of conducting research to compile information on topics to train aspiring Drone Operators in India. I collaborated with the Government of India Ministry of Skill Development & Entrepreneurship to develop a comprehensive drone operator course tailored for surveying and topography. I utilized Python and the tkinter interface to develop a user-friendly UI that streamlined the conversion of extensive thermal image datasets from their native R-JPEG format to .TIFF format. This UI included features such sa input validation, porgress bars and real time user feedback. " , 
+            description: "As a research intern, I was incharge of conducting research to compile information on topics to train aspiring Drone Operators in India. I collaborated with the Government of India Ministry of Skill Development & Entrepreneurship to develop a comprehensive drone operator course tailored for surveying and topography. I utilized Python and the tkinter interface to develop a user-friendly UI that streamlined the conversion of extensive thermal image datasets from their native R-JPEG format to .TIFF format. This UI included features such as input validation, porgress bars and real time user feedback. " , 
             logo: skylark
         },
         {

@@ -1,8 +1,8 @@
 import React from 'react'
 import './Projects.css'
 import { FaCode, FaDatabase } from 'react-icons/fa6'
-import { SiCplusplus, SiDjango, SiGithub, SiJupyter, SiPandas, SiPython, SiReact, SiSqlite, SiVisualstudio } from 'react-icons/si'
-import { FaCss3, FaHtml5, FaJs } from 'react-icons/fa'
+import { SiCplusplus, SiDjango, SiGithub, SiJupyter, SiLeaflet, SiNextdotjs, SiNodedotjs, SiOpenai, SiPandas, SiPostgresql, SiPython, SiRailway, SiReact, SiSocketdotio, SiSqlite, SiSupabase, SiTailwindcss, SiTypescript, SiVercel, SiVisualstudio, SiYelp } from 'react-icons/si'
+import { FaCss3, FaHtml5, FaJs, FaLink } from 'react-icons/fa'
 import { DiMysql } from 'react-icons/di'
 import recalld2 from '../assets/images/recalld-2.png'
 import recalld from '../assets/images/recalld.png'
@@ -20,9 +20,79 @@ import sillyql from '../assets/images/sillyql.png'
 import euchre from '../assets/images/euchre.png'
 import portfolio from '../assets/images/portfolio.png'
 import Footer from '../components/Footer'
+import Selectaraunt from '../assets/images/Selectaraunt.png'
+import Umazing from '../assets/images/Umazing.png'
 const ProjectPage = () => {
 
   const projects = [
+    {
+      title: "UMazing",
+      image: Umazing,
+      source_code: "https://github.com/MishanGagnon/mhacks2024",
+      tech_used: [
+        { icon: <SiNextdotjs />, name: "Next.js" },
+        { icon: <SiTypescript />, name: "Typescript" },
+        { icon: <SiNodedotjs />, name: "Node.js" },
+        { icon: <SiReact />, name: "React.js" },
+        { icon: <SiTailwindcss />, name: "Tailwind CSS" },
+        { icon: <SiPostgresql />, name: "PostgreSQL" },
+        { icon: <SiPython />, name: "Python" },
+        { icon: <SiVercel />, name: "Vercel" },
+        { icon: <SiOpenai />, name: "OpenAI" },
+        { icon: <SiRailway />, name: "Railway" },
+      ],
+      concept_tags: [
+        "Full-Stack Development", "API Integration", "Document Processing and Parsing", "AI Model Integration", "User Authentication", "Cache Management", "Database Management", "Responsive Design", "Personalised Insights"
+      ],
+      description: [
+        "UMazing is an AI-powered academic advisor bot designed to revolutionize course selection and academic planning for university students.",
+        "Developed during MHacks 24, this innovative web application is powered by Next.js, Node.js, React, TypeScript, Python, PostgreSQL, and deployed using Railway and Vercel.",
+        "Key features include:",
+        "AI-Driven Academic Guidance: Helps students make informed decisions by analyzing their course audit checklists and providing tailored recommendations for course selection and degree planning.",
+        "Comprehensive Data Processing: Backend scripts in Python and Node.js efficiently scrape and parse EECS course data and flex-techs from university websites and Google Sheets, ensuring up-to-date and accurate course offerings.",
+        "Efficient Checklist Management: A PostgreSQL-based caching system stores previously uploaded audit checklists, identified by custom-generated UUIDs, enhancing performance and user convenience.",
+        "Seamless Frontend-Backend Integration: Custom API routes handle the conversion of PDF buffers into images, enabling smooth checklist analysis and data extraction.",
+        "User-Centered Design: A responsive UI includes an intuitive landing page, streamlined PDF upload functionality, and engaging chatbot interactions for a seamless and enjoyable user experience.",
+        " and more...",
+        "UMazing simplifies academic planning by combining powerful AI capabilities with user-friendly design, empowering students to navigate their academic journeys with confidence and ease."
+      ],
+      link: "https://mhack2024-production.up.railway.app/",
+      devpost: "https://devpost.com/software/umazing?ref_content=my-projects-tab&ref_feature=my_projects"
+    },
+    {
+      title: "Selectaraunt",
+      image: Selectaraunt,
+      source_code: "",
+      tech_used: [
+        { icon: <SiNextdotjs />, name: "Next.js" },
+        { icon: <SiTypescript />, name: "Typescript" },
+        { icon: <SiNodedotjs />, name: "Node.js" },
+        { icon: <SiReact />, name: "React.js" },
+        { icon: <SiTailwindcss />, name: "Tailwind CSS" },
+        { icon: <SiSupabase />, name: "Supabase" },
+        { icon: <SiSocketdotio />, name: "Socket.io" },
+        { icon: <SiLeaflet />, name: "Leaflet" },
+        { icon: <SiYelp />, name: "Yelp API" },
+        { icon: <SiRailway />, name: "Railway" },
+      ],
+      concept_tags: [
+        "Full-Stack Development", "API Integration", "Real-Time Updates", "Geolocation", "User Authentication", "Multiplayer Functionality", "Lobby System + Caching", "Responsive Design",
+      ],
+      description: [
+        "Selectaraunt is an innovative real-time multiplayer web application designed to revolutionize group restaurant decision-making. Built with cutting-edge technologies including Next.js, Node.js, TypeScript, React.js, TailwindCSS, Supabase, Socket.IO, Leaflet, and the Yelp API, Selectaraunt provides an engaging and collaborative experience for users.",
+
+        "Key features include: ",
+        "Collaborative Restaurant Discovery: Users can join lobbies to vote on and discover new restaurants together, tailoring the experience with customizable filters for Yelp API responses. ",
+        "Real-Time Synchronization: Leveraging Socket.IO, the app ensures seamless, real-time communication between participants, keeping voting and results updates in perfect sync across all devices.",
+        "Dynamic UI/UX Design: A swipeable card-based interface, powered by the react-tinder-card library, provides an intuitive and interactive way to browse and select restaurant options.",
+        "Robust Backend Architecture: Custom API endpoints manage lobby creation, player participation, and state updates, ensuring data consistency and a smooth user experience.",
+        "Error-Resilient Infrastructure: Comprehensive error handling and logging mechanisms enhance reliability and simplify debugging during server-side operations.",
+        " and more...",
+        "With its modern design, real-time functionality, and social interaction focus, Selectaraunt transforms the way groups collaborate to decide where to eat. Whether you're planning a casual outing or a special occasion, Selectaraunt makes restaurant discovery fun, fast, and effortless."
+      ],
+      link: "https://selectaraunt.up.railway.app/"
+    },
+
     {
       title: "recalld",
       image: recalld,
@@ -281,7 +351,17 @@ const ProjectPage = () => {
                 </h3>
               </div>
               <div className="source-code-tag">
-                <a id='code' href={project.source_code} target='_blank' rel="noopener noreferrer">
+                {project.link && (
+                  <a id='link' href={project.link} target='_blank' rel="noopener noreferrer">
+                    <FaLink /> Link
+                  </a>
+                )}
+                {project.devpost && (
+                  <a id='link' href={project.devpost} target='_blank' rel="noopener noreferrer">
+                    <FaLink /> Devpost
+                  </a>
+                )}
+                <a id='code' href={project.source_code} target='_blank' rel="noopener noreferrer" >
                   <FaCode /> Code
                 </a>
               </div>
