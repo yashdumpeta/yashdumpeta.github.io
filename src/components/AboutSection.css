@@ -16,6 +16,7 @@
 
 }
 
+
 #description {
     font-size: 1.2em;
     color: white;
@@ -46,6 +47,19 @@
     color:orange;
 }
 
+#degree-text{
+    color: rgb(170, 170, 170);
+    font-size: 0.7em;
+}
+
+#senior-text{
+    color: gray;
+    font-size: 0.7em;
+}
+
+#senior-text{
+    color: orange;
+}
 #junior-highlight{
     text-decoration: underline;
     text-decoration-thickness: 0.7px;

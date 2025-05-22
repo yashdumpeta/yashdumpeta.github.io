@@ -13,13 +13,19 @@ const AboutSection = () => {
             <div id="about-container">
                 <h1 className="title-header"> 👋 About me </h1>
                 <p id='description'>
-                    My name is <strong><span id='name-highlight'>Yash Dumpeta</span></strong> and I'm currently a <span id='junior-highlight'>Junior</span> pursuing a B.S.E. in Computer Science @ <strong>University of Michigan in Ann Arbor</strong> - 〽️.
+                    <strong><span id='name-highlight'>Yash Dumpeta</span></strong> 
+                    <br />
+                    <span id='degree-text'>B.S.E in Computer Science and Engineering</span>
                     <br />
                     <br />
-                    An aspiring <strong>Software Engineer</strong> with proficiency in a <strong>range of programming languages,</strong> both in <strong>front-end & back-end.</strong>
+                    I'm passionate about building AI-driven solutions to demanding and challenging problems
                     <br />
                     <br />
-                    Passionate about building technology-driven solutions that are both functional and enhance user experience.
+                    I thrive at the intersection of Software and Entrepreneurship, with a range of coursework and practical experience in both domains. 
+                    {/* An aspiring <strong>Software Engineer</strong> with proficiency in a <strong>range of programming languages,</strong> both in <strong>front-end & back-end.</strong> */}
+                    <br />
+                    <br />
+                    {/* Passionate about building technology-driven solutions that are both functional and enhance user experience. */}
                 </p>
                 <button className="scroll_to_about" onClick={direct_to_about_section}><strong> ⌄ </strong></button>
             </div>
