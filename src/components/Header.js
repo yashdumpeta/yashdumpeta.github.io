@@ -20,6 +20,7 @@ const Header = () => {
 
     return (
         <div className="header-container" id='header-id'>
+            <div className="header-background"></div>
             <header>
                 <nav className="navbar">
                     <div className="navbar-left">

@@ -14,7 +14,7 @@ const IntroSection = () => {
             <div className="intro-container">
                 <div className="intro-content">
                     <h1 className='name'>Yash Dumpeta</h1>
-                    <p className='college'>Computer Science @ University of Michigan - Ann Arbor </p>
+                    <p className='college'>C.S.E. @ University of Michigan - Ann Arbor </p>
                     <div id='socials'>
                         <a href='https://github.com/yashdumpeta'>
                             <FaGithub id='github-logo' />

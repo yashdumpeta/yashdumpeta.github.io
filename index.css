@@ -1,11 +1,26 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Livvic', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Force Livvic on specific elements
+h1, h2, h3, h4, h5, h6, p, span, div {
+  font-family: 'Livvic', sans-serif !important;
+}
+
+/* Different weights for different elements */
+/* h1 {
+  font-weight: 700;
+}
+
+p {
+font-weight: 400;
+}
+ */ */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

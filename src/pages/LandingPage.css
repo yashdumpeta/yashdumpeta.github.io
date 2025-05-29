@@ -24,13 +24,18 @@ header {
 #scroll-top {
     background: transparent;
     border: none;
-    color: white;
+    color: #002466a4;
     scale: 2;
     transition: 0.3s ease;
 }
 
 #scroll-top:hover {
     transform: translateY(-3px);
+}
+
+#footer-name{
+    font-size: 1.2em;
+    font-weight: 700;
 }
 
 @media (max-width: 768px) {

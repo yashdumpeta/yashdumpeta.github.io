@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 const Footer = () => {
   return (
     <footer className='footer-container'>
+      <div className="footer-background"></div>
       <div id='footer-name'>Yash Dumpeta</div>
       <div id='footer-right'>
         <a href='https://github.com/yashdumpeta' target='_blank' rel="noopener noreferrer">

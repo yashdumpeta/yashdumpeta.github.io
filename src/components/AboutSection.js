@@ -18,10 +18,10 @@ const AboutSection = () => {
                     <span id='degree-text'>B.S.E in Computer Science and Engineering</span>
                     <br />
                     <br />
-                    I'm passionate about building AI-driven solutions to demanding and challenging problems
+                    I'm interested in building AI-driven solutions to demanding and challenging problems
                     <br />
                     <br />
-                    I thrive at the intersection of Software and Entrepreneurship, with a range of coursework and practical experience in both domains. 
+                    Passionate about working at the intersection of Tech and Entrepreneurship, a place where I can thrive through my range of coursework and practical experience in both domains. 
                     {/* An aspiring <strong>Software Engineer</strong> with proficiency in a <strong>range of programming languages,</strong> both in <strong>front-end & back-end.</strong> */}
                     <br />
                     <br />

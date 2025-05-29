@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
 }
@@ -19,6 +20,7 @@ body, html {
 }
 
 .footer-container {
+    position: relative;
     flex-shrink: 0;
     background: transparent;
     display: flex;
@@ -29,30 +31,59 @@ body, html {
     padding: 20px;
     width: 100%;
     height: 80px;
+    overflow: visible;
+}
+
+.footer-background {
+    position: absolute;
+    bottom: -50vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100vh;
+    --stop1: 78.51684%;
+    --stop2: 74.47835%;
+    --stop3: 91.26804%;
+    --angle: 149.85569deg;
+    background: conic-gradient(from var(--angle) at 50% 100%,
+            rgba(173, 216, 230, 0.5) 0%,
+            rgba(173, 216, 230, 0.5) 15%,
+            rgba(221, 160, 221, 0.5) var(--stop1),
+            rgba(255, 182, 193, 0.5) var(--stop2),
+            rgba(255, 192, 203, 0.5) var(--stop3),
+            rgba(255, 192, 203, 0.5) 92%,
+            rgba(173, 216, 230, 0.5) 100%);
+    filter: blur(100px);
+    z-index: -1;
+    opacity: 0.7;
+    pointer-events: none;
 }
 
 #footer-right {
+    position: relative;
     display: flex;
     align-items: center;
+    z-index: 1;
 }
 
 #footer-right a {
     margin-left: 40px;
-    color: white;
+    color: #002466a4;
     font-size: 1.5em;
     transition: 0.3s ease;
 }
 
 #footer-right a:hover {
-    opacity: 0.6;
-    color: black;
+    color: #002466e5;
 }
 
 #footer-name {
-    color: white;
-    font-weight: 300;
-    border-top: 1px solid whitesmoke;
-    padding-top: 5px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #002466a4;
+    text-decoration: none;
+    transition: opacity 0.25s ease;
+    letter-spacing: -1px;
 }
 
 @media (max-width: 768px) {
