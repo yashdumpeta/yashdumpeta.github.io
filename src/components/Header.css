@@ -67,7 +67,8 @@
 
 .navbar-right .Projects,
 .navbar-right .Experience,
-.navbar-right .home {
+.navbar-right .home,
+.navbar-right .Resume {
   margin-left: 40px;
   font-weight: 600;
   font-size: 0.96em;
@@ -77,7 +78,7 @@
 .navbar-right .Projects:hover,
 .navbar-right .Experience:hover,
 .navbar-right .home:hover,
-.navbar-right .resume:hover {
+.navbar-right .Resume:hover {
   border-bottom: 1px solid #002466a4;
 }
 

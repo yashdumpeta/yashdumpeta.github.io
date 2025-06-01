@@ -11,21 +11,45 @@ const AboutSection = () => {
     return (
         <div className="section about-section">
             <div id="about-container">
-                <h1 className="title-header"> 👋 About me </h1>
+                <div className="morse-pattern">
+                    <div className="dot"></div>
+                    <div className="dot space"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                    <div className="dot space"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                    <div className="dot space"></div>
+                    <div className="dot"></div>
+                    <div className="dot space"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                </div>
+                <div className="morse-pattern">
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                    <div className="dot space"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                    <div className="dot space"></div>
+                    <div className="dot"></div>
+                    <div className="dot space"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                </div>
                 <p id='description'>
-                    <strong><span id='name-highlight'>Yash Dumpeta</span></strong> 
+                    <strong><span id='name-highlight'>Yash Dumpeta</span></strong>
                     <br />
                     <span id='degree-text'>B.S.E in Computer Science and Engineering</span>
                     <br />
                     <br />
-                    I'm interested in building AI-driven solutions to demanding and challenging problems
+                    <span id='about-text'>I'm interested in building AI-driven solutions to demanding and challenging problems.</span>
                     <br />
                     <br />
-                    Passionate about working at the intersection of Tech and Entrepreneurship, a place where I can thrive through my range of coursework and practical experience in both domains. 
-                    {/* An aspiring <strong>Software Engineer</strong> with proficiency in a <strong>range of programming languages,</strong> both in <strong>front-end & back-end.</strong> */}
+                    <span id='about-text'>Passionate about working at the intersection of Tech and Entrepreneurship, a place where I can thrive through my range of coursework and practical experience in both domains.</span>
                     <br />
                     <br />
-                    {/* Passionate about building technology-driven solutions that are both functional and enhance user experience. */}
                 </p>
                 <button className="scroll_to_about" onClick={direct_to_about_section}><strong> ⌄ </strong></button>
             </div>

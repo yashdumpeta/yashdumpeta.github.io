@@ -2,32 +2,55 @@
     justify-content: flex-start;
     padding-left: 20px;
     padding-right: 20px;
+    
 }
 
+.morse-pattern {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 8px;
+}
 
+.dot {
+    width: 5px;
+    height: 5px;
+    background-color: #ff6b6b;
+    border-radius: 1px;
+}
 
-.title-header{
-    color: white;
+.dot.space {
+    opacity: 0;
+}
+
+.title-header {
+    color: rgba(255, 255, 255, 1);
     align-items: flex-start;
     font-size: 2.4em;
     letter-spacing: -1px;
     font-size: clamp(1.8em, 4vw, 2.4em);
-
-
+    font-weight: 600;
+    margin-top: 4px;
 }
-
 
 #description {
     font-size: 1.2em;
-    color: white;
+    color: #042d79e1;
     width: 95%;
-    border-left: 0.7px solid white;
-    padding-left: 30px;
+    /* border-left: 0.5px solid white;
+    padding-left: 20px; */
     font-weight: 250;
     font-size: 1.8em;
     letter-spacing: -0.7px;
     font-size: clamp(1em, 3vw, 1.8em);
+}
 
+#about-text{
+    /* color: rgba(0, 32, 96, 1); */
+    color: #042d79e1;
+
+    font-size: 1.2em;
+    letter-spacing: -0.7px;
+    font-size: clamp(1em, 3vw, 1.2em);
 }
 
 #about-container {
@@ -39,18 +62,37 @@
     max-width: 1200px;  /* Add a max-width to constrain the content */
     margin: 0 auto;
     padding: 80px;  /* Use padding instead of padding-top and padding-bottom */
-    background-color: black;
-    opacity: 0.9;
-    border-radius: 10px;
+    background-color: rgba(220, 220, 220, 0.6);
+    border-radius: 12px;
 }
 
-#name-highlight{
-    color:orange;
+#name-highlight, #degree-text {
+    background: linear-gradient(-45deg, rgb(237, 142, 0), #ff6b6b);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 7s ease infinite;
 }
 
-#degree-text{
-    color: rgb(170, 170, 170);
-    font-size: 0.7em;
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#degree-text {
+    color: 042d79e1;
+    font-size: 0.6em;
+    font-weight: 600;
+    /* border-bottom: 0.8px solid rgba(0, 32, 96, 1); */
+    padding-bottom: 8px;
 }
 
 #senior-text{
@@ -85,16 +127,18 @@
     padding-top: 20px;
     transition-duration: 0.3s ease;
     padding-left: 10px;
+    scale: 2;
 }
 
 .scroll_to_about strong{
     display: flex;
     align-items: center; 
     background: transparent;
-    color: whitesmoke;
+    color: white;
     padding: 2px;
     scale: 1.9;
     transition-duration: 0.3s ease;
+    padding-top: 0px
 }
 
 

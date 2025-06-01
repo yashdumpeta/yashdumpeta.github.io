@@ -32,6 +32,7 @@ const Header = () => {
                         <Link className='home' to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
                         <Link className='Experience' to="/experience" onClick={() => setIsMenuOpen(false)}>Experience</Link>
                         <Link className='Projects' to="/projects" onClick={() => setIsMenuOpen(false)}>Projects</Link>
+                        <a className='Resume' href="/Yash Dumpeta - Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
                     </div>
                     <div className="menu-icon" onClick={toggleMenu}>
                         ☰
