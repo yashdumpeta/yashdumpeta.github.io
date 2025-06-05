@@ -12,9 +12,9 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 80px;
-    background-color: white;
-    opacity: 0.4;
-    border-radius: 10px;
+    background: radial-gradient(circle at center, rgba(220, 220, 220, 0.6) 60%, transparent 110%);
+    backdrop-filter: blur(1px);
+    border-radius: 12px;
 }
 
 #skills-header {
@@ -25,14 +25,24 @@
 #languages_section, #frameworks_libraries_section, #tools_section {
     display: flex;
     flex-direction: column;
-    border-left: 2px white solid;
+    border-left: 1px white solid;
     color: white;
     padding: 25px 20px;
     font-size: clamp(1em, 2.5vw, 1.3em);
 }
 
 #lang-label, #f_l_label, #tools-label {
-    font-weight: 500;
+    margin-left: 5px;
+    font-weight: 600;
+    letter-spacing: -0.06em;
+    margin-bottom: 10px;
+    color: #002466a4;
+}
+
+#skills-intro {
+    color: #002466a4;
+    font-size: clamp(1.4em, 2.5vw, 1.3em);
+    font-weight: 700;
     letter-spacing: -0.06em;
     margin-bottom: 10px;
 }
@@ -50,6 +60,7 @@
     border-width: 0.5px;
     border-radius: 7px;
     padding: 5px 10px;
+    background-color: #00163fdf;
     color: white;
     letter-spacing: -0.05px;
     margin: 5px;
@@ -61,6 +72,9 @@
 .skill-item:hover {
     transform: translate(-0.05em, -0.05em);
     box-shadow: 0.15em 0.2em;
+    transition-duration: 0.14s;
+    background-color: #00163f;
+    transition-timing-function: ease-in-out;
 }
 
 .skill-name {

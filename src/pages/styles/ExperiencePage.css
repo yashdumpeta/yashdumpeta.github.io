@@ -9,29 +9,45 @@
     width: 100%;
 } */
 
+.work-link {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    padding: 5px 10px;
+    border-radius: 7px;
+    font-size: 0.9rem;
+    border: 1px white solid;
+    box-shadow: 0.0em 0.1em;
+    transition-duration: 0.3s;
+    margin-top: 0px;
+}
+
 .education {
     width: 100%;
     margin-bottom: 30px;
+    justify-content: flex-start;
+    padding: 40px 20px;
+    
 }
 
 #education-header {
-    padding: 10px;
-    color: whitesmoke;
-    background: black;
-    border-radius: 10px;
-    width: 100%;
-    font-size: 1.8em;
+    color: #002466a4;
+    font-size: clamp(2em, 4vw, 2.4em);
     margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .education-info {
     display: flex;
     align-items: center;
     gap: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: radial-gradient(circle at center, rgba(220, 220, 220, 0.6) 60%, transparent 110%);    backdrop-filter: blur(1px);
+    border-radius: 12px;
+    padding: 60px;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 #mich-logo {
@@ -49,73 +65,92 @@
 }
 
 #college-info {
-    color: whitesmoke;
+    color: #002466a4;
     letter-spacing: -0.3px;
     font-size: 1.4em;
     margin-bottom: 5px;
+    font-weight: 600;
 }
 
 #major {
-    color: whitesmoke;
+    color: #002466a4;
     letter-spacing: -0.3px;
     font-size: 1em;
     margin-bottom: 5px;
 }
 
 #uni-ranking {
-    font-style: italic;
-    color: #a0a0a0;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: rgba(255, 255, 255, 0.95);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.6em;
+    font-weight: 600;
+    letter-spacing: 0px;
+    margin-left: 2px;
+    margin-top: 0px;
+    border: none;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#uni-ranking:hover {
+    transform: translateY(-2px);
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 1);
+}
+
+#college-location {
+    color: #002466a4;
     letter-spacing: -0.3px;
     font-size: 0.9em;
+    opacity: 0.8;
+    padding-top: 0px;
 }
 
 .work {
     width: 100%;
     letter-spacing: -0.3px;
+    justify-content: flex-start;
+    padding: 40px 20px;
 }
 
 #work-header {
-    padding: 10px;
-    color: whitesmoke;
-    background: black;
-    border-radius: 10px;
-    width: 100%;
-    font-size: 1.8em;
+    color: #002466a4;
+    font-size: clamp(2em, 4vw, 2.4em);
     margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .work-info {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 25px;
+    background: radial-gradient(circle at center, rgba(220, 220, 220, 0.6) 60%, transparent 110%);
+    backdrop-filter: blur(1px);
+    border-radius: 12px;
+    padding: 60px;
     margin-bottom: 30px;
-    transition: background 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Consolidate transitions */
-    padding: 40px;
+    transition: transform 0.3s ease;
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-gap: 10px;
-    border-left: 5px solid; /* Color will be set dynamically in JS */
+    grid-gap: 20px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto 30px;
 }
 
 .work-info:hover {
-    transform: translateY(-3px);
-    background: linear-gradient(45deg, #000000, #0e0e0e, #131313, #131313, #225bd4);
-
-
-}
-
-.education-info:hover{
-    transform: translateY((-3px))
+    transform: translateY(-5px);
 }
 
 .work-logo {
     width: 120px;
     height: 120px;
     border-radius: 10px;
-    object-fit:contain;
+    object-fit: contain;
     grid-row: span 2;
     align-self: start;
-    margin: 20px;
 }
 
 #work-details {
@@ -126,21 +161,22 @@
 
 .organization-name {
     font-size: 1.4em;
-    color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    color: #002466a4;
     margin-bottom: 5px;
     border: none;
+    font-weight: 600;
 }
 
 #work-time-period {
-    font-size: 0.8em;
-    color: #a0a0a0;
-    margin-left: 10px;
+    font-size: 0.9em;
+    color: #002466a4;
+    padding-top: 3px;
+    opacity: 0.8;
 }
 
 .work-position {
     font-size: 1em;
-    color: white;
+    color: #002466a4;
     margin-bottom: 10px;
     font-weight: 600;
 }
@@ -149,15 +185,17 @@
     grid-column: 1 / -1;
     font-size: 0.9em;
     line-height: 1.6;
-    color: rgb(229, 229, 229);
+    color: #002466a4;
     font-weight: 500;
     letter-spacing: -0.3px;
 }
 
 @media (max-width: 768px) {
-    .education-info {
+    .education-info, .work-info {
         flex-direction: column;
         align-items: flex-start;
+        padding: 30px;
+        width: 100%;
     }
 
     #mich-logo {
@@ -181,6 +219,7 @@
 
     #college-info {
         font-size: 1.2em;
+        /* padding-right: 5px; */
     }
 
     .organization-name {
@@ -194,7 +233,8 @@
     }
 
     .education-info, .work-info {
-        padding: 15px;
+        padding: 20px;
+        width: 100%;
     }
 
     #education-header, #work-header {

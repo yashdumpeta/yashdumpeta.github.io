@@ -10,7 +10,36 @@ const SkillSection = () => {
   return (
     <div className="section skill-section">
       <div id="skill-container">
-        <h1 id='skills-header'>💻  My Skills</h1>
+        <div className="morse-pattern">
+          <div className="dot"></div>
+          <div className="dot space"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot space"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot space"></div>
+          <div className="dot"></div>
+          <div className="dot space"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+        </div>
+        <div className="morse-pattern">
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot space"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot space"></div>
+          <div className="dot"></div>
+          <div className="dot space"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+        </div>
+        <h2 id='skills-intro'>
+          Below are some of the technologies I've worked with through both my coursework and personal projects...
+        </h2>
         <br />
         <br />
         <div id='languages_section'>
@@ -96,7 +125,7 @@ const SkillSection = () => {
               <SiDocker /><span className='skill-name'>Docker</span>
             </div>
             <div className="skill-item">
-              <SiKubernetes/> <span className='skill-name'>Kubernetes</span>
+              <SiKubernetes /> <span className='skill-name'>Kubernetes</span>
             </div>
             <div className="skill-item">
               <SiGithub /> <span className='skill-name'>Github</span>

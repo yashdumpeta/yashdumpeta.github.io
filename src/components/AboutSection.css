@@ -62,7 +62,8 @@
     max-width: 1200px;  /* Add a max-width to constrain the content */
     margin: 0 auto;
     padding: 80px;  /* Use padding instead of padding-top and padding-bottom */
-    background-color: rgba(220, 220, 220, 0.6);
+    background: radial-gradient(circle at center, rgba(220, 220, 220, 0.6) 60%, transparent 110%);
+    backdrop-filter: blur(1px);
     border-radius: 12px;
 }
 
