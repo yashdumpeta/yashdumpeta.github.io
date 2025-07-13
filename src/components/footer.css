@@ -36,11 +36,11 @@ html {
 
 .footer-background {
     position: absolute;
-    bottom: -50vh;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 40vh;
     --stop1: 78.51684%;
     --stop2: 74.47835%;
     --stop3: 91.26804%;

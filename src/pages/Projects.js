@@ -320,7 +320,6 @@ const ProjectPage = () => {
   return (
     <div className='main-container'>
       <div className="content">
-
         <div className='projects'>
           <h1 id='projects-header'>Projects</h1>
           {projects.map((project, index) => (

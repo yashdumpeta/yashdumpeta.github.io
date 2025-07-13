@@ -12,6 +12,7 @@ import inceptev from '../assets/images/inceptev.png'
 import u5 from '../assets/images/utilidata5.png'
 import u1 from '../assets/images/utilidata1.png'
 import u2 from '../assets/images/utilidata2.png'
+import umits from '../assets/images/umits.jpg'
 import { FaLink } from 'react-icons/fa'
 
 
@@ -19,11 +20,23 @@ const ExperiencePage = () => {
 
     const workExperiences = [
         {
+            company: "University of Michigan - Information and Technology Services (U-M ITS)",
+            period: "May 2025 - Present",
+            position: "Software Engineering Intern",
+            description: [
+                "Maintaining and enhancing Docker- and Kubernetes-based research deployments—integrating MongoDB, eXist-db, and MariaDB backends written in Python, R, and PHP—while automating CI/CD workflows with GitHub Actions."
+            ],
+            logo: umits,
+            links: [
+                
+            ]
+        },
+        {
             company: "Utilidata",
             period: "January 2025 - Present",
             position: "Machine Learning Intern",
             description: [
-                ""
+                "MLOps and Model Optimization"
             ],
             logo: u5,
             links: [
@@ -50,7 +63,6 @@ const ExperiencePage = () => {
             description: [
                 "As a student researcher for the PJTL Electrification cohort at the UofM's Center for Entrepreneurship, I collaborate with startups to tackle real-world challenges in the electrification space. I gain hands-on experience and entrepreneurial skills through immersive, industry-driven projects.",
 
-                // "Learn more about my work here:",
             ],
             logo: pjtl,
             links: [
@@ -122,6 +134,7 @@ const ExperiencePage = () => {
                     <div className='college-details'>
                         <h2 id='college-info'>University of Michigan - College of Engineering</h2>
                         <h3 id='college-location'>Ann Arbor, MI</h3>
+                        <span id='work-time-period'> August 2022 - Present </span>
                         <h3 id='major'>B.S.E. in Computer Science</h3>
                     </div>
                 </div>
@@ -132,6 +145,33 @@ const ExperiencePage = () => {
                     <div className='work-info' key={index}>
                         <img className='work-logo' src={experience.logo} alt='' />
                         <div id='work-details'>
+                            <div className="morse-pattern">
+                                <div className="dot"></div>
+                                <div className="dot space"></div>
+                                <div className="dot"></div>
+                                {/* <div className="dot"></div> */}
+                                <div className="dot space"></div>
+                                <div className="dot"></div>
+                                <div className="dot"></div>
+                                <div className="dot space"></div>
+                                <div className="dot"></div>
+                                <div className="dot space"></div>
+                                <div className="dot"></div>
+                                <div className="dot"></div>
+                            </div>
+                            <div className="morse-pattern">
+                                <div className="dot"></div>
+                                <div className="dot"></div>
+                                <div className="dot space"></div>
+                                <div className="dot"></div>
+                                <div className="dot"></div>
+                                <div className="dot space"></div>
+                                <div className="dot"></div>
+                                <div className="dot space"></div>
+                                <div className="dot"></div>
+                                {/* <div className="dot"></div>
+                                <div className="dot"></div> */}
+                            </div>
                             <h2 className='organization-name'>
                                 {experience.company}
                             </h2>

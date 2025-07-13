@@ -31,7 +31,7 @@ const Header = () => {
                     <div className={`navbar-right ${isMenuOpen ? 'show' : ''}`}>
                         <Link className='Experience' to="/experience" onClick={() => setIsMenuOpen(false)}>Experience</Link>
                         <Link className='Projects' to="/projects" onClick={() => setIsMenuOpen(false)}>Projects</Link>
-                        <a className='Resume' href="/YD - Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+                    <a className='Resume' href="/YD - Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
                     </div>
                     <div className="menu-icon" onClick={toggleMenu}>
                         ☰

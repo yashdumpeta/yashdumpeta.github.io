@@ -155,3 +155,17 @@
         padding-left: 0;
     }
 }
+
+@media (max-width: 600px) {
+  #about-container,
+  #skill-container {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}

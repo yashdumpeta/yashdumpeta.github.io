@@ -25,6 +25,7 @@ body {
     /* No background-color here, let the app-container background show through */
     padding: 40px;
     border-radius: 18px;
+    background-color: black;
 }
 
 .projects {

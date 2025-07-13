@@ -38,7 +38,7 @@ const SkillSection = () => {
           <div className="dot"></div>
         </div>
         <h2 id='skills-intro'>
-          Below are some of the technologies I've worked with through both my coursework and personal projects...
+          I've built proficiency in these technologies through coursework, side projects, and continuous learning.
         </h2>
         <br />
         <br />

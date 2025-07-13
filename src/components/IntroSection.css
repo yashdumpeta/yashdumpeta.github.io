@@ -170,6 +170,8 @@
     .scroll_to_about{
         justify-content: center;
         width: 100%;
+        padding-top: 0 !important;
+        margin-bottom: 0 !important;
     }
 }
 
@@ -180,4 +182,17 @@
 
 .intro-content, .intro-image {
     animation: fadeIn 1.2s ease-out;
+}
+
+@media (max-width: 600px) {
+  .intro-section {
+    padding-bottom: 10vh !important;
+  }
+  .scroll_to_about {
+    padding-top: 10px !important;
+    margin-bottom: 0 !important;
+  }
+  .scroll_to_about:hover {
+    transform: translateY(2px);
+  }
 }
