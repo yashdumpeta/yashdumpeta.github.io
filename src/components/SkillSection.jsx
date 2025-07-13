@@ -1,7 +1,7 @@
 import React from 'react'
 import './SkillSection.css'
 import { FaJs, FaHtml5, FaCss3, FaRProject, FaDatabase, FaJava } from 'react-icons/fa'
-import { SiCplusplus, SiC, SiJulia, SiAnaconda, SiVisualstudiocode, SiPython, SiPostgresql, SiPowerbi, SiMicrosoftsharepoint, SiJupyter, SiNumpy, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiExpress, SiGo, SiDocker, SiRailway, SiAmazonaws, SiApachekafka, SiTensorflow, SiPhp, SiKubernetes, SiMongodb, SiOracle, SiMariadb } from "react-icons/si";
+import { SiCplusplus, SiC, SiJulia, SiAnaconda, SiVisualstudiocode, SiPython, SiPostgresql, SiPowerbi, SiMicrosoftsharepoint, SiJupyter, SiNumpy, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiExpress, SiGo, SiDocker, SiRailway, SiAmazonaws, SiApachekafka, SiTensorflow, SiPhp, SiKubernetes, SiMongodb, SiOracle, SiMariadb, SiSupabase } from "react-icons/si";
 import { SiDjango, SiReact, SiPandas, SiSqlite, SiGithub } from "react-icons/si";
 import { DiGo, DiMysql } from 'react-icons/di';
 import { BiSolidBarChartAlt2 } from 'react-icons/bi';
@@ -139,9 +139,9 @@ const SkillSection = () => {
             <div className="skill-item">
               <SiPostgresql /> <span className='skill-name'>PostgreSQL</span>
             </div>
-            <div className='skill-item'>
+            {/* <div className='skill-item'>
               <SiMariadb /> <span className='skill-name'>MariaDB</span>
-            </div>
+            </div> */}
             <div className="skill-item">
               <SiSqlite /> <span className='skill-name'>SQLite</span>
             </div>
@@ -153,6 +153,9 @@ const SkillSection = () => {
             </div>
             <div className="skill-item">
               <SiRailway /><span className='skill-name'>Railway</span>
+            </div>
+            <div className="skill-item">
+              <SiSupabase /><span className='skill-name'>Supabase</span>
             </div>
             <div className="skill-item">
               <SiMicrosoftsharepoint /><span className='skill-name'>Microsoft Sharepoint</span>

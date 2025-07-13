@@ -6,7 +6,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #4b0082, #800080, #9400d3);
+    /* background: linear-gradient(135deg, #4b0082, #800080, #9400d3); */
     color: white;
     font-family: Arial, sans-serif;
 }
@@ -18,11 +18,11 @@ body {
 }
 
 .main-container{
-    padding: 3vh 10px;
+    min-height: 100vh;
 }
 
 .content {
-    background-color: black;
+    /* No background-color here, let the app-container background show through */
     padding: 40px;
     border-radius: 18px;
 }

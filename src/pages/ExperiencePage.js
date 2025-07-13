@@ -8,24 +8,54 @@ import nobe from '../assets/images/nobe.png'
 import rec from '../assets/images/recsports.png'
 import Footer from '../components/Footer'
 import pjtl from '../assets/images/pjtl.png'
+import inceptev from '../assets/images/inceptev.png'
+import u5 from '../assets/images/utilidata5.png'
+import u1 from '../assets/images/utilidata1.png'
+import u2 from '../assets/images/utilidata2.png'
+import { FaLink } from 'react-icons/fa'
 
 
 const ExperiencePage = () => {
 
     const workExperiences = [
         {
+            company: "Utilidata",
+            period: "January 2025 - Present",
+            position: "Machine Learning Intern",
+            description: [
+                ""
+            ],
+            logo: u5,
+            links: [
+                
+            ]
+        },
+        {
+            company: "InceptEV",
+            period: "August 2024 - December 2024",
+            position: "Data Science Intern",
+            description: [
+                "As a Data Science Intern at InceptEV, a company that was acquired by motive, I conducted a data validation study on the simulation accuracy of InceptEV's fleet management software. The simulation study utilized real-world data collected with MCity's research EV's to compare against software outputs.",
+                "The project involved collaborating with an extensive Julia, Python and Pandas codebase to implement a data pipeline for 40+ hours of data, processing raw OBDLink data from a Ford Mach-E EV, and a custom simulation process tailored to Ann arbor driving conditions."
+            ],
+            logo: inceptev,
+            links: [
+                
+            ]
+        },
+        {
             company: "Center for Entrepreneurship - Perot Jain TechLab Electrification",
             period: "August 2024 - Present",
             position: "Student Researcher",
             description: [
-                "As a student researcher for the PJTL Electirfication cohort at the UofM's Center for Entrepreneurship, I collaborate with startups to tackle real-world challenges in electrification. I gain hands-on expereince and entrepreneural skills through immersive, industry-driven projects.",
+                "As a student researcher for the PJTL Electrification cohort at the UofM's Center for Entrepreneurship, I collaborate with startups to tackle real-world challenges in the electrification space. I gain hands-on experience and entrepreneurial skills through immersive, industry-driven projects.",
 
-                "Learn more about my work here:",
+                // "Learn more about my work here:",
             ],
             logo: pjtl,
             links: [
                 {
-                    name: "PJTL Electrification",
+                    name: "",
                     url: "https://cfe.umich.edu/launch/perot-jain-techlab-series/pjtl-electrification/meet-the-cohort/"
                 }
             ]
@@ -65,7 +95,7 @@ const ExperiencePage = () => {
             description: ["As a former VP of Tech at MERC, I was responsible for building an online presence on social media and was working on programming the organizations website to showcase MERC's educational and professional training to prospective members. I was also a Project Manager for a team that researched "],
             logo: merc,
             links: [
-            
+
             ]
         },
         {
@@ -92,7 +122,7 @@ const ExperiencePage = () => {
                     <div className='college-details'>
                         <h2 id='college-info'>University of Michigan - College of Engineering</h2>
                         <h3 id='college-location'>Ann Arbor, MI</h3>
-                        <h3 id='major'>B.S.E. in Computer Science </h3>
+                        <h3 id='major'>B.S.E. in Computer Science</h3>
                     </div>
                 </div>
             </div>
@@ -109,23 +139,21 @@ const ExperiencePage = () => {
                             <h3 className='work-position'>
                                 {experience.position}
                             </h3>
-                            {/* {project.tech_used.map((tech, index) => (
-                                <div className="tech-item" key={index}>
-                                {tech.icon}
-                                <span className='skill-name'>{tech.name}</span>
-                                </div>
-                            ))} */}
                             {experience.description.map((line, index) => (
                                 <p key={index} className='work-description'>
                                     {line}
                                 </p>
                             ))}
                             {experience.links.map((link, index) => (
-                                <div className='work-link' key={index}>
-                                    <a href={link.url} target="_blank" rel="noopener noreferrer">
-                                        {link.name}
-                                    </a>
-                                </div>
+                                <a 
+                                    key={index} 
+                                    className='work-link' 
+                                    href={link.url} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                >
+                                    <FaLink />
+                                </a>
                             ))}
                         </div>
                     </div>
