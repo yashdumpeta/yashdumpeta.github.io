@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
+import logoImage from '../assets/images/Gemini_Generated_Image_sjnrf1sjnrf1sjnr.png';
 import './Header.css';
 
 const Header = () => {
@@ -18,7 +19,7 @@ const Header = () => {
             <nav className="nav-pill">
                 <div className="nav-left">
                     <Link className="nav-link home-link" to="/" onClick={back_home}>
-                        Yash
+                        <img src={logoImage} alt="Yash Dumpeta" className="logo-image" />
                     </Link>
                 </div>
                 <div className="nav-center">
