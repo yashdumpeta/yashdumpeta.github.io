@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
-import logoImage from '../assets/images/Gemini_Generated_Image_sjnrf1sjnrf1sjnr.png';
 import './Header.css';
 
 const Header = () => {
@@ -54,44 +53,46 @@ const Header = () => {
         <div className="header-wrapper">
             <nav className="nav-pill">
                 <div className="nav-left">
-                    <a className="nav-link home-link" href="#home" onClick={scrollToTop}>
-                        <img src={logoImage} alt="Yash Dumpeta" className="logo-image" />
+                    <a className="nav-name" href="#home" onClick={scrollToTop}>
+                        Yash Dumpeta
                     </a>
-                </div>
-                <div className="nav-center">
-                    <a 
-                        className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} 
-                        href="#home" 
-                        onClick={(e) => scrollToSection(e, 'home')}
-                    >
-                        Home
-                    </a>
-                    <a 
-                        className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`} 
-                        href="#experience" 
-                        onClick={(e) => scrollToSection(e, 'experience')}
-                    >
-                        Experience
-                    </a>
-                    <a 
-                        className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`} 
-                        href="#projects" 
-                        onClick={(e) => scrollToSection(e, 'projects')}
-                    >
-                        Projects
-                    </a>
-                    <a className="nav-link" href="/YD - Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
                 </div>
                 <div className="nav-right">
-                    <a href="https://github.com/yashdumpeta" target="_blank" rel="noreferrer" className="social-icon">
-                        <FaGithub />
-                    </a>
-                    <a href="https://www.linkedin.com/in/ydumpeta/" target="_blank" rel="noreferrer" className="social-icon">
-                        <FaLinkedin />
-                    </a>
-                    <a href="https://twitter.com/yashdumpeta" target="_blank" rel="noreferrer" className="social-icon">
-                        <FaXTwitter />
-                    </a>
+                    <div className="nav-links">
+                        <a 
+                            className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} 
+                            href="#home" 
+                            onClick={(e) => scrollToSection(e, 'home')}
+                        >
+                            Home
+                        </a>
+                        <a 
+                            className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`} 
+                            href="#experience" 
+                            onClick={(e) => scrollToSection(e, 'experience')}
+                        >
+                            Experience
+                        </a>
+                        <a 
+                            className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`} 
+                            href="#projects" 
+                            onClick={(e) => scrollToSection(e, 'projects')}
+                        >
+                            Projects
+                        </a>
+                        <a className="nav-link" href="/YD - Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+                    </div>
+                    <div className="social-icons">
+                        <a href="https://github.com/yashdumpeta" target="_blank" rel="noreferrer" className="social-icon">
+                            <FaGithub />
+                        </a>
+                        <a href="https://www.linkedin.com/in/ydumpeta/" target="_blank" rel="noreferrer" className="social-icon">
+                            <FaLinkedin />
+                        </a>
+                        <a href="https://twitter.com/yashdumpeta" target="_blank" rel="noreferrer" className="social-icon">
+                            <FaXTwitter />
+                        </a>
+                    </div>
                 </div>
             </nav>
         </div>

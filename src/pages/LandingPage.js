@@ -1,8 +1,8 @@
 import React from "react";
 import "./LandingPage.css";
 import SkillSection from "../components/SkillSection";
-import { FaArrowRight, FaCode } from "react-icons/fa6";
-import { DescriptionOutlined as DescriptionOutlinedIcon } from "@mui/icons-material";
+import { FaArrowRight, FaCode, FaEnvelope } from "react-icons/fa6";
+import { DescriptionOutlined as DescriptionOutlinedIcon, EmailOutlined as EmailOutlinedIcon } from "@mui/icons-material";
 import Footer from "../components/Footer";
 import prof2 from "../assets/images/prof-pic2.jpg";
 import CircularText from "../components/CircularText";
@@ -118,56 +118,52 @@ const LandingPage = () => {
       {/* Hero Section */}
       <section id="home" className="hero-section">
         <div className="bento-grid">
-          {/* Identity Card */}
+          {/* Identity Card - Top Left (About Me) */}
           <div className="bento-card identity-card">
-            <h1 className="name">Yash Dumpeta</h1>
-            <p className="college ">C.S.E @ University of Michigan</p>
             <div className="bio-container">
               <p className="bio-text">
+                <br /><br /><br />
+                <italic>Hello,</italic> I'm <strong>Yash</strong>, a senior at the University of Michigan's College of Engineering studying <strong>Computer Science</strong>. <br /><br />
 
-                <italic>Hello,</italic> I'm <strong>Yash</strong>, a senior at the University of Michigan's College of Engineering studying Computer Science and Engineering. <br /><br />
-
-                I'm interested in backend and product engineering, especially in startup-style environments. Through coursework, internships, and personal projects, I've enjoyed working on systems, data workflows, and product features that turn ideas into usable software.<br /><br />
-
-                I'm excited to keep growing in fast-moving teams that value ownership, learning, and execution.
+                I'm interested in backend and product engineering in startup-style environments. I enjoy working on systems and product features that support real, usable applications.
 
                 
               </p>
             </div>
           </div>
 
-          {/* Profile Card */}
+          {/* Profile Card - Top Right (Profile Pic) */}
           <div className="bento-card profile-card">
             <img src={prof2} alt="Yash Dumpeta" className="profile-img" />
           </div>
 
-
-          {/* Resume Card */}
+          {/* Contact Card - Bottom Left Top (Small Square) */}
           <a
-            href="/YD - Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bento-card resume-card"
+            href="mailto:ydumpeta@umich.edu"
+            className="bento-card contact-card"
           >
-            <DescriptionOutlinedIcon className="resume-icon" />
-            <span className="resume-text">Resume</span>
+            <EmailOutlinedIcon className="contact-icon" />
+            <span className="contact-text">Get in Touch</span>
           </a>
 
-          <CircularText className="circular-text" text="SCROLL DOWN ⋅ TO LEARN MORE ⋅ " />
+          {/* Circular Text - Bottom Left Bottom (Circle) */}
+          <div className="circular-text-wrapper">
+            <CircularText className="circular-text" text="SCROLL DOWN ⋅ TO LEARN MORE ⋅ " />
+          </div>
 
-          {/* Skills Card */}
+          {/* Skills Card - Bottom Right (Skills) */}
           <div className="bento-card skills-card">
             <SkillSection isBento />
           </div>
 
-          {/* Projects Link Card */}
-          <div className="bento-card cta-card">
-            <h2 className="card-title serif">My Projects</h2>
-            <p>Check out what I've been building lately.</p>
-            <a href="#projects" className="cta-link">
-              View Projects <FaArrowRight />
-            </a>
-          </div>
+          {/* Resume Card - Keep it somewhere? Maybe as a small floating card or integrated? 
+              The wireframe only shows 5 boxes. I'll merge Resume into the grid as another item if needed, 
+              but the wireframe has 5. Identity, Profile, Contact, Circle, Skills. 
+              I'll put Resume inside Contact or just replace it as I did above. 
+              Wait, the user said "The circle is the circular text and above should be a get in touch bento box."
+              I'll assume Resume is replaced by Contact for now, or I'll add Resume as a 6th card. 
+              The drawing shows exactly 5 items. 
+          */}
         </div>
       </section>
 

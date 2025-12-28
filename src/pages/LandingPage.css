@@ -11,7 +11,7 @@
 
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   grid-auto-rows: minmax(180px, auto);
   gap: var(--grid-gap);
 }
@@ -36,10 +36,24 @@
 .identity-card:hover,
 .profile-card:hover,
 .skills-card:hover,
+.contact-card:hover,
 .cta-card:hover {
   transform: scale(1.02);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
   border-color: var(--glass-border);
+}
+
+.contact-card:hover {
+  transform: scale(1.05);
+}
+
+.contact-card:hover .contact-icon {
+  color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.contact-card:hover .contact-text {
+  color: var(--text-primary);
 }
 
 .resume-card:hover {
@@ -49,8 +63,8 @@
 }
 
 .identity-card {
-  grid-column: span 3;
-  grid-row: span 2;
+  grid-column: span 5;
+  grid-row: 1;
 }
 
 .identity-card .name {
@@ -74,9 +88,10 @@
 }
 
 .profile-card {
-  grid-column: span 1;
-  grid-row: span 2;
+  grid-column: span 3;
+  grid-row: 1;
   padding: 0;
+  display: flex;
 }
 
 .profile-img {
@@ -86,9 +101,39 @@
   border-radius: var(--radius-lg);
 }
 
+.contact-card {
+  grid-column: span 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.contact-icon {
+  font-size: 32px;
+  color: var(--accent-color);
+}
+
+.contact-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.circular-text-wrapper {
+  grid-column: span 2;
+  grid-row: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .skills-card {
-  grid-column: span 3;
-  grid-row: span 2;
+  grid-column: span 6;
+  grid-row: 2 / span 2;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -101,72 +146,6 @@
   font-weight: 700;
 }
 
-.resume-card {
-  grid-column: span 1;
-  grid-row: span 1;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  cursor: pointer;
-  gap: 12px;
-}
-
-.resume-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-}
-
-.resume-icon {
-  font-size: 64px;
-  color: var(--accent-color);
-  transition: all 0.2s ease;
-}
-
-.resume-card:hover .resume-icon {
-  color: var(--accent-hover);
-  transform: translateY(-2px);
-}
-
-.resume-text {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  transition: color 0.2s ease;
-}
-
-.resume-card:hover .resume-text {
-  color: var(--text-primary);
-}
-
-.cta-card {
-  grid-column: span 2;
-  grid-row: span 1;
-}
-
-.cta-card .card-title {
-  color: var(--text-primary);
-}
-
-.cta-card p {
-  color: var(--text-secondary);
-}
-
-.cta-link {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 12px;
-  transition: all 0.2s ease;
-}
-
-.cta-link:hover {
-  color: var(--accent-hover);
-  gap: 12px;
-}
 
 .bento-footer {
   margin-top: 60px;
@@ -188,8 +167,8 @@
   .skills-card {
     grid-column: span 2;
   }
-  .resume-card,
-  .cta-card {
+  .contact-card,
+  .circular-text-wrapper {
     grid-column: span 1;
   }
 }
@@ -201,8 +180,8 @@
   .identity-card,
   .profile-card,
   .skills-card,
-  .resume-card,
-  .cta-card {
+  .contact-card,
+  .circular-text-wrapper {
     grid-column: span 1;
   }
   .identity-card .name {
