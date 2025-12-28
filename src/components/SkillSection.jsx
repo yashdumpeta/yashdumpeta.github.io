@@ -5,6 +5,23 @@ import { SiCplusplus, SiC, SiJulia, SiAnaconda, SiVisualstudiocode, SiPython, Si
 import { DiGo, DiMysql } from 'react-icons/di';
 import { BiSolidBarChartAlt2 } from 'react-icons/bi';
 
+const MarqueeRow = ({ skills, direction = 'left' }) => {
+  // Duplicate skills to create a seamless loop
+  const duplicatedSkills = [...skills, ...skills];
+  return (
+    <div className={`marquee-row ${direction}`}>
+      <div className="marquee-content">
+        {duplicatedSkills.map((skill, index) => (
+          <span key={`${skill.name}-${index}`} className="skill-pill">
+            {skill.icon && <span className="skill-icon">{skill.icon}</span>}
+            <span className="skill-name">{skill.name}</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const SkillSection = ({ isBento }) => {
   const languages = [
     { icon: <SiCplusplus />, name: 'C++' },
@@ -30,8 +47,8 @@ const SkillSection = ({ isBento }) => {
     { icon: <SiDjango />, name: 'Django' },
     { icon: <SiPandas />, name: 'Pandas' },
     { icon: <SiNumpy />, name: 'NumPy' },
-    { name: 'Seaborn' },
-    { name: 'Matplotlib' }
+    { icon: <SiSupabase />, name: 'Supabase' }, // Moved from tools to frameworks
+    { icon: <SiRedhatopenshift />, name: 'Openshift' }
   ];
 
   const tools = [
@@ -41,26 +58,19 @@ const SkillSection = ({ isBento }) => {
     { icon: <SiMongodb />, name: 'MongoDB' },
     { icon: <SiOracle />, name: 'OracleDB' },
     { icon: <SiPostgresql />, name: 'PostgreSQL' },
-    { icon: <SiRedhatopenshift />, name: 'Redhat Openshift' },
     { icon: <SiSqlite />, name: 'SQLite' },
     { icon: <SiVisualstudiocode />, name: 'VSCode' },
     { icon: <SiAnaconda />, name: 'Anaconda' },
     { icon: <SiRailway />, name: 'Railway' },
-    { icon: <SiSupabase />, name: 'Supabase' },
-    { icon: <SiMicrosoftsharepoint />, name: 'Microsoft Sharepoint' },
     { icon: <BiSolidBarChartAlt2 />, name: 'PowerBI' }
   ];
 
   if (isBento) {
-    const allSkills = [...languages, ...frameworks, ...tools];
     return (
-      <div className="skills-cloud">
-        {allSkills.map((skill, index) => (
-          <span key={`${skill.name}-${index}`} className="skill-pill">
-            {skill.icon && <span className="skill-icon">{skill.icon}</span>}
-            <span className="skill-name">{skill.name}</span>
-          </span>
-        ))}
+      <div className="skills-marquee-container">
+        <MarqueeRow skills={languages} direction="left" />
+        <MarqueeRow skills={frameworks} direction="right" />
+        <MarqueeRow skills={tools} direction="left" />
       </div>
     );
   }
