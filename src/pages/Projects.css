@@ -23,7 +23,7 @@ body {
 
 .content {
     /* No background-color here, let the app-container background show through */
-    padding: 40px;
+    padding: 30px 20px;
     border-radius: 18px;
     background-color: black;
 }
@@ -45,7 +45,7 @@ body {
 
 .project {
     transition: background-color 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Consolidate transitions */
-    padding: 40px;
+    padding: 30px 20px;
     border-radius: 10px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -140,8 +140,10 @@ body {
 }
 
 .source-code-tag {
-    display: inline-block;
-    transition-duration: 0.3s;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 #code {
@@ -195,19 +197,19 @@ body {
 /* Responsive styles */
 @media (max-width: 768px) {
     .main-container {
-        padding: 5vh 10px;
+        padding: 5vh 5px;
     }
 
     .content {
-        padding: 20px;
+        padding: 15px;
     }
 
     #projects-header {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .project {
-        padding: 20px;
+        padding: 20px 15px;
     }
 
     .tech-item, .concept-tag {
@@ -217,18 +219,29 @@ body {
 
 @media (max-width: 480px) {
     #projects-header {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .project {
-        padding: 15px;
+        padding: 15px 10px;
     }
 
     .tech-item, .concept-tag {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 
     .description {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+    }
+    
+    .source-code-tag {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    #code, #link {
+        width: 100%;
+        justify-content: center;
+        margin: 5px 0;
     }
 }

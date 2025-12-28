@@ -11,7 +11,7 @@
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px;
+    padding: 60px 40px;
     background: radial-gradient(circle at center, rgba(220, 220, 220, 0.6) 60%, transparent 110%);
     backdrop-filter: blur(1px);
     border-radius: 12px;
@@ -85,13 +85,24 @@
 }
 
 @media (max-width: 768px) {
+    .skill-section {
+        padding: 20px;
+    }
+
     #skill-container {
-        width: 100%;
-        padding: 30px 20px;
+        padding: 40px 20px;
+        width: 95%;
     }
 
     #languages_section, #frameworks_libraries_section, #tools_section {
         border-left: none;
         padding-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    #skill-container {
+        padding: 30px 15px;
+        width: 98%;
     }
 }

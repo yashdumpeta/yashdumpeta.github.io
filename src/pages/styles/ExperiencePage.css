@@ -69,10 +69,10 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    background: radial-gradient(circle at center, rgba(220, 220, 220, 0.6) 60%, transparent 110%);    backdrop-filter: blur(1px);
+    background: radial-gradient(circle at center, rgba(220, 220, 220, 0.6) 60%, transparent 110%);
+    backdrop-filter: blur(1px);
     border-radius: 12px;
-    padding: 60px;
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    padding: 40px;
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
@@ -160,7 +160,7 @@
     background: radial-gradient(circle at center, rgba(220, 220, 220, 0.6) 60%, transparent 110%);
     backdrop-filter: blur(1px);
     border-radius: 12px;
-    padding: 60px;
+    padding: 40px;
     margin-bottom: 30px;
     transition: transform 0.3s ease;
     display: grid;

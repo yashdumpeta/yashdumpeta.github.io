@@ -22,7 +22,7 @@ const Header = () => {
         <div className="header-container" id='header-id'>
             <div className="header-background"></div>
             <header>
-                <nav className="navbar">
+                <nav className={`navbar ${isMenuOpen ? 'menu-open' : ''}`}>
                     <div className="navbar-left">
                         <Link className="home-button" to="/" onClick={back_home}>
                             Yash Dumpeta
@@ -31,7 +31,7 @@ const Header = () => {
                     <div className={`navbar-right ${isMenuOpen ? 'show' : ''}`}>
                         <Link className='Experience' to="/experience" onClick={() => setIsMenuOpen(false)}>Experience</Link>
                         <Link className='Projects' to="/projects" onClick={() => setIsMenuOpen(false)}>Projects</Link>
-                    <a className='Resume' href="/YD - Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+                    <a className='Resume' href="/YD - Resume Template.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
                     </div>
                     <div className="menu-icon" onClick={toggleMenu}>
                         ☰
