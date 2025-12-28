@@ -26,12 +26,12 @@
 .nav-link {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 550;
     transition: all 0.2s ease;
-    padding: 8px 12px;
-    border-radius: 20px;
-    margin: 0 10px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    margin: 0 20px;
 }
 
 .nav-link:hover {

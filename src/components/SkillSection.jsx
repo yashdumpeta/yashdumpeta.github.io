@@ -1,22 +1,29 @@
 import React from 'react'
 import './SkillSection.css'
-import { FaJs, FaHtml5, FaCss3, FaRProject, FaDatabase, FaJava } from 'react-icons/fa'
-import { SiCplusplus, SiC, SiJulia, SiAnaconda, SiVisualstudiocode, SiPython, SiPostgresql, SiPowerbi, SiMicrosoftsharepoint, SiJupyter, SiNumpy, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiExpress, SiGo, SiDocker, SiRailway, SiAmazonaws, SiApachekafka, SiTensorflow, SiPhp, SiKubernetes, SiMongodb, SiOracle, SiMariadb, SiSupabase, SiRedhatopenshift, SiDjango, SiReact, SiPandas, SiSqlite, SiGithub } from "react-icons/si";
-import { DiGo, DiMysql } from 'react-icons/di';
+import { FaJs, FaHtml5, FaCss3, FaRProject, FaDatabase, FaJava, FaTerminal, FaCode, FaLayerGroup } from 'react-icons/fa'
+import { SiCplusplus, SiC, SiJulia, SiAnaconda, SiVisualstudiocode, SiPython, SiPostgresql, SiNumpy, SiNextdotjs, SiTypescript, SiNodedotjs, SiExpress, SiGo, SiDocker, SiRailway, SiPhp, SiKubernetes, SiMongodb, SiOracle, SiSupabase, SiRedhatopenshift, SiDjango, SiReact, SiPandas, SiSqlite, SiGithub } from "react-icons/si";
 import { BiSolidBarChartAlt2 } from 'react-icons/bi';
 
-const MarqueeRow = ({ skills, direction = 'left' }) => {
+const MarqueeRow = ({ skills, direction = 'left', title, icon }) => {
   // Duplicate skills to create a seamless loop
   const duplicatedSkills = [...skills, ...skills];
   return (
-    <div className={`marquee-row ${direction}`}>
-      <div className="marquee-content">
-        {duplicatedSkills.map((skill, index) => (
-          <span key={`${skill.name}-${index}`} className="skill-pill">
-            {skill.icon && <span className="skill-icon">{skill.icon}</span>}
-            <span className="skill-name">{skill.name}</span>
-          </span>
-        ))}
+    <div className="marquee-row-wrapper">
+      {title && (
+        <div className="marquee-row-header">
+          {icon && <span className="row-header-icon">{icon}</span>}
+          <h3 className="marquee-row-title">{title}</h3>
+        </div>
+      )}
+      <div className={`marquee-row ${direction}`}>
+        <div className="marquee-content">
+          {duplicatedSkills.map((skill, index) => (
+            <span key={`${skill.name}-${index}`} className="skill-pill">
+              {skill.icon && <span className="skill-icon">{skill.icon}</span>}
+              <span className="skill-name">{skill.name}</span>
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -68,9 +75,24 @@ const SkillSection = ({ isBento }) => {
   if (isBento) {
     return (
       <div className="skills-marquee-container">
-        <MarqueeRow skills={languages} direction="left" />
-        <MarqueeRow skills={frameworks} direction="right" />
-        <MarqueeRow skills={tools} direction="left" />
+        <MarqueeRow 
+          skills={languages} 
+          direction="left" 
+          title="Languages" 
+          icon={<FaCode />}
+        />
+        <MarqueeRow 
+          skills={frameworks} 
+          direction="right" 
+          title="Frameworks" 
+          icon={<FaLayerGroup />}
+        />
+        <MarqueeRow 
+          skills={tools} 
+          direction="left" 
+          title="Tools & Databases" 
+          icon={<FaTerminal />}
+        />
       </div>
     );
   }

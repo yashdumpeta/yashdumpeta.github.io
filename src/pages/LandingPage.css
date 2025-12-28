@@ -30,11 +30,22 @@
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  isolation: isolate;
 }
 
-.bento-card:hover {
+.identity-card:hover,
+.profile-card:hover,
+.skills-card:hover,
+.cta-card:hover {
   transform: scale(1.02);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  border-color: var(--glass-border);
+}
+
+.resume-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  border-color: var(--glass-border);
 }
 
 .identity-card {
@@ -76,51 +87,56 @@
 }
 
 .skills-card {
-  grid-column: span 2;
+  grid-column: span 3;
   grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.card-title {
-  font-size: 28px;
-  margin: 0 0 20px;
+.skills-card .card-title {
+  font-size: 24px;
+  margin: 0 0 32px;
   color: var(--text-primary);
+  font-weight: 700;
 }
 
 .resume-card {
-  grid-column: span 2;
+  grid-column: span 1;
   grid-row: span 1;
   flex-direction: row;
   align-items: center;
-}
-
-.resume-card .card-title {
-  color: var(--text-primary);
-}
-
-.resume-card p {
-  color: var(--text-secondary);
-}
-
-.resume-btn {
-  background: var(--accent-color);
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 10px;
+  justify-content: center;
   text-decoration: none;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  cursor: pointer;
+  gap: 12px;
+}
+
+.resume-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.resume-icon {
+  font-size: 64px;
+  color: var(--accent-color);
   transition: all 0.2s ease;
 }
 
-.resume-btn:hover {
-  background: var(--accent-hover);
-  transform: scale(1.05);
+.resume-card:hover .resume-icon {
+  color: var(--accent-hover);
+  transform: translateY(-2px);
 }
 
-.resume-btn:hover {
-  transform: scale(1.05);
+.resume-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.resume-card:hover .resume-text {
+  color: var(--text-primary);
 }
 
 .cta-card {

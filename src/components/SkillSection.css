@@ -2,36 +2,73 @@
 .skills-marquee-container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 32px;
     width: 100%;
-    padding: 10px 0;
+    padding: 12px 0;
     overflow: hidden;
     mask-image: linear-gradient(
         to right,
         transparent,
-        black 15%,
-        black 85%,
+        black 10%,
+        black 90%,
         transparent
     );
     -webkit-mask-image: linear-gradient(
         to right,
         transparent,
-        black 15%,
-        black 85%,
+        black 10%,
+        black 90%,
         transparent
     );
+}
+
+.marquee-row-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+}
+
+.marquee-row-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 55px;
+}
+
+.row-header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--accent-color);
+    background: rgba(29, 78, 216, 0.1);
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+}
+
+.marquee-row-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: 0.3px;
+    position: relative;
+    z-index: 1;
 }
 
 .marquee-row {
     display: flex;
     width: max-content;
+    overflow: hidden;
 }
 
 .marquee-content {
     display: flex;
-    gap: 12px;
-    animation: scroll-left 40s linear infinite;
-    padding-right: 12px; /* Gap match */
+    gap: 10px;
+    animation: scroll-left 35s linear infinite;
+    padding-right: 10px; /* Gap match */
 }
 
 .marquee-row.right .marquee-content {
@@ -55,16 +92,17 @@
 .skill-pill {
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 8px 16px;
-    border-radius: 12px;
+    padding: 10px 18px;
+    border-radius: 10px;
     color: #475569;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    flex-shrink: 0;
 }
 
 .skill-pill .skill-icon {
@@ -82,6 +120,9 @@
     background: #f8fafc;
     transform: translateY(-2px);
     border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    position: relative;
 }
 
 /* Full page skill section styles */

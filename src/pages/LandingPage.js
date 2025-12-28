@@ -2,6 +2,7 @@ import React from "react";
 import "./LandingPage.css";
 import SkillSection from "../components/SkillSection";
 import { FaArrowRight, FaCode } from "react-icons/fa6";
+import { DescriptionOutlined as DescriptionOutlinedIcon } from "@mui/icons-material";
 import Footer from "../components/Footer";
 import prof2 from "../assets/images/prof-pic2.jpg";
 
@@ -120,12 +121,17 @@ const LandingPage = () => {
           {/* Identity Card */}
           <div className="bento-card identity-card">
             <h1 className="name">Yash Dumpeta</h1>
-            <p className="college serif">C.S.E @ University of Michigan</p>
+            <p className="college ">C.S.E @ University of Michigan</p>
             <div className="bio-container">
               <p className="bio-text">
-                I'm a Full-Stack Developer with a focus on Frontend. I
-                specialize in creating engaging user interfaces and building
-                robust AI-driven applications.
+
+                <italic>Hello,</italic> I'm <strong>Yash</strong>, a senior at the University of Michigan's College of Engineering studying Computer Science and Engineering. <br /><br />
+
+                I'm interested in backend and product engineering, especially in startup-style environments. Through coursework, internships, and personal projects, I've enjoyed working on systems, data workflows, and product features that turn ideas into usable software.<br /><br />
+
+                I'm excited to keep growing in fast-moving teams that value ownership, learning, and execution.
+
+                
               </p>
             </div>
           </div>
@@ -135,26 +141,21 @@ const LandingPage = () => {
             <img src={prof2} alt="Yash Dumpeta" className="profile-img" />
           </div>
 
-          {/* Skills Card */}
-          <div className="bento-card skills-card">
-            <h2 className="card-title serif">Skills</h2>
-            <SkillSection isBento />
-          </div>
 
           {/* Resume Card */}
-          <div className="bento-card resume-card">
-            <div className="resume-content">
-              <h2 className="card-title serif">Resume</h2>
-              <p>More details about my career</p>
-            </div>
-            <a
-              href="/YD - Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="resume-btn"
-            >
-              Open <FaArrowRight />
-            </a>
+          <a
+            href="/YD - Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bento-card resume-card"
+          >
+            <DescriptionOutlinedIcon className="resume-icon" />
+            <span className="resume-text">Resume</span>
+          </a>
+
+          {/* Skills Card */}
+          <div className="bento-card skills-card">
+            <SkillSection isBento />
           </div>
 
           {/* Projects Link Card */}
