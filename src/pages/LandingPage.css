@@ -40,7 +40,7 @@
     font-size: 64px;
     margin: 0;
     line-height: 1;
-    color: var(--text-primary);
+    color: #313247;
 }
 
 .identity-card .college {
@@ -83,21 +83,23 @@
 .resume-card {
     grid-column: span 2;
     grid-row: span 1;
-    background: var(--anchor-bg);
-    color: #fff;
     flex-direction: row;
     align-items: center;
 }
 
 .resume-card .card-title {
-    color: #fff;
+    color: var(--text-primary);
+}
+
+.resume-card p {
+    color: var(--text-secondary);
 }
 
 .resume-btn {
     background: var(--accent-color);
     color: #fff;
     padding: 12px 24px;
-    border-radius: 100px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
     display: flex;
@@ -118,18 +120,30 @@
 .cta-card {
     grid-column: span 2;
     grid-row: span 1;
-    background: var(--accent-color);
-    color: #fff;
+}
+
+.cta-card .card-title {
+    color: var(--text-primary);
+}
+
+.cta-card p {
+    color: var(--text-secondary);
 }
 
 .cta-link {
-    color: #fff;
+    color: var(--accent-color);
     text-decoration: none;
     font-weight: 600;
     display: flex;
     align-items: center;
     gap: 8px;
     margin-top: 12px;
+    transition: all 0.2s ease;
+}
+
+.cta-link:hover {
+    color: var(--accent-hover);
+    gap: 12px;
 }
 
 .bento-footer {

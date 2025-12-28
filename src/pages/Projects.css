@@ -41,7 +41,7 @@
     background: var(--accent-color);
     color: #fff;
     padding: 16px 32px;
-    border-radius: 100px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
     font-size: 18px;
@@ -109,7 +109,7 @@
 .project-tag {
     background: rgba(255, 255, 255, 0.8);
     padding: 4px 12px;
-    border-radius: 100px;
+    border-radius: 10px;
     font-size: 12px;
     color: var(--text-secondary);
     border: 1px solid var(--glass-border);
@@ -135,7 +135,7 @@
 
 .project-link-btn {
     padding: 10px 20px;
-    border-radius: 100px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;

@@ -8,16 +8,95 @@
     background: rgba(255, 255, 255, 0.8);
     border: 1px solid var(--glass-border);
     padding: 8px 16px;
-    border-radius: 100px;
+    border-radius: 10px;
     color: var(--text-primary);
     font-size: 14px;
     font-weight: 500;
     transition: all 0.2s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.skill-pill .skill-icon {
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.skill-pill .skill-name {
+    white-space: nowrap;
 }
 
 .skill-pill:hover {
     background: #fff;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Full page skill section styles */
+.skill-section {
+    padding: 40px 20px;
+}
+
+#skill-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#skills-intro {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+#languages_section,
+#frameworks_libraries_section,
+#tools_section {
+    margin-bottom: 40px;
+}
+
+#lang-label,
+#f_l_label,
+#tools-label {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 16px;
+}
+
+#lang-items,
+#f_l_items,
+#tools-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.skill-item:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skill-item svg {
+    font-size: 18px;
+    flex-shrink: 0;
 }
