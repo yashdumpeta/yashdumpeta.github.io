@@ -5,7 +5,7 @@ import { FaArrowRight, FaCode } from "react-icons/fa6";
 import { DescriptionOutlined as DescriptionOutlinedIcon } from "@mui/icons-material";
 import Footer from "../components/Footer";
 import prof2 from "../assets/images/prof-pic2.jpg";
-
+import CircularText from "../components/CircularText";
 
 // Experience images
 import michLogo from "../assets/images/michengineering2.jpeg";
@@ -152,6 +152,8 @@ const LandingPage = () => {
             <DescriptionOutlinedIcon className="resume-icon" />
             <span className="resume-text">Resume</span>
           </a>
+
+          <CircularText className="circular-text" text="SCROLL DOWN ⋅ TO LEARN MORE ⋅ " />
 
           {/* Skills Card */}
           <div className="bento-card skills-card">
