@@ -23,13 +23,13 @@
 .projects-intro-section h1 {
     font-size: 80px;
     margin: 0;
-    color: #fff;
+    color: var(--text-primary);
     line-height: 1;
 }
 
 .intro-subtitle {
     font-size: 24px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-secondary);
     margin: 24px 0 40px;
     line-height: 1.4;
 }
@@ -38,14 +38,18 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    background: #fff;
-    color: #000;
+    background: var(--accent-color);
+    color: #fff;
     padding: 16px 32px;
     border-radius: 100px;
     text-decoration: none;
     font-weight: 600;
     font-size: 18px;
-    transition: transform 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.contact-btn:hover {
+    background: var(--accent-hover);
 }
 
 .contact-btn:hover {
@@ -103,22 +107,23 @@
 }
 
 .project-tag {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.8);
     padding: 4px 12px;
     border-radius: 100px;
     font-size: 12px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-secondary);
+    border: 1px solid var(--glass-border);
 }
 
 .project-title {
     font-size: 32px;
     margin: 0 0 16px;
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .project-description {
     font-size: 18px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 32px;
 }
@@ -141,14 +146,22 @@
 }
 
 .project-link-btn.primary {
-    background: #fff;
-    color: #000;
+    background: var(--accent-color);
+    color: #fff;
+}
+
+.project-link-btn.primary:hover {
+    background: var(--accent-hover);
 }
 
 .project-link-btn.secondary {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--text-primary);
     border: 1px solid var(--glass-border);
+}
+
+.project-link-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.8);
 }
 
 .project-link-btn:hover {

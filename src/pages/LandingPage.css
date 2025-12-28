@@ -40,19 +40,19 @@
     font-size: 64px;
     margin: 0;
     line-height: 1;
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .identity-card .college {
     font-size: 24px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-secondary);
     margin: 8px 0 24px;
 }
 
 .bio-text {
     font-size: 20px;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-secondary);
     max-width: 80%;
 }
 
@@ -77,21 +77,25 @@
 .card-title {
     font-size: 28px;
     margin: 0 0 20px;
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .resume-card {
     grid-column: span 2;
     grid-row: span 1;
-    background: #000;
+    background: var(--anchor-bg);
     color: #fff;
     flex-direction: row;
     align-items: center;
 }
 
+.resume-card .card-title {
+    color: #fff;
+}
+
 .resume-btn {
-    background: #fff;
-    color: #000;
+    background: var(--accent-color);
+    color: #fff;
     padding: 12px 24px;
     border-radius: 100px;
     text-decoration: none;
@@ -99,7 +103,12 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: transform 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.resume-btn:hover {
+    background: var(--accent-hover);
+    transform: scale(1.05);
 }
 
 .resume-btn:hover {
@@ -126,7 +135,7 @@
 .bento-footer {
     margin-top: 60px;
     text-align: center;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-muted);
     font-size: 14px;
 }
 

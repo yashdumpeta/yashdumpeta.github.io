@@ -19,9 +19,9 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="footer-bottom">
+      {/* <div className="footer-bottom">
         <p>&copy; 2025 Yash Dumpeta. All rights reserved.</p>
-      </div>
+      </div> */}
     </footer>
   )
 }
