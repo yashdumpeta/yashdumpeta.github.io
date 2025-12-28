@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import './Header.css';
 
 const Header = () => {
     const location = useLocation();
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const back_home = (event) => {
         if (location.pathname === '/') {
@@ -13,31 +13,32 @@ const Header = () => {
         }
     };
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-        document.querySelector('.menu-icon').classList.toggle('open');
-    };
-
     return (
-        <div className="header-container" id='header-id'>
-            <div className="header-background"></div>
-            <header>
-                <nav className={`navbar ${isMenuOpen ? 'menu-open' : ''}`}>
-                    <div className="navbar-left">
-                        <Link className="home-button" to="/" onClick={back_home}>
-                            Yash Dumpeta
-                        </Link>
-                    </div>
-                    <div className={`navbar-right ${isMenuOpen ? 'show' : ''}`}>
-                        <Link className='Experience' to="/experience" onClick={() => setIsMenuOpen(false)}>Experience</Link>
-                        <Link className='Projects' to="/projects" onClick={() => setIsMenuOpen(false)}>Projects</Link>
-                    <a className='Resume' href="/YD - Resume Template.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-                    </div>
-                    <div className="menu-icon" onClick={toggleMenu}>
-                        ☰
-                    </div>
-                </nav>
-            </header>
+        <div className="header-wrapper">
+            <nav className="nav-pill">
+                <div className="nav-left">
+                    <Link className="nav-link home-link" to="/" onClick={back_home}>
+                        Yash
+                    </Link>
+                </div>
+                <div className="nav-center">
+                    <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} to="/">Home</Link>
+                    <Link className={`nav-link ${location.pathname === '/experience' ? 'active' : ''}`} to="/experience">Experience</Link>
+                    <Link className={`nav-link ${location.pathname === '/projects' ? 'active' : ''}`} to="/projects">Projects</Link>
+                    <a className="nav-link" href="/YD - Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+                </div>
+                <div className="nav-right">
+                    <a href="https://github.com/yashdumpeta" target="_blank" rel="noreferrer" className="social-icon">
+                        <FaGithub />
+                    </a>
+                    <a href="https://www.linkedin.com/in/ydumpeta/" target="_blank" rel="noreferrer" className="social-icon">
+                        <FaLinkedin />
+                    </a>
+                    <a href="https://twitter.com/yashdumpeta" target="_blank" rel="noreferrer" className="social-icon">
+                        <FaXTwitter />
+                    </a>
+                </div>
+            </nav>
         </div>
     );
 }
