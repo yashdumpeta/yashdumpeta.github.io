@@ -9,10 +9,15 @@ import CircularText from "../components/CircularText";
 
 // Experience images
 import michLogo from "../assets/images/michengineering2.jpeg";
-import umits from "../assets/images/umits.jpg";
-import u5 from "../assets/images/utilidata5.png";
-import inceptev from "../assets/images/inceptev.png";
+import merc from "../assets/images/merc.jpeg";
+import skylark from "../assets/images/skylark.jpg";
+import spire from "../assets/images/spire.png";
+import nobe from "../assets/images/nobe.png";
+import rec from "../assets/images/recsports.png";
 import pjtl from "../assets/images/pjtl.png";
+import inceptev from "../assets/images/inceptev.png";
+import u5 from "../assets/images/utilidata5.png";
+import umits from "../assets/images/umits.jpg";
 
 // Project images
 import Umazing from "../assets/images/Umazing.png";
@@ -23,35 +28,75 @@ import recipeFind from "../assets/images/recipeFind.png";
 const LandingPage = () => {
   const workExperiences = [
     {
-      company: "U-M ITS",
+      company: "University of Michigan - Information and Technology Services (U-M ITS)",
       period: "May 2025 - Present",
       position: "Software Developer Intern",
       description:
-        "Maintaining and enhancing Docker- and Kubernetes-based research deployments—integrating MongoDB, eXist-db, and MariaDB backends.",
+        "Maintaining and enhancing Docker- and Kubernetes-based research deployments—integrating MongoDB, eXist-db, and MariaDB backends written in Python, R, and PHP—while automating CI/CD workflows with GitHub Actions.",
       logo: umits,
     },
     {
       company: "Utilidata",
       period: "January 2025 - Present",
       position: "Machine Learning Intern",
-      description: "MLOps and Model Optimization for edge-AI applications.",
+      description: "MLOps and Model Optimization",
       logo: u5,
     },
     {
       company: "InceptEV",
-      period: "Aug - Dec 2024",
+      period: "August 2024 - December 2024",
       position: "Data Science Intern",
       description:
-        "Conducted data validation study on simulation accuracy for fleet management software.",
+        "As a Data Science Intern at InceptEV, a company that was acquired by motive, I conducted a data validation study on the simulation accuracy of InceptEV's fleet management software. The simulation study utilized real-world data collected with MCity's research EV's to compare against software outputs.",
       logo: inceptev,
     },
     {
-      company: "PJTL Electrification",
-      period: "Aug 2024 - Present",
+      company: "Center for Entrepreneurship - Perot Jain TechLab Electrification",
+      period: "August 2024 - Present",
       position: "Student Researcher",
       description:
-        "Collaborating with startups to tackle real-world challenges in the electrification space.",
+        "As a student researcher for the PJTL Electrification cohort at the UofM's Center for Entrepreneurship, I collaborate with startups to tackle real-world challenges in the electrification space. I gain hands-on experience and entrepreneurial skills through immersive, industry-driven projects.",
       logo: pjtl,
+    },
+    {
+      company: "Spire Investment Partners",
+      period: "June 2024 - August 2024",
+      position: "Technology & Cybersecurity Intern",
+      description:
+        "During my internship as a Technology and Cybersecurity Intern at Spire Investment Partners in McLean, VA, from June to August 2024, I spearheaded multiple projects from initiation to completion, ensuring timely delivery and strategic alignment through effective project management practices and daily standup meetings within the SDLC.",
+      logo: spire,
+    },
+    {
+      company: "Skylark Drones",
+      period: "June 2023 - August 2023",
+      position: "Research Intern",
+      description:
+        "As a research intern, I was incharge of conducting research to compile information on topics to train aspiring Drone Operators in India. I collaborated with the Government of India Ministry of Skill Development & Entrepreneurship to develop a comprehensive drone operator course tailored for surveying and topography.",
+      logo: skylark,
+    },
+    {
+      company: "Recreational Sports - University of Michigan, Ann Arbor",
+      period: "January 2024 - Present",
+      position: "Intramural Official",
+      description:
+        "As an Intramural Sports Official for the Recreational Sports department at UofM-Ann Arbor, I was responsible for officiating and overseeing all requirements of conducting soccer and basketball games. I have demonstrated proficiency in fast-paced environments through my experience officiating basketball and soccer matches.",
+      logo: rec,
+    },
+    {
+      company: "Michigan Equity Research Club (MERC)",
+      period: "January 2023 - February 2024",
+      position: "Vice President of Technology & Project Manager",
+      description:
+        "As a former VP of Tech at MERC, I was responsible for building an online presence on social media and was working on programming the organizations website to showcase MERC's educational and professional training to prospective members.",
+      logo: merc,
+    },
+    {
+      company: "National Organization for Business and Engineering (NOBE)",
+      period: "January 2023 - February 2024",
+      position: "Consultant Member",
+      description:
+        "As a consultant for the NOBE organization at the University of Michigan, my project team and I collaborated to produce engineering-related solutions to our clients. During my time at NOBE, I was assigned to two project teams, the first one was the University of Michigan's Human Resources Department.",
+      logo: nobe,
     },
   ];
 

@@ -68,15 +68,17 @@
     display: flex;
     gap: 10px;
     animation: scroll-left 35s linear infinite;
+    animation-play-state: paused;
     padding-right: 10px; /* Gap match */
 }
 
 .marquee-row.right .marquee-content {
     animation: scroll-right 40s linear infinite;
+    animation-play-state: paused;
 }
 
-.marquee-row:hover .marquee-content {
-    animation-play-state: paused;
+.skills-marquee-container:hover .marquee-content {
+    animation-play-state: running;
 }
 
 @keyframes scroll-left {
