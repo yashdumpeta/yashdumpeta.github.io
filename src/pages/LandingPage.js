@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import "./LandingPage.css";
 import SkillSection from "../components/SkillSection";
 import { FaArrowRight, FaCode, FaEnvelope } from "react-icons/fa6";
@@ -213,37 +214,87 @@ const LandingPage = () => {
       <section id="experience" className="experience-section">
         <div className="experience-container">
           <div className="education-subsection">
-            <h1 className="section-title serif">Education</h1>
-            <div className="experience-card education-card">
+            <motion.h1 
+              className="section-title serif"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              Education
+            </motion.h1>
+            <motion.div 
+              className="experience-card education-card"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true, margin: "-100px" }}
+            >
               <img src={michLogo} alt="U-M" className="experience-logo" />
               <div className="experience-details">
                 <h2 className="serif">University of Michigan</h2>
                 <p className="position">B.S.E. in Computer Science</p>
                 <p className="period">2022 - 2026</p>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           <div className="work-subsection">
-            <h1 className="section-title serif">Experience</h1>
-            <div className="experience-grid">
-              {workExperiences.map((exp, index) => (
-                <div className="experience-card" key={index}>
-                  <div className="card-header">
-                    <img
-                      src={exp.logo}
-                      alt={exp.company}
-                      className="experience-logo"
+            <motion.h1 
+              className="section-title serif"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              Experience
+            </motion.h1>
+            <div className="timeline-container">
+              {/* Timeline line */}
+              <div className="timeline-line" />
+              
+              {workExperiences.map((exp, index) => {
+                const isLeft = index % 2 === 0;
+                return (
+                  <div className="timeline-item" key={index}>
+                    {/* Timeline node */}
+                    <motion.div 
+                      className="timeline-node"
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      viewport={{ once: true, margin: "-50px" }}
                     />
-                    <div>
-                      <h2 className="serif">{exp.company}</h2>
-                      <p className="position">{exp.position}</p>
-                    </div>
+                    
+                    {/* Experience card */}
+                    <motion.div 
+                      className={`timeline-card ${isLeft ? 'left' : 'right'}`}
+                      initial={{ opacity: 0, x: isLeft ? -60 : 60 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ 
+                        duration: 0.6, 
+                        delay: index * 0.1,
+                        ease: [0.25, 0.46, 0.45, 0.94]
+                      }}
+                      viewport={{ once: true, margin: "-80px" }}
+                    >
+                      <div className="card-header">
+                        <img
+                          src={exp.logo}
+                          alt={exp.company}
+                          className="experience-logo"
+                        />
+                        <div>
+                          <h2 className="serif">{exp.company}</h2>
+                          <p className="position">{exp.position}</p>
+                        </div>
+                      </div>
+                      <p className="description">{exp.description}</p>
+                      <p className="period">{exp.period}</p>
+                    </motion.div>
                   </div>
-                  <p className="description">{exp.description}</p>
-                  <p className="period">{exp.period}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
