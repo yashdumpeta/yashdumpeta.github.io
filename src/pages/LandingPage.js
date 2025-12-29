@@ -29,7 +29,7 @@ import recipeFind from "../assets/images/recipeFind.png";
 const LandingPage = () => {
   const workExperiences = [
     {
-      company: "U-M ITS",
+      company: "U-M Information and Technology Services",
       period: "May 2025 - Present",
       position: "Software Developer Intern",
       type: "Internship",
@@ -286,13 +286,13 @@ const LandingPage = () => {
 
           <div className="work-subsection">
             <motion.h1 
-              className="section-title serif"
+              className="section-title-experience"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              Experience
+              Through internships and research, I've contributed to backend systems, ML workflows, and production infrastructure. I care about reliability, clarity, and making incremental improvements that compound over time.
             </motion.h1>
             <div className="experience-list">
               {workExperiences.map((exp, index) => (
