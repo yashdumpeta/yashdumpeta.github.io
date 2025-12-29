@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./LandingPage.css";
 import SkillSection from "../components/SkillSection";
@@ -27,6 +27,28 @@ import recalld from "../assets/images/recalld.png";
 import recipeFind from "../assets/images/recipeFind.png";
 
 const LandingPage = () => {
+  const firstSentence = "Through internships and research, I've contributed to backend systems, ML workflows, and production infrastructure. I care about reliability, ";
+  const secondSentence = "clarity, and making incremental improvements that compound over time";
+  const [displayedText, setDisplayedText] = useState(firstSentence);
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
+
+  useEffect(() => {
+    // Start with first sentence preloaded, then type the second sentence
+    let currentIndex = 0;
+    
+    const typeInterval = setInterval(() => {
+      if (currentIndex < secondSentence.length) {
+        setDisplayedText(firstSentence + secondSentence.slice(0, currentIndex + 1));
+        currentIndex++;
+      } else {
+        setIsTypingComplete(true);
+        clearInterval(typeInterval);
+      }
+    }, 40); // Adjust speed here (lower = faster)
+
+    return () => clearInterval(typeInterval);
+  }, []); // Run once on mount
+
   const workExperiences = [
     {
       company: "U-M Information and Technology Services",
@@ -281,16 +303,16 @@ const LandingPage = () => {
               className="section-title serif"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.7 }}
               viewport={{ once: true, margin: "-100px" }}
             >
               Education
             </motion.h1>
             <motion.div 
               className="experience-card education-card"
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.4 }}
               viewport={{ once: true, margin: "-100px" }}
             >
               <img src={michLogo} alt="U-M" className="experience-logo" />
@@ -307,10 +329,11 @@ const LandingPage = () => {
               className="section-title-experience"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.7 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              Through internships and research, I've contributed to backend systems, ML workflows, and production infrastructure. I care about reliability, clarity, and making incremental improvements that compound over time.
+              {displayedText}
+              <span className={`typewriter-cursor ${isTypingComplete ? 'blink' : ''}`}>|</span>
             </motion.h1>
             <div className="experience-list">
               {workExperiences.map((exp, index) => (

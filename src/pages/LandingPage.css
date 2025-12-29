@@ -224,6 +224,27 @@
   margin: 40px 40px;
 }
 
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: #000;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.typewriter-cursor.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
 .education-subsection,
 .work-subsection {
   margin-bottom: 60px;
