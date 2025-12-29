@@ -89,7 +89,7 @@ const Header = () => {
                         <a href="https://www.linkedin.com/in/ydumpeta/" target="_blank" rel="noreferrer" className="social-icon">
                             <FaLinkedin />
                         </a>
-                        <a href="https://twitter.com/yashdumpeta" target="_blank" rel="noreferrer" className="social-icon">
+                        <a href="https://twitter.com/yash_dumpeta" target="_blank" rel="noreferrer" className="social-icon">
                             <FaXTwitter />
                         </a>
                     </div>

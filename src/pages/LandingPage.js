@@ -122,12 +122,9 @@ const LandingPage = () => {
           <div className="bento-card identity-card">
             <div className="bio-container">
               <p className="bio-text">
-                <br /><br /><br />
                 <italic>Hello,</italic> I'm <strong>Yash</strong>, a senior at the University of Michigan's College of Engineering studying <strong>Computer Science</strong>. <br /><br />
 
-                I'm interested in backend and product engineering in startup-style environments. I enjoy working on systems and product features that support real, usable applications.
-
-                
+                I'm interested in <strong>backend</strong> and <strong>product engineering</strong> in startup-style environments. I enjoy working on systems and product features that support real, usable applications.
               </p>
             </div>
           </div>
