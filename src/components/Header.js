@@ -44,6 +44,24 @@ const Header = () => {
         }
     };
 
+    const scrollToProjectsNode = (e) => {
+        e.preventDefault();
+        const node = document.getElementById('projects-thread-node');
+        if (node) {
+            const headerOffset = 100;
+            const nodePosition = node.getBoundingClientRect().top;
+            const offsetPosition = nodePosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        } else {
+            // Fallback to projects section if node not found
+            scrollToSection(e, 'projects');
+        }
+    };
+
     const scrollToTop = (e) => {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -76,7 +94,7 @@ const Header = () => {
                         <a 
                             className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`} 
                             href="#projects" 
-                            onClick={(e) => scrollToSection(e, 'projects')}
+                            onClick={scrollToProjectsNode}
                         >
                             Projects
                         </a>

@@ -9,9 +9,10 @@
   left: calc((100% - 1200px) / 2);
   top: 100px;
   width: 2px;
-  background: var(--accent-color);
+  background: var(--line-color);
   z-index: 1;
   pointer-events: none;
+  border-radius: 4px;
 }
 
 .thread-icon {
@@ -27,9 +28,83 @@
   box-shadow: 0 2px 8px rgba(29, 78, 216, 0.3);
 }
 
+/* Horizontal Thread */
+.horizontal-thread {
+  position: absolute;
+  left: calc((100% - 1200px) / 2);
+  height: 2px;
+  background: var(--line-color);
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 4px;
+}
+
+/* Thread Node */
+.thread-node {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Node on horizontal thread */
+.thread-node.projects-node {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Node on vertical thread */
+.thread-node.bento-node,
+.thread-node.experience-node {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.thread-node-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--line-color);
+  border-radius: 50%;
+  background: rgb(199, 199, 199, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thread-node-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  opacity: 1;
+}
+
+/* Vertical Thread - Right */
+.vertical-thread-right {
+  position: absolute;
+  right: calc((100% - 1200px) / 2);
+  width: 2px;
+  background: var(--line-color);
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 4px;
+}
+
 @media (max-width: 1240px) {
   .vertical-thread {
     left: 20px;
+  }
+  
+  .horizontal-thread {
+    left: 20px;
+  }
+  
+  .vertical-thread-right {
+    right: 20px;
   }
 }
 
@@ -42,6 +117,16 @@
 @media (max-width: 768px) {
   .vertical-thread {
     left: 16px;
+  }
+  
+  .horizontal-thread {
+    left: 16px;
+    height: 1.5px;
+  }
+  
+  .vertical-thread-right {
+    right: 16px;
+    width: 1.5px;
   }
   
   .thread-icon {
@@ -57,6 +142,16 @@
     width: 1.5px;
   }
   
+  .horizontal-thread {
+    left: 12px;
+    height: 1.5px;
+  }
+  
+  .vertical-thread-right {
+    right: 12px;
+    width: 1.5px;
+  }
+  
   .thread-icon {
     width: 12px;
     height: 12px;
@@ -67,7 +162,7 @@
 
 .hero-section {
   padding: 20px 20px 40px;
-  max-width: 1120px;
+  max-width: 1140px;
   margin: 0 auto;
   min-height: calc(100vh - 100px);
 }
@@ -75,8 +170,9 @@
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: minmax(140px, auto) minmax(180px, auto) minmax(140px, auto) minmax(80px, auto);
+  grid-template-rows: minmax(150px, auto) minmax(180px, auto) minmax(140px, auto) minmax(80px, auto);
   gap: var(--grid-gap);
+  padding-left: 20px;
 }
 
 .bento-card {
@@ -379,7 +475,7 @@
 
 .experience-section {
   padding: 80px 20px;
-  margin-top: 40px;
+  margin-top: 120px;
 }
 
 .experience-container {
@@ -396,10 +492,22 @@
 .section-title-experience {
   font-size: 36px;
   color: var(--text-secondary);
-  margin: 60px 40px;
+  margin-left: 40px;
+  margin-bottom: 50px;
+  margin-top: 0px;
   line-height: 1.3;
   text-align: left;
 }
+
+.section-title-work {
+  font-size: 80px;
+  color: var(--text-primary);
+  margin: 0px 40px;
+  line-height: 1.3;
+  text-align: left;
+  opacity: 0.8;
+}
+
 
 .section-title-projects {
   font-size: 48px;
@@ -711,30 +819,29 @@
 }
 
 .projects-container {
-  display: flex;
-  max-width: 1400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 40px;
-  gap: 60px;
+  gap: 40px;
 }
 
 .projects-intro-section {
-  flex: 0 0 35%;
+  grid-column: 1;
+  grid-row: 1;
 }
 
-.intro-sticky {
-  position: sticky;
-  top: 140px;
-}
-
-.projects-intro-section .section-title {
-  font-size: 80px;
-  margin: 0;
+.projects-intro-section .section-title-projects {
+  font-size: 65px;
+  margin: 0 0 24px 0;
   line-height: 1;
+  color: var(--text-primary);
 }
 
 .intro-subtitle {
-  font-size: 24px;
+  font-size: 20px;
   color: var(--text-secondary);
   margin: 24px 0 40px;
   line-height: 1.4;
@@ -759,12 +866,6 @@
   transform: scale(1.05);
 }
 
-.projects-feed-section {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
 
 .project-card {
   background: var(--glass-bg);
@@ -774,6 +875,7 @@
   border-radius: 16px;
   overflow: hidden;
   transition: transform 0.3s ease;
+  width: 100%;
 }
 
 .project-card:hover {
@@ -782,7 +884,7 @@
 
 .project-card-image {
   width: 100%;
-  height: 300px;
+  height: 225px;
   overflow: hidden;
 }
 
@@ -798,14 +900,14 @@
 }
 
 .project-card-content {
-  padding: 32px;
+  padding: 24px;
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
 .project-tag {
@@ -818,16 +920,16 @@
 }
 
 .project-title {
-  font-size: 32px;
-  margin: 0 0 16px;
+  font-size: 30px;
+  margin-top: 20px;
   color: var(--text-primary);
 }
 
 .project-description {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 32px;
+  line-height: 1.5;
+  margin-bottom: 24px;
 }
 
 .project-links {
@@ -877,21 +979,18 @@
 
 @media (max-width: 1024px) {
   .projects-container {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     padding: 0 20px;
+    gap: 40px;
   }
 
   .projects-intro-section {
-    flex: none;
+    grid-column: 1;
+    grid-row: 1;
   }
 
-  .intro-sticky {
-    position: static;
-    margin-bottom: 60px;
-  }
-
-  .projects-intro-section .section-title {
-    font-size: 60px;
+  .projects-intro-section .section-title-projects {
+    font-size: 52px;
   }
 }
 
@@ -923,8 +1022,8 @@
     font-size: 36px;
   }
 
-  .projects-intro-section .section-title {
-    font-size: 48px;
+  .projects-intro-section .section-title-projects {
+    font-size: 42px;
   }
 
   /* Experience list mobile */
