@@ -29,74 +29,119 @@ import recipeFind from "../assets/images/recipeFind.png";
 const LandingPage = () => {
   const workExperiences = [
     {
-      company: "University of Michigan - Information and Technology Services (U-M ITS)",
+      company: "U-M ITS",
       period: "May 2025 - Present",
       position: "Software Developer Intern",
-      description:
-        "Maintaining and enhancing Docker- and Kubernetes-based research deployments—integrating MongoDB, eXist-db, and MariaDB backends written in Python, R, and PHP—while automating CI/CD workflows with GitHub Actions.",
+      type: "Internship",
+      location: "Ann Arbor, MI",
+      skills: ["Docker", "Kubernetes", "MongoDB", "Python", "GitHub Actions"],
+      description: [
+        "Maintaining and enhancing Docker- and Kubernetes-based research deployments—integrating MongoDB, eXist-db, and MariaDB backends.",
+        "Automating CI/CD workflows with GitHub Actions for Python, R, and PHP applications."
+      ],
       logo: umits,
     },
     {
       company: "Utilidata",
       period: "January 2025 - Present",
       position: "Machine Learning Intern",
-      description: "MLOps and Model Optimization",
+      type: "Internship",
+      location: "Remote",
+      skills: ["Python", "MLOps", "TensorFlow", "Model Optimization"],
+      description: [
+        "Working on MLOps and Model Optimization for edge-AI applications."
+      ],
       logo: u5,
     },
     {
       company: "InceptEV",
       period: "August 2024 - December 2024",
       position: "Data Science Intern",
-      description:
-        "As a Data Science Intern at InceptEV, a company that was acquired by motive, I conducted a data validation study on the simulation accuracy of InceptEV's fleet management software. The simulation study utilized real-world data collected with MCity's research EV's to compare against software outputs.",
+      type: "Internship",
+      location: "Ann Arbor, MI",
+      skills: ["Python", "Julia", "Pandas", "Data Validation", "Fleet Management"],
+      description: [
+        "Conducted a data validation study on the simulation accuracy of InceptEV's fleet management software.",
+        "Implemented a data pipeline for 40+ hours of data, processing raw OBDLink data from a Ford Mach-E EV."
+      ],
       logo: inceptev,
     },
     {
-      company: "Center for Entrepreneurship - Perot Jain TechLab Electrification",
+      company: "PJTL Electrification",
       period: "August 2024 - Present",
       position: "Student Researcher",
-      description:
-        "As a student researcher for the PJTL Electrification cohort at the UofM's Center for Entrepreneurship, I collaborate with startups to tackle real-world challenges in the electrification space. I gain hands-on experience and entrepreneurial skills through immersive, industry-driven projects.",
+      type: "Part-time",
+      location: "Ann Arbor, MI",
+      skills: ["Research", "Electrification", "Startups", "Product Development"],
+      description: [
+        "Collaborating with startups to tackle real-world challenges in the electrification space.",
+        "Gaining hands-on experience and entrepreneurial skills through immersive, industry-driven projects."
+      ],
       logo: pjtl,
     },
     {
       company: "Spire Investment Partners",
       period: "June 2024 - August 2024",
       position: "Technology & Cybersecurity Intern",
-      description:
-        "During my internship as a Technology and Cybersecurity Intern at Spire Investment Partners in McLean, VA, from June to August 2024, I spearheaded multiple projects from initiation to completion, ensuring timely delivery and strategic alignment through effective project management practices and daily standup meetings within the SDLC.",
+      type: "Internship",
+      location: "McLean, VA",
+      skills: ["RESTful APIs", "Database Design", "Project Management", "SDLC"],
+      description: [
+        "Engineered a centralized web portal to streamline onboarding and offboarding processes using RESTful APIs.",
+        "Designed and implemented a secure, scalable employee directory database for over 200 clients and employees."
+      ],
       logo: spire,
     },
     {
       company: "Skylark Drones",
       period: "June 2023 - August 2023",
       position: "Research Intern",
-      description:
-        "As a research intern, I was incharge of conducting research to compile information on topics to train aspiring Drone Operators in India. I collaborated with the Government of India Ministry of Skill Development & Entrepreneurship to develop a comprehensive drone operator course tailored for surveying and topography.",
+      type: "Internship",
+      location: "Bangalore, India",
+      skills: ["Python", "Tkinter", "Research", "Image Processing"],
+      description: [
+        "Collaborated with the Government of India Ministry of Skill Development to develop a drone operator course.",
+        "Developed a Python UI to convert thermal image datasets from R-JPEG to TIFF format."
+      ],
       logo: skylark,
     },
     {
-      company: "Recreational Sports - University of Michigan, Ann Arbor",
+      company: "U-M Recreational Sports",
       period: "January 2024 - Present",
       position: "Intramural Official",
-      description:
-        "As an Intramural Sports Official for the Recreational Sports department at UofM-Ann Arbor, I was responsible for officiating and overseeing all requirements of conducting soccer and basketball games. I have demonstrated proficiency in fast-paced environments through my experience officiating basketball and soccer matches.",
+      type: "Part-time",
+      location: "Ann Arbor, MI",
+      skills: ["Leadership", "Communication", "Time Management"],
+      description: [
+        "Officiating basketball and soccer matches, demonstrating proficiency in fast-paced environments.",
+        "Managed game logistics including timekeeping, scorekeeping, and conflict resolution."
+      ],
       logo: rec,
     },
     {
-      company: "Michigan Equity Research Club (MERC)",
+      company: "Michigan Equity Research Club",
       period: "January 2023 - February 2024",
-      position: "Vice President of Technology & Project Manager",
-      description:
-        "As a former VP of Tech at MERC, I was responsible for building an online presence on social media and was working on programming the organizations website to showcase MERC's educational and professional training to prospective members.",
+      position: "VP of Technology & Project Manager",
+      type: "Leadership",
+      location: "Ann Arbor, MI",
+      skills: ["Web Development", "Project Management", "Social Media"],
+      description: [
+        "Built an online presence on social media and programmed the organization's website.",
+        "Led a project team researching and presenting equity analysis."
+      ],
       logo: merc,
     },
     {
-      company: "National Organization for Business and Engineering (NOBE)",
+      company: "NOBE",
       period: "January 2023 - February 2024",
       position: "Consultant Member",
-      description:
-        "As a consultant for the NOBE organization at the University of Michigan, my project team and I collaborated to produce engineering-related solutions to our clients. During my time at NOBE, I was assigned to two project teams, the first one was the University of Michigan's Human Resources Department.",
+      type: "Consulting",
+      location: "Ann Arbor, MI",
+      skills: ["Figma", "Data Analytics", "Bioinformatics", "UX Research"],
+      description: [
+        "Optimized user flow for U-M Human Resources Department website using workforce data analytics and Figma.",
+        "Collaborated with Curio Genomics to produce a database of crop ontologies and genome data."
+      ],
       logo: nobe,
     },
   ];
@@ -249,52 +294,48 @@ const LandingPage = () => {
             >
               Experience
             </motion.h1>
-            <div className="timeline-container">
-              {/* Timeline line */}
-              <div className="timeline-line" />
-              
-              {workExperiences.map((exp, index) => {
-                const isLeft = index % 2 === 0;
-                return (
-                  <div className="timeline-item" key={index}>
-                    {/* Timeline node */}
-                    <motion.div 
-                      className="timeline-node"
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                      viewport={{ once: true, margin: "-50px" }}
-                    />
-                    
-                    {/* Experience card */}
-                    <motion.div 
-                      className={`timeline-card ${isLeft ? 'left' : 'right'}`}
-                      initial={{ opacity: 0, x: isLeft ? -60 : 60 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ 
-                        duration: 0.6, 
-                        delay: index * 0.1,
-                        ease: [0.25, 0.46, 0.45, 0.94]
-                      }}
-                      viewport={{ once: true, margin: "-80px" }}
-                    >
-                      <div className="card-header">
-                        <img
-                          src={exp.logo}
-                          alt={exp.company}
-                          className="experience-logo"
-                        />
-                        <div>
-                          <h2 className="serif">{exp.company}</h2>
-                          <p className="position">{exp.position}</p>
-                        </div>
-                      </div>
-                      <p className="description">{exp.description}</p>
-                      <p className="period">{exp.period}</p>
-                    </motion.div>
+            <div className="experience-list">
+              {workExperiences.map((exp, index) => (
+                <motion.div 
+                  className="exp-card"
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ 
+                    duration: 0.5, 
+                    delay: index * 0.08,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }}
+                  viewport={{ once: true, margin: "-50px" }}
+                >
+                  <div className="exp-logo-wrapper">
+                    <img src={exp.logo} alt={exp.company} className="exp-logo" />
                   </div>
-                );
-              })}
+                  <div className="exp-content">
+                    <div className="exp-header">
+                      <h3 className="exp-company">{exp.company}</h3>
+                      <span className="exp-period">{exp.period}</span>
+                    </div>
+                    <div className="exp-meta">
+                      <span className="exp-position">{exp.position}</span>
+                      <span className="exp-divider">·</span>
+                      <span className="exp-type">{exp.type}</span>
+                      <span className="exp-divider">-</span>
+                      <span className="exp-location">{exp.location}</span>
+                    </div>
+                    <div className="exp-skills">
+                      {exp.skills.map((skill, i) => (
+                        <span key={i} className="exp-skill-tag">{skill}</span>
+                      ))}
+                    </div>
+                    <ul className="exp-description">
+                      {exp.description.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
@@ -369,3 +410,4 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+

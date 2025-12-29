@@ -204,6 +204,7 @@
 
 .experience-section {
   padding: 80px 20px;
+  margin-top: 40px;
 }
 
 .experience-container {
@@ -267,124 +268,145 @@
   font-size: 14px;
 }
 
-/* Timeline Container */
-.timeline-container {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px 0;
-}
-
-/* Timeline vertical line */
-.timeline-line {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    var(--accent-color) 5%,
-    var(--accent-color) 95%,
-    transparent 100%
-  );
-  transform: translateX(-50%);
-  border-radius: 2px;
-}
-
-/* Timeline item wrapper */
-.timeline-item {
-  position: relative;
-  margin-bottom: 60px;
-  width: 100%;
-}
-
-.timeline-item:last-child {
-  margin-bottom: 0;
-}
-
-/* Timeline node (dot on the line) */
-.timeline-node {
-  position: absolute;
-  left: 48.75%;
-  top: 50px;
-  width: 18px;
-  height: 18px;
-  background: var(--accent-color);
-  border: 4px solid #fff;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.2);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 0 12px rgba(29, 78, 216, 0);
-  }
-}
-
-/* Timeline card positioning */
-.timeline-card {
-  width: 40%;
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  padding: 28px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-}
-
-.timeline-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-}
-
-.timeline-card.left {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-.timeline-card.right {
-  margin-left: auto;
-  margin-right: 0;
-}
-
-.timeline-card .card-header {
+/* Experience List Layout */
+.experience-list {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+  flex-direction: column;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.timeline-card .card-header h2 {
-  font-size: 18px;
-  margin: 0;
-  line-height: 1.3;
+.exp-card {
+  display: flex;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.3s ease;
 }
 
-.timeline-card .experience-logo {
-  width: 52px;
-  height: 52px;
+.exp-card:first-child {
+  padding-top: 0;
+}
+
+.exp-card:last-child {
+  border-bottom: none;
+}
+
+.exp-card:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.exp-logo-wrapper {
   flex-shrink: 0;
 }
 
-.timeline-card .description {
-  color: var(--text-secondary);
-  line-height: 1.6;
+.exp-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: #fff;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.exp-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.exp-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.exp-company {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.exp-period {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.exp-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
   margin-bottom: 12px;
+}
+
+.exp-position {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.exp-divider {
+  color: var(--text-muted);
   font-size: 14px;
 }
 
-.timeline-card .period {
-  font-size: 13px;
+.exp-type,
+.exp-location {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.exp-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.exp-skill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.exp-skill-tag:hover {
+  background: rgba(29, 78, 216, 0.1);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.exp-description {
+  margin: 0;
+  padding-left: 18px;
+  list-style: disc;
+}
+
+.exp-description li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 4px;
+}
+
+.exp-description li::marker {
+  color: var(--text-muted);
+}
+
+.exp-description li:last-child {
+  margin-bottom: 0;
 }
 
 /* Legacy grid styles - keep for fallback */
@@ -392,6 +414,17 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 24px;
+}
+
+/* Education card logo */
+.experience-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: #fff;
+  padding: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .experience-card .card-header {
@@ -602,31 +635,15 @@
 }
 
 @media (max-width: 900px) {
-  /* Timeline responsive - stack vertically with line on left */
-  .timeline-container {
-    padding-left: 40px;
+  /* Experience list responsive */
+  .exp-card {
+    padding: 20px 0;
   }
-
-  .timeline-line {
-    left: 20px;
-    transform: translateX(-50%);
-  }
-
-  .timeline-node {
-    left: 20px;
-    transform: translateX(-50%);
-  }
-
-  .timeline-card {
-    width: 100%;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .timeline-card.left,
-  .timeline-card.right {
-    margin-left: 0;
-    margin-right: 0;
+  
+  .exp-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
   }
 }
 
@@ -649,32 +666,40 @@
     font-size: 48px;
   }
 
-  .timeline-container {
-    padding-left: 30px;
+  /* Experience list mobile */
+  .exp-card {
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 0;
   }
 
-  .timeline-line {
-    left: 15px;
-    transform: translateX(-50%);
+  .exp-logo {
+    width: 48px;
+    height: 48px;
   }
 
-  .timeline-node {
-    left: 15px;
-    width: 14px;
-    height: 14px;
-    transform: translateX(-50%);
-  }
-
-  .timeline-card {
-    padding: 20px;
-  }
-
-  .timeline-card .card-header h2 {
+  .exp-company {
     font-size: 16px;
   }
 
-  .timeline-card .experience-logo {
-    width: 44px;
-    height: 44px;
+  .exp-position {
+    font-size: 14px;
+  }
+
+  .exp-meta {
+    flex-wrap: wrap;
+  }
+
+  .exp-skills {
+    gap: 6px;
+  }
+
+  .exp-skill-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .exp-description li {
+    font-size: 13px;
   }
 }
