@@ -319,10 +319,15 @@ const LandingPage = () => {
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ 
+                    y: -1.5,
+                    scale: 1.03,
+                    transition: { duration: 0.1, ease: "easeInOut" }
+                  }}
                   transition={{ 
-                    duration: 0.5, 
-                    delay: index * 0.08,
-                    ease: [0.25, 0.46, 0.45, 0.94]
+                    opacity: { duration: 0.5, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] },
+                    y: { duration: 0.15, ease: "easeOut" },
+                    scale: { duration: 0.15, ease: "easeOut" }
                   }}
                   viewport={{ once: true, margin: "-50px" }}
                 >
