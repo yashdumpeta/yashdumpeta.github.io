@@ -54,6 +54,24 @@ const LandingPage = () => {
       logo: u5,
     },
     {
+      company: "Utilidata",
+      period: "August 2025 - Present",
+      position: "Computer Consultant I",
+      type: "Part-time",
+      location: "Ann Arbor, MI",
+      skills: [
+        "Systems & Device Diagnostics",
+        "Operational Problem Solving",
+        "Technical Communication",
+        "User-Centered Support"
+      ],      
+      description: [
+        "Diagnosed and resolved hardware and software issues across macOS, Windows, printers, and other campus-managed systems, performing device imaging, system diagnostics, and on-site equipment maintenance.",
+        "Worked directly with students, faculty, and staff to clarify technical issues, present solution paths, and drive timely resolution in fast-paced, high-traffic environments."
+      ],       
+      logo: umits,
+    },
+    {
       company: "InceptEV",
       period: "August 2024 - December 2024",
       position: "Data Science Intern",
@@ -134,7 +152,7 @@ const LandingPage = () => {
     {
       company: "NOBE",
       period: "January 2023 - February 2024",
-      position: "Consultant Member",
+      position: "Engineering Consultant",
       type: "Consulting",
       location: "Ann Arbor, MI",
       skills: ["Figma", "Data Analytics", "Bioinformatics", "UX Research"],
