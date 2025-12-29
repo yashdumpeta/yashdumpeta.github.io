@@ -1,43 +1,100 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import './Header.css';
 
 const Header = () => {
-    const location = useLocation();
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('home');
 
-    const back_home = (event) => {
-        if (location.pathname === '/') {
-            event.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = ['home', 'experience', 'projects'];
+            const scrollPosition = window.scrollY + 150;
+
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const offsetTop = element.offsetTop;
+                    const offsetBottom = offsetTop + element.offsetHeight;
+                    
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+                        setActiveSection(section);
+                        break;
+                    }
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Check on mount
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToSection = (e, sectionId) => {
+        e.preventDefault();
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const headerOffset = 100;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
     };
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-        document.querySelector('.menu-icon').classList.toggle('open');
+    const scrollToTop = (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (
-        <div className="header-container" id='header-id'>
-            <div className="header-background"></div>
-            <header>
-                <nav className={`navbar ${isMenuOpen ? 'menu-open' : ''}`}>
-                    <div className="navbar-left">
-                        <Link className="home-button" to="/" onClick={back_home}>
-                            Yash Dumpeta
-                        </Link>
+        <div className="header-wrapper">
+            <nav className="nav-pill">
+                <div className="nav-left">
+                    <a className="nav-name" href="#home" onClick={scrollToTop}>
+                        Yash Dumpeta
+                    </a>
+                </div>
+                <div className="nav-right">
+                    <div className="nav-links">
+                        <a 
+                            className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} 
+                            href="#home" 
+                            onClick={(e) => scrollToSection(e, 'home')}
+                        >
+                            Home
+                        </a>
+                        <a 
+                            className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`} 
+                            href="#experience" 
+                            onClick={(e) => scrollToSection(e, 'experience')}
+                        >
+                            Experience
+                        </a>
+                        <a 
+                            className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`} 
+                            href="#projects" 
+                            onClick={(e) => scrollToSection(e, 'projects')}
+                        >
+                            Projects
+                        </a>
+                        <a className="nav-link" href="/YD - Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
                     </div>
-                    <div className={`navbar-right ${isMenuOpen ? 'show' : ''}`}>
-                        <Link className='Experience' to="/experience" onClick={() => setIsMenuOpen(false)}>Experience</Link>
-                        <Link className='Projects' to="/projects" onClick={() => setIsMenuOpen(false)}>Projects</Link>
-                    <a className='Resume' href="/YD - Resume Template.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+                    <div className="social-icons">
+                        <a href="https://github.com/yashdumpeta" target="_blank" rel="noreferrer" className="social-icon">
+                            <FaGithub />
+                        </a>
+                        <a href="https://www.linkedin.com/in/ydumpeta/" target="_blank" rel="noreferrer" className="social-icon">
+                            <FaLinkedin />
+                        </a>
+                        <a href="https://twitter.com/yash_dumpeta" target="_blank" rel="noreferrer" className="social-icon">
+                            <FaXTwitter />
+                        </a>
                     </div>
-                    <div className="menu-icon" onClick={toggleMenu}>
-                        ☰
-                    </div>
-                </nav>
-            </header>
+                </div>
+            </nav>
         </div>
     );
 }
