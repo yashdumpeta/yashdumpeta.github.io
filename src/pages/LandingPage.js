@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./LandingPage.css";
 import SkillSection from "../components/SkillSection";
-import { FaArrowRight, FaCode, FaEnvelope } from "react-icons/fa6";
+import { FaArrowRight, FaCode, FaEnvelope, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { DescriptionOutlined as DescriptionOutlinedIcon, EmailOutlined as EmailOutlinedIcon } from "@mui/icons-material";
 import Footer from "../components/Footer";
 import prof2 from "../assets/images/prof-pic2.jpg";
 import CircularText from "../components/CircularText";
+import fileEarmarkCodeIcon from "../assets/images/file-earmark-code-fill.svg";
+import accountIcon from "../assets/images/account_17740774.png";
+import bagIcon from "../assets/images/bag_12565748.png";
 
 // Experience images
 import michLogo from "../assets/images/michengineering2.jpeg";
@@ -32,6 +35,17 @@ const LandingPage = () => {
   const [displayedText, setDisplayedText] = useState(firstSentence);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
 
+  const projectsSubtitle = "Over the past few years, I've worked on various projects. Here are a few of my best";
+  const [displayedProjectsSubtitle, setDisplayedProjectsSubtitle] = useState("");
+  const [isProjectsTypingComplete, setIsProjectsTypingComplete] = useState(false);
+  const [threadHeight, setThreadHeight] = useState(0);
+  const [horizontalThreadTop, setHorizontalThreadTop] = useState(0);
+  const [horizontalThreadWidth, setHorizontalThreadWidth] = useState(0);
+  const [rightThreadHeight, setRightThreadHeight] = useState(0);
+  const [projectsNodeLeft, setProjectsNodeLeft] = useState(0);
+  const [bentoNodeTop, setBentoNodeTop] = useState(0);
+  const [experienceNodeTop, setExperienceNodeTop] = useState(0);
+
   useEffect(() => {
     // Start with first sentence preloaded, then type the second sentence
     let currentIndex = 0;
@@ -48,6 +62,114 @@ const LandingPage = () => {
 
     return () => clearInterval(typeInterval);
   }, []); // Run once on mount
+
+  useEffect(() => {
+    // Typewriter effect for projects subtitle
+    let currentIndex = 0;
+    
+    const typeInterval = setInterval(() => {
+      if (currentIndex < projectsSubtitle.length) {
+        setDisplayedProjectsSubtitle(projectsSubtitle.slice(0, currentIndex + 1));
+        currentIndex++;
+      } else {
+        setIsProjectsTypingComplete(true);
+        clearInterval(typeInterval);
+      }
+    }, 40); // Adjust speed here (lower = faster)
+
+    return () => clearInterval(typeInterval);
+  }, []); // Run once on mount
+
+  useEffect(() => {
+    // Calculate thread heights and horizontal thread position
+    const calculateThreads = () => {
+      const experienceSection = document.getElementById('experience');
+      const footer = document.querySelector('footer');
+      const landingPage = document.querySelector('.landing-page');
+      
+      if (experienceSection && landingPage) {
+        const headerHeight = 100; // padding-top of landing-page
+        const experienceBottom = experienceSection.getBoundingClientRect().bottom + window.scrollY;
+        const threadTop = headerHeight;
+        const leftThreadHeight = experienceBottom - threadTop;
+        setThreadHeight(Math.max(0, leftThreadHeight));
+        
+        // Calculate horizontal thread position (at experience section end)
+        const horizontalTop = experienceBottom;
+        setHorizontalThreadTop(horizontalTop);
+        
+        // Calculate horizontal thread width
+        // Left thread position: calc((100% - 1200px) / 2)
+        // Right thread position: same calculation but on right side
+        const viewportWidth = window.innerWidth;
+        const contentWidth = 1200;
+        const threadPosition = viewportWidth > 1240 ? (viewportWidth - contentWidth) / 2 : 20;
+        // Horizontal thread spans from left thread to right thread
+        const horizontalWidth = viewportWidth - (threadPosition * 2);
+        setHorizontalThreadWidth(Math.max(0, horizontalWidth));
+        
+        // Calculate right vertical thread height (from horizontal line to footer)
+        if (footer) {
+          const footerTop = footer.getBoundingClientRect().top + window.scrollY;
+          const rightThreadTop = horizontalTop;
+          const height = footerTop - rightThreadTop;
+          setRightThreadHeight(Math.max(0, height));
+        }
+        
+        // Calculate projects node position (on horizontal thread above Projects title)
+        const projectsSection = document.getElementById('projects');
+        const horizontalThreadEl = document.querySelector('.horizontal-thread');
+        if (projectsSection && horizontalThreadEl) {
+          const projectsTitle = projectsSection.querySelector('.section-title-projects');
+          if (projectsTitle) {
+            const titleRect = projectsTitle.getBoundingClientRect();
+            const threadRect = horizontalThreadEl.getBoundingClientRect();
+            // Calculate position relative to horizontal thread's left edge
+            const nodeLeft = (titleRect.left + window.scrollX) - (threadRect.left + window.scrollX);
+            setProjectsNodeLeft(Math.max(0, nodeLeft));
+          }
+        }
+        
+        // Calculate bento grid node position (on left vertical thread, aligned with bento grid top)
+        const bentoGrid = document.querySelector('.bento-grid');
+        const verticalThreadEl = document.querySelector('.vertical-thread');
+        if (bentoGrid && verticalThreadEl) {
+          const bentoRect = bentoGrid.getBoundingClientRect();
+          const threadRect = verticalThreadEl.getBoundingClientRect();
+          // Calculate position relative to vertical thread's top (top of bento grid)
+          const bentoTop = bentoRect.top + window.scrollY;
+          const threadTop = threadRect.top + window.scrollY;
+          const nodeTop = bentoTop - threadTop;
+          setBentoNodeTop(Math.max(0, nodeTop));
+        }
+        
+        // Calculate experience section node position (on left vertical thread, aligned with experience section top)
+        if (experienceSection && verticalThreadEl) {
+          const experienceRect = experienceSection.getBoundingClientRect();
+          const threadRect = verticalThreadEl.getBoundingClientRect();
+          // Calculate position relative to vertical thread's top (top of experience section)
+          const experienceTop = experienceRect.top + window.scrollY;
+          const threadTop = threadRect.top + window.scrollY;
+          const nodeTop = experienceTop - threadTop;
+          setExperienceNodeTop(Math.max(0, nodeTop));
+        }
+      }
+    };
+
+    // Wait for DOM to be ready
+    const timeoutId = setTimeout(() => {
+      calculateThreads();
+    }, 100);
+
+    window.addEventListener('resize', calculateThreads);
+    window.addEventListener('scroll', calculateThreads);
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('resize', calculateThreads);
+      window.removeEventListener('scroll', calculateThreads);
+    };
+  }, []);
 
   const workExperiences = [
     {
@@ -210,7 +332,7 @@ const LandingPage = () => {
     {
       title: "Selectaraunt",
       image: Selectaraunt,
-      source_code: "",
+      source_code: "https://github.com/MishanGagnon/restaurant",
       tech_used: [
         "Next.js",
         "Typescript",
@@ -246,11 +368,83 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page">
+      {/* Vertical Thread - Left */}
+      <div className="vertical-thread" style={{ height: threadHeight > 0 ? `${threadHeight}px` : 'auto' }}>
+        {/* Bento Grid Node */}
+        {bentoNodeTop > 0 && (
+          <div 
+            className="thread-node bento-node"
+            style={{ 
+              top: `${bentoNodeTop}px`
+            }}
+          >
+            <div className="thread-node-circle">
+              <img src={accountIcon} alt="Home" className="thread-node-icon" />
+            </div>
+          </div>
+        )}
+        
+        {/* Experience Section Node */}
+        {experienceNodeTop > 0 && (
+          <div 
+            className="thread-node experience-node"
+            style={{ 
+              top: `${experienceNodeTop}px`
+            }}
+          >
+            <div className="thread-node-circle">
+              <img src={bagIcon} alt="Experience" className="thread-node-icon" />
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Horizontal Thread */}
+      <div 
+        className="horizontal-thread" 
+        style={{ 
+          top: horizontalThreadTop > 0 ? `${horizontalThreadTop}px` : 'auto',
+          width: horizontalThreadWidth > 0 ? `${horizontalThreadWidth}px` : 'auto'
+        }}
+      >
+        {/* Projects Node */}
+        {projectsNodeLeft > 0 && (
+          <div 
+            id="projects-thread-node"
+            className="thread-node projects-node"
+            style={{ 
+              left: `${projectsNodeLeft}px`
+            }}
+          >
+            <div className="thread-node-circle">
+              <img src={fileEarmarkCodeIcon} alt="Projects" className="thread-node-icon" />
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Vertical Thread - Right */}
+      <div 
+        className="vertical-thread-right" 
+        style={{ 
+          top: horizontalThreadTop > 0 ? `${horizontalThreadTop}px` : 'auto',
+          height: rightThreadHeight > 0 ? `${rightThreadHeight}px` : 'auto'
+        }}
+      ></div>
+      
       {/* Hero Section */}
       <section id="home" className="hero-section">
         <div className="bento-grid">
-          {/* Identity Card - Top Left (About Me) */}
-          <div className="bento-card identity-card">
+          {/* Education Card - Top Left (UMich) */}
+          <div className="bento-card identity-card education-bento-card">
+            <div className="education-bento-content">
+              <img src={michLogo} alt="U-M" className="education-bento-logo" />
+              <div className="education-bento-details">
+                <h2 className="education-bento-university">University of Michigan</h2>
+                <p className="education-bento-degree">B.S.E. in Computer Science</p>
+                <p className="education-bento-period">2022 - 2026</p>
+              </div>
+            </div>
             <div className="bio-container">
               <p className="bio-text">
                 <italic>Hello,</italic> I'm <strong>Yash</strong>, a senior at the University of Michigan's College of Engineering studying <strong>Computer Science</strong>. <br /><br />
@@ -265,13 +459,18 @@ const LandingPage = () => {
             <img src={prof2} alt="Yash Dumpeta" className="profile-img" />
           </div>
 
-          {/* Contact Card - Bottom Left Top (Small Square) */}
-          <a
-            href="mailto:ydumpeta@umich.edu"
-            className="bento-card contact-card"
-          >
-            <EmailOutlinedIcon className="contact-icon" />
-            <span className="contact-text">Get in Touch</span>
+          {/* Four Equal Squares - Bottom Left Top */}
+          <a href="https://www.linkedin.com/in/ydumpeta/" target="_blank" rel="noopener noreferrer" className="bento-card square-card square-2">
+            <FaLinkedin />
+          </a>
+          <a href="https://github.com/yashdumpeta" target="_blank" rel="noopener noreferrer" className="bento-card square-card square-3">
+            <FaGithub />
+          </a>
+          <a href="https://twitter.com/yash_dumpeta" target="_blank" rel="noopener noreferrer" className="bento-card square-card square-4">
+            <FaXTwitter />
+          </a>
+          <a href="mailto:ydumpeta@umich.edu" className="bento-card square-card square-1">
+            <FaEnvelope />
           </a>
 
           {/* Circular Text - Bottom Left Bottom (Circle) */}
@@ -281,49 +480,18 @@ const LandingPage = () => {
 
           {/* Skills Card - Bottom Right (Skills) */}
           <div className="bento-card skills-card">
+            <p className="skills-intro-text">
+              A growing set of technologies I've learned and used through classes, personal projects, internships, and self-directed exploration to design, deploy, and maintain real software systems.
+            </p>
             <SkillSection isBento />
           </div>
-
-          {/* Resume Card - Keep it somewhere? Maybe as a small floating card or integrated? 
-              The wireframe only shows 5 boxes. I'll merge Resume into the grid as another item if needed, 
-              but the wireframe has 5. Identity, Profile, Contact, Circle, Skills. 
-              I'll put Resume inside Contact or just replace it as I did above. 
-              Wait, the user said "The circle is the circular text and above should be a get in touch bento box."
-              I'll assume Resume is replaced by Contact for now, or I'll add Resume as a 6th card. 
-              The drawing shows exactly 5 items. 
-          */}
         </div>
       </section>
 
       {/* Experience Section */}
       <section id="experience" className="experience-section">
         <div className="experience-container">
-          <div className="education-subsection">
-            <motion.h1 
-              className="section-title serif"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              Education
-            </motion.h1>
-            <motion.div 
-              className="experience-card education-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <img src={michLogo} alt="U-M" className="experience-logo" />
-              <div className="experience-details">
-                <h2 className="serif">University of Michigan</h2>
-                <p className="position">B.S.E. in Computer Science</p>
-                <p className="period">2022 - 2026</p>
-              </div>
-            </motion.div>
-          </div>
-
+          <h1 className="section-title-work"><strong>Experiences</strong></h1>
           <div className="work-subsection">
             <motion.h1 
               className="section-title-experience"
@@ -390,63 +558,59 @@ const LandingPage = () => {
       {/* Projects Section */}
       <section id="projects" className="projects-section">
         <div className="projects-container">
-          {/* Left Side: Intro */}
+          {/* Intro: Row 1, Column 1 */}
           <div className="projects-intro-section">
-            <div className="intro-sticky">
-              <h1 className="section-title serif">Projects</h1>
-              <p className="intro-subtitle">
-                Over the past few years, I've worked on various projects. Here
-                are a few of my best:
-              </p>
-              <a href="mailto:ydumpeta@umich.edu" className="contact-btn">
-                Get in touch <FaArrowRight />
-              </a>
-            </div>
+            <h1 className="section-title-projects serif">Projects</h1>
+            <p className="intro-subtitle">
+              {displayedProjectsSubtitle}
+              <span className={`typewriter-cursor ${isProjectsTypingComplete ? 'blink' : ''}`}>|</span>
+            </p>
+            <a href="https://github.com/yashdumpeta" className="contact-btn">
+              View more projects <FaGithub />
+            </a>
           </div>
 
-          {/* Right Side: Scrollable Feed */}
-          <div className="projects-feed-section">
-            {projects.map((project, index) => (
-              <div className="project-card" key={index}>
-                <div className="project-card-image">
-                  <img src={project.image} alt={project.title} />
+          {/* Project Cards */}
+          {projects.map((project, index) => (
+            <div className="project-card" key={index}>
+              <div className="project-card-image">
+                <img src={project.image} alt={project.title} />
+              </div>
+              <div className="project-card-content">
+                <div className="project-tags">
+                  {project.tech_used.map((tech, i) => (
+                    <span key={i} className="project-tag">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-                <div className="project-card-content">
-                  <div className="project-tags">
-                    {project.tech_used.map((tech, i) => (
-                      <span key={i} className="project-tag">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <h2 className="project-title serif">{project.title}</h2>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-links">
-                    {project.link && (
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link-btn primary"
-                      >
-                        View Project <FaArrowRight />
-                      </a>
-                    )}
-                    {project.source_code && (
-                      <a
-                        href={project.source_code}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link-btn secondary"
-                      >
-                        <FaCode /> Source Code
-                      </a>
-                    )}
-                  </div>
+                <h2 className="project-title serif">{project.title}</h2>
+                <p className="project-description">{project.description}</p>
+                <div className="project-links">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link-btn primary"
+                    >
+                      View Project <FaArrowRight />
+                    </a>
+                  )}
+                  {project.source_code && (
+                    <a
+                      href={project.source_code}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link-btn secondary"
+                    >
+                      <FaCode /> Source Code
+                    </a>
+                  )}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
