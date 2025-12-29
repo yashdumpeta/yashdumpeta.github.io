@@ -52,8 +52,8 @@ const ProjectPage = () => {
             <p className="intro-subtitle">
               Over the past few years, I've worked on various projects. Here are a few of my best:
             </p>
-            <a href="mailto:ydumpeta@umich.edu" className="contact-btn">
-              Get in touch <FaArrowRight />
+            <a href="https://github.com/yashdumpeta" className="contact-btn">
+              View more projects <FaArrowRight />
             </a>
           </div>
         </div>

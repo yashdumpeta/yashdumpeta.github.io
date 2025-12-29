@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./LandingPage.css";
 import SkillSection from "../components/SkillSection";
-import { FaArrowRight, FaCode, FaEnvelope } from "react-icons/fa6";
+import { FaArrowRight, FaCode, FaEnvelope, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { DescriptionOutlined as DescriptionOutlinedIcon, EmailOutlined as EmailOutlinedIcon } from "@mui/icons-material";
 import Footer from "../components/Footer";
 import prof2 from "../assets/images/prof-pic2.jpg";
@@ -210,7 +210,7 @@ const LandingPage = () => {
     {
       title: "Selectaraunt",
       image: Selectaraunt,
-      source_code: "",
+      source_code: "https://github.com/MishanGagnon/restaurant",
       tech_used: [
         "Next.js",
         "Typescript",
@@ -249,8 +249,16 @@ const LandingPage = () => {
       {/* Hero Section */}
       <section id="home" className="hero-section">
         <div className="bento-grid">
-          {/* Identity Card - Top Left (About Me) */}
-          <div className="bento-card identity-card">
+          {/* Education Card - Top Left (UMich) */}
+          <div className="bento-card identity-card education-bento-card">
+            <div className="education-bento-content">
+              <img src={michLogo} alt="U-M" className="education-bento-logo" />
+              <div className="education-bento-details">
+                <h2 className="education-bento-university">University of Michigan</h2>
+                <p className="education-bento-degree">B.S.E. in Computer Science</p>
+                <p className="education-bento-period">2022 - 2026</p>
+              </div>
+            </div>
             <div className="bio-container">
               <p className="bio-text">
                 <italic>Hello,</italic> I'm <strong>Yash</strong>, a senior at the University of Michigan's College of Engineering studying <strong>Computer Science</strong>. <br /><br />
@@ -265,13 +273,18 @@ const LandingPage = () => {
             <img src={prof2} alt="Yash Dumpeta" className="profile-img" />
           </div>
 
-          {/* Contact Card - Bottom Left Top (Small Square) */}
-          <a
-            href="mailto:ydumpeta@umich.edu"
-            className="bento-card contact-card"
-          >
-            <EmailOutlinedIcon className="contact-icon" />
-            <span className="contact-text">Get in Touch</span>
+          {/* Four Equal Squares - Bottom Left Top */}
+          <a href="https://www.linkedin.com/in/ydumpeta/" target="_blank" rel="noopener noreferrer" className="bento-card square-card square-2">
+            <FaLinkedin />
+          </a>
+          <a href="https://github.com/yashdumpeta" target="_blank" rel="noopener noreferrer" className="bento-card square-card square-3">
+            <FaGithub />
+          </a>
+          <a href="https://twitter.com/yash_dumpeta" target="_blank" rel="noopener noreferrer" className="bento-card square-card square-4">
+            <FaXTwitter />
+          </a>
+          <a href="mailto:ydumpeta@umich.edu" className="bento-card square-card square-1">
+            <FaEnvelope />
           </a>
 
           {/* Circular Text - Bottom Left Bottom (Circle) */}
@@ -281,48 +294,17 @@ const LandingPage = () => {
 
           {/* Skills Card - Bottom Right (Skills) */}
           <div className="bento-card skills-card">
+            <p className="skills-intro-text">
+              A growing set of technologies I've learned and used through classes, personal projects, internships, and self-directed exploration to design, deploy, and maintain real software systems.
+            </p>
             <SkillSection isBento />
           </div>
-
-          {/* Resume Card - Keep it somewhere? Maybe as a small floating card or integrated? 
-              The wireframe only shows 5 boxes. I'll merge Resume into the grid as another item if needed, 
-              but the wireframe has 5. Identity, Profile, Contact, Circle, Skills. 
-              I'll put Resume inside Contact or just replace it as I did above. 
-              Wait, the user said "The circle is the circular text and above should be a get in touch bento box."
-              I'll assume Resume is replaced by Contact for now, or I'll add Resume as a 6th card. 
-              The drawing shows exactly 5 items. 
-          */}
         </div>
       </section>
 
       {/* Experience Section */}
       <section id="experience" className="experience-section">
         <div className="experience-container">
-          <div className="education-subsection">
-            <motion.h1 
-              className="section-title serif"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              Education
-            </motion.h1>
-            <motion.div 
-              className="experience-card education-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <img src={michLogo} alt="U-M" className="experience-logo" />
-              <div className="experience-details">
-                <h2 className="serif">University of Michigan</h2>
-                <p className="position">B.S.E. in Computer Science</p>
-                <p className="period">2022 - 2026</p>
-              </div>
-            </motion.div>
-          </div>
 
           <div className="work-subsection">
             <motion.h1 
@@ -398,8 +380,8 @@ const LandingPage = () => {
                 Over the past few years, I've worked on various projects. Here
                 are a few of my best:
               </p>
-              <a href="mailto:ydumpeta@umich.edu" className="contact-btn">
-                Get in touch <FaArrowRight />
+              <a href="https://github.com/yashdumpeta" className="contact-btn">
+                View more projects <FaGithub />
               </a>
             </div>
           </div>
