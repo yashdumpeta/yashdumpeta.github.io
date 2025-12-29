@@ -32,6 +32,11 @@ const LandingPage = () => {
   const [displayedText, setDisplayedText] = useState(firstSentence);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
 
+  const projectsSubtitle = "Over the past few years, I've worked on various projects. Here are a few of my best";
+  const [displayedProjectsSubtitle, setDisplayedProjectsSubtitle] = useState("");
+  const [isProjectsTypingComplete, setIsProjectsTypingComplete] = useState(false);
+  const [threadHeight, setThreadHeight] = useState(0);
+
   useEffect(() => {
     // Start with first sentence preloaded, then type the second sentence
     let currentIndex = 0;
@@ -48,6 +53,51 @@ const LandingPage = () => {
 
     return () => clearInterval(typeInterval);
   }, []); // Run once on mount
+
+  useEffect(() => {
+    // Typewriter effect for projects subtitle
+    let currentIndex = 0;
+    
+    const typeInterval = setInterval(() => {
+      if (currentIndex < projectsSubtitle.length) {
+        setDisplayedProjectsSubtitle(projectsSubtitle.slice(0, currentIndex + 1));
+        currentIndex++;
+      } else {
+        setIsProjectsTypingComplete(true);
+        clearInterval(typeInterval);
+      }
+    }, 40); // Adjust speed here (lower = faster)
+
+    return () => clearInterval(typeInterval);
+  }, []); // Run once on mount
+
+  useEffect(() => {
+    // Calculate thread height to end at gap between experience and projects sections
+    const calculateThreadHeight = () => {
+      const experienceSection = document.getElementById('experience');
+      if (experienceSection) {
+        const headerHeight = 100; // padding-top of landing-page
+        const experienceBottom = experienceSection.getBoundingClientRect().bottom + window.scrollY;
+        const threadTop = headerHeight;
+        const height = experienceBottom - threadTop;
+        setThreadHeight(Math.max(0, height));
+      }
+    };
+
+    // Wait for DOM to be ready
+    const timeoutId = setTimeout(() => {
+      calculateThreadHeight();
+    }, 100);
+
+    window.addEventListener('resize', calculateThreadHeight);
+    window.addEventListener('scroll', calculateThreadHeight);
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('resize', calculateThreadHeight);
+      window.removeEventListener('scroll', calculateThreadHeight);
+    };
+  }, []);
 
   const workExperiences = [
     {
@@ -246,6 +296,11 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page">
+      {/* Vertical Thread */}
+      <div className="vertical-thread" style={{ height: threadHeight > 0 ? `${threadHeight}px` : 'auto' }}>
+        <div className="thread-icon"></div>
+      </div>
+      
       {/* Hero Section */}
       <section id="home" className="hero-section">
         <div className="bento-grid">
@@ -375,10 +430,10 @@ const LandingPage = () => {
           {/* Left Side: Intro */}
           <div className="projects-intro-section">
             <div className="intro-sticky">
-              <h1 className="section-title serif">Projects</h1>
+              <h1 className="section-title-projects serif">Projects</h1>
               <p className="intro-subtitle">
-                Over the past few years, I've worked on various projects. Here
-                are a few of my best:
+                {displayedProjectsSubtitle}
+                <span className={`typewriter-cursor ${isProjectsTypingComplete ? 'blink' : ''}`}>|</span>
               </p>
               <a href="https://github.com/yashdumpeta" className="contact-btn">
                 View more projects <FaGithub />
