@@ -10,6 +10,7 @@ import fileEarmarkCodeIcon from "../assets/images/file-earmark-code-fill.svg";
 import accountIcon from "../assets/images/account_17740774.png";
 import bagIcon from "../assets/images/bag_12565748.png";
 
+
 // Experience images
 import michLogo from "../assets/images/michengineering2.jpeg";
 import merc from "../assets/images/merc.jpeg";
