@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ed7f2ffb.css",
-    "main.js": "/static/js/main.c8ad0e9d.js",
+    "main.js": "/static/js/main.373cf3cb.js",
     "static/js/453.acca0757.chunk.js": "/static/js/453.acca0757.chunk.js",
     "static/media/recipeFind.png": "/static/media/recipeFind.8a7564b0d90ff6747d1d.png",
     "static/media/gray.jpg": "/static/media/gray.464ae73ca7d62b04bd2c.jpg",
@@ -26,11 +26,11 @@
     "index.html": "/index.html",
     "static/media/file-earmark-code-fill.svg": "/static/media/file-earmark-code-fill.c772f5ad8a488321d7aafa83fbb393df.svg",
     "main.ed7f2ffb.css.map": "/static/css/main.ed7f2ffb.css.map",
-    "main.c8ad0e9d.js.map": "/static/js/main.c8ad0e9d.js.map",
+    "main.373cf3cb.js.map": "/static/js/main.373cf3cb.js.map",
     "453.acca0757.chunk.js.map": "/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ed7f2ffb.css",
-    "static/js/main.c8ad0e9d.js"
+    "static/js/main.373cf3cb.js"
   ]
 }
