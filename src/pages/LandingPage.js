@@ -198,7 +198,7 @@ const LandingPage = () => {
       logo: u5,
     },
     {
-      company: "Utilidata",
+      company: "University of Michigan - Information and Technology Services",
       period: "August 2025 - Present",
       position: "Computer Consultant I",
       type: "Part-time",
