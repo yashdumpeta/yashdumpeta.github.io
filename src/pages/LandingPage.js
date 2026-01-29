@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import "./LandingPage.css";
 import SkillSection from "../components/SkillSection";
 import { FaArrowRight, FaCode, FaEnvelope, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
-import { DescriptionOutlined as DescriptionOutlinedIcon, EmailOutlined as EmailOutlinedIcon } from "@mui/icons-material";
 import Footer from "../components/Footer";
 import prof2 from "../assets/images/prof-pic2.jpg";
 import CircularText from "../components/CircularText";
