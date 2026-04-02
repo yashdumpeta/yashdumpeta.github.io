@@ -9,6 +9,9 @@ import CircularText from "../components/CircularText";
 import fileEarmarkCodeIcon from "../assets/images/file-earmark-code-fill.svg";
 import accountIcon from "../assets/images/account_17740774.png";
 import bagIcon from "../assets/images/bag_12565748.png";
+import { projects } from "../data/projects";
+import pfp4 from "../assets/images/pfp4.JPG";
+import pfp5 from "../assets/images/pfp5.JPG";
 
 
 // Experience images
@@ -22,12 +25,6 @@ import pjtl from "../assets/images/pjtl.png";
 import inceptev from "../assets/images/inceptev.png";
 import u5 from "../assets/images/utilidata5.png";
 import umits from "../assets/images/umits.jpg";
-
-// Project images
-import Umazing from "../assets/images/Umazing.png";
-import Selectaraunt from "../assets/images/Selectaraunt.png";
-import recalld from "../assets/images/recalld.png";
-import recipeFind from "../assets/images/recipeFind.png";
 
 const LandingPage = () => {
   const firstSentence = "Through internships and research, I've contributed to backend systems, ML workflows, and production infrastructure. I care about reliability, ";
@@ -173,19 +170,6 @@ const LandingPage = () => {
 
   const workExperiences = [
     {
-      company: "U-M Information and Technology Services",
-      period: "May 2025 - Present",
-      position: "Software Developer Intern",
-      type: "Internship",
-      location: "Ann Arbor, MI",
-      skills: ["Docker", "Kubernetes", "MongoDB", "Python", "GitHub Actions"],
-      description: [
-        "Maintaining and enhancing Docker- and Kubernetes-based research deployments—integrating MongoDB, eXist-db, and MariaDB backends.",
-        "Automating CI/CD workflows with GitHub Actions for Python, R, and PHP applications."
-      ],
-      logo: umits,
-    },
-    {
       company: "Utilidata",
       period: "January 2025 - Present",
       position: "Machine Learning Intern",
@@ -196,6 +180,19 @@ const LandingPage = () => {
         "Working on MLOps and Model Optimization for edge-AI applications."
       ],
       logo: u5,
+    },
+    {
+      company: "U-M Information and Technology Services",
+      period: "May 2025 - December 2025",
+      position: "Software Developer Intern",
+      type: "Internship",
+      location: "Ann Arbor, MI",
+      skills: ["Docker", "Kubernetes", "MongoDB", "Python", "GitHub Actions"],
+      description: [
+        "Maintaining and enhancing Docker- and Kubernetes-based research deployments—integrating MongoDB, eXist-db, and MariaDB backends.",
+        "Automating CI/CD workflows with GitHub Actions for Python, R, and PHP applications."
+      ],
+      logo: umits,
     },
     {
       company: "University of Michigan - Information and Technology Services",
@@ -308,64 +305,6 @@ const LandingPage = () => {
     },
   ];
 
-  const projects = [
-    {
-      title: "UMazing",
-      image: Umazing,
-      source_code: "https://github.com/MishanGagnon/mhacks2024",
-      tech_used: [
-        "Next.js",
-        "Typescript",
-        "Node.js",
-        "React.js",
-        "Tailwind CSS",
-        "PostgreSQL",
-        "Python",
-        "Vercel",
-        "OpenAI",
-        "Railway",
-      ],
-      description:
-        "AI-powered academic advisor bot designed to revolutionize course selection and academic planning. Developed during MHacks 24.",
-      link: "https://mhack2024-production.up.railway.app/",
-    },
-    {
-      title: "Selectaraunt",
-      image: Selectaraunt,
-      source_code: "https://github.com/MishanGagnon/restaurant",
-      tech_used: [
-        "Next.js",
-        "Typescript",
-        "Node.js",
-        "React.js",
-        "Tailwind CSS",
-        "Supabase",
-        "Socket.io",
-        "Leaflet",
-        "Yelp API",
-      ],
-      description:
-        "Real-time multiplayer web application for group restaurant decision-making using swipeable cards.",
-      link: "https://selectaraunt.up.railway.app/",
-    },
-    {
-      title: "recalld",
-      image: recalld,
-      source_code: "https://github.com/yashdumpeta/recalld",
-      tech_used: ["Python", "Django", "React.js", "JavaScript", "MySQL"],
-      description:
-        "Dynamic full-stack flashcard app designed for active recall and spaced repetition learning.",
-    },
-    {
-      title: "recipeFind",
-      image: recipeFind,
-      source_code: "https://github.com/yashdumpeta/recipeFind",
-      tech_used: ["React.js", "JavaScript", "Edamam API"],
-      description:
-        "Web app for discovering over 2.3 million recipes using the Edamam API.",
-    },
-  ];
-
   return (
     <div className="landing-page">
       {/* Vertical Thread - Left */}
@@ -456,7 +395,7 @@ const LandingPage = () => {
 
           {/* Profile Card - Top Right (Profile Pic) */}
           <div className="bento-card profile-card">
-            <img src={prof2} alt="Yash Dumpeta" className="profile-img" />
+            <img src={pfp4} alt="Yash Dumpeta" className="profile-img" />
           </div>
 
           {/* Four Equal Squares - Bottom Left Top */}
@@ -620,4 +559,3 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-

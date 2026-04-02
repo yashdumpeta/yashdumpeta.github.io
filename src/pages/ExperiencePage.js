@@ -20,18 +20,6 @@ const ExperiencePage = () => {
 
     const workExperiences = [
         {
-            company: "University of Michigan - Information and Technology Services (U-M ITS)",
-            period: "May 2025 - Present",
-            position: "Software Developer Intern",
-            description: [
-                "Maintaining and enhancing Docker- and Kubernetes-based research deployments—integrating MongoDB, eXist-db, and MariaDB backends written in Python, R, and PHP—while automating CI/CD workflows with GitHub Actions."
-            ],
-            logo: umits,
-            links: [
-                
-            ]
-        },
-        {
             company: "Utilidata",
             period: "January 2025 - Present",
             position: "Machine Learning Intern",
@@ -39,6 +27,18 @@ const ExperiencePage = () => {
                 "MLOps and Model Optimization"
             ],
             logo: u5,
+            links: [
+                
+            ]
+        },
+        {
+            company: "University of Michigan - Information and Technology Services (U-M ITS)",
+            period: "May 2025 - December 2025",
+            position: "Software Developer Intern",
+            description: [
+                "Maintaining and enhancing Docker- and Kubernetes-based research deployments—integrating MongoDB, eXist-db, and MariaDB backends written in Python, R, and PHP—while automating CI/CD workflows with GitHub Actions."
+            ],
+            logo: umits,
             links: [
                 
             ]
