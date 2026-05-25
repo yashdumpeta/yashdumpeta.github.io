@@ -7,6 +7,7 @@ import tabChop from "../assets/images/tabchop8.png";
 export const projects = [
   {
     title: "TabChop",
+    featured: true,
     image: tabChop,
     tech_used: [
       "TypeScript",
@@ -18,7 +19,7 @@ export const projects = [
       "Vercel",
     ],
     description:
-      "Real-time receipt splitting app that turns upload, invite, claim, and pay into a fast low-friction group flow with transparent itemized totals.",
+      "Real-time bill-splitting app for groups at restaurants. Users can upload a receipt, invite friends with a code or QR link, claim items live, and generate transparent payment summaries.",
     link: "https://tabchop.app/overview",
   },
   {
@@ -27,7 +28,7 @@ export const projects = [
     source_code: "https://github.com/MishanGagnon/mhacks2024",
     tech_used: [
       "Next.js",
-      "Typescript",
+      "TypeScript",
       "Node.js",
       "React.js",
       "Tailwind CSS",
@@ -38,7 +39,7 @@ export const projects = [
       "Railway",
     ],
     description:
-      "AI-powered academic advisor bot designed to revolutionize course selection and academic planning. Developed during MHacks 24.",
+      "AI academic planning tool that helps University of Michigan students reason through course selection, requirements, and schedule tradeoffs.",
     link: "https://mhack2024-production.up.railway.app/",
   },
   {
@@ -47,7 +48,7 @@ export const projects = [
     source_code: "https://github.com/MishanGagnon/restaurant",
     tech_used: [
       "Next.js",
-      "Typescript",
+      "TypeScript",
       "Node.js",
       "React.js",
       "Tailwind CSS",
@@ -57,7 +58,7 @@ export const projects = [
       "Yelp API",
     ],
     description:
-      "Real-time multiplayer web application for group restaurant decision-making using swipeable cards.",
+      "Real-time group restaurant decision app that lets friends compare options, vote together, and converge on a place faster.",
     link: "https://selectaraunt.up.railway.app/",
   },
   {
@@ -66,7 +67,7 @@ export const projects = [
     source_code: "https://github.com/yashdumpeta/recalld",
     tech_used: ["Python", "Django", "React.js", "JavaScript", "MySQL"],
     description:
-      "Dynamic full-stack flashcard app designed for active recall and spaced repetition learning.",
+      "Full-stack flashcard app built to make active recall and spaced repetition easier to manage for focused study sessions.",
   },
   {
     title: "recipeFind",
@@ -74,6 +75,6 @@ export const projects = [
     source_code: "https://github.com/yashdumpeta/recipeFind",
     tech_used: ["React.js", "JavaScript", "Edamam API"],
     description:
-      "Web app for discovering over 2.3 million recipes using the Edamam API.",
+      "Recipe discovery web app that helps users search a large recipe database and quickly evaluate meal options by query.",
   },
 ];

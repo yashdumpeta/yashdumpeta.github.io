@@ -10,8 +10,6 @@ import Footer from '../components/Footer'
 import pjtl from '../assets/images/pjtl.png'
 import inceptev from '../assets/images/inceptev.png'
 import u5 from '../assets/images/utilidata5.png'
-import u1 from '../assets/images/utilidata1.png'
-import u2 from '../assets/images/utilidata2.png'
 import umits from '../assets/images/umits.jpg'
 import { FaLink } from 'react-icons/fa'
 
@@ -22,9 +20,13 @@ const ExperiencePage = () => {
         {
             company: "Utilidata",
             period: "January 2025 - Present",
-            position: "Machine Learning Intern",
+            position: "Software Engineering Intern",
+            location: "Ann Arbor, MI",
             description: [
-                "MLOps and Model Optimization"
+                "Built and evaluated a flow matching generative model for waveform data, exploring its potential for synthetic data generation, modeling, and downstream ML experimentation.",
+                "Improved reproducibility of internal ML workflows through tooling, documentation, and environment setup across local and remote systems.",
+                "Worked across Python, data processing, and infrastructure workflows to support model experimentation and optimization.",
+                "Collaborated with engineers to turn research-oriented model experiments into practical workflows that could be evaluated for production use."
             ],
             logo: u5,
             links: [
@@ -32,11 +34,14 @@ const ExperiencePage = () => {
             ]
         },
         {
-            company: "University of Michigan - Information and Technology Services (U-M ITS)",
+            company: "University of Michigan Information and Technology Services",
             period: "May 2025 - December 2025",
-            position: "Software Developer Intern",
+            position: "Software Engineering Intern",
+            location: "Ann Arbor, MI",
             description: [
-                "Maintaining and enhancing Docker- and Kubernetes-based research deployments—integrating MongoDB, eXist-db, and MariaDB backends written in Python, R, and PHP—while automating CI/CD workflows with GitHub Actions."
+                "Supported research computing infrastructure used by university researchers and technical teams.",
+                "Contributed to infrastructure workflows involving deployment, reliability, and platform support.",
+                "Worked with engineering teams to improve technical documentation and operational processes."
             ],
             logo: umits,
             links: [
@@ -47,9 +52,10 @@ const ExperiencePage = () => {
             company: "InceptEV",
             period: "August 2024 - December 2024",
             position: "Data Science Intern",
+            location: "Ann Arbor, MI",
             description: [
-                "As a Data Science Intern at InceptEV, a company that was acquired by motive, I conducted a data validation study on the simulation accuracy of InceptEV's fleet management software. The simulation study utilized real-world data collected with MCity's research EV's to compare against software outputs.",
-                "The project involved collaborating with an extensive Julia, Python and Pandas codebase to implement a data pipeline for 40+ hours of data, processing raw OBDLink data from a Ford Mach-E EV, and a custom simulation process tailored to Ann arbor driving conditions."
+                "Validated simulation datasets to identify inconsistencies, anomalies, and quality issues in EV-related data workflows.",
+                "Supported data cleaning and analysis processes used to improve simulation reliability and downstream evaluation."
             ],
             logo: inceptev,
             links: [
@@ -57,27 +63,15 @@ const ExperiencePage = () => {
             ]
         },
         {
-            company: "Center for Entrepreneurship - Perot Jain TechLab Electrification",
-            period: "August 2024 - Present",
-            position: "Student Researcher",
-            description: [
-                "As a student researcher for the PJTL Electrification cohort at the UofM's Center for Entrepreneurship, I collaborate with startups to tackle real-world challenges in the electrification space. I gain hands-on experience and entrepreneurial skills through immersive, industry-driven projects.",
-
-            ],
-            logo: pjtl,
-            links: [
-                {
-                    name: "",
-                    url: "https://cfe.umich.edu/launch/perot-jain-techlab-series/pjtl-electrification/meet-the-cohort/"
-                }
-            ]
-        },
-
-        {
             company: "Spire Investment Partners",
             period: "June 2024 - August 2024",
-            position: "Technology & Cybersecurity Intern",
-            description: ["During my internship as a Technology and Cybersecurity Intern at Spire Investment Partners in McLean, VA, from June to August 2024, I spearheaded multiple projects from initiation to completion, ensuring timely delivery and strategic alignment through effective project management practices and daily standup meetings within the SDLC. I engineered a centralized web portal to streamline onboarding and offboarding processes, utilizing RESTful APIs and automated workflows to enhance efficiency and approval processes. Additionally, I designed and implemented a secure, scalable employee directory database to centralize data for over 200 clients and employees, integrating data analytics features that bolstered business reporting capabilities."],
+            position: "Technology and Cybersecurity Intern",
+            location: "McLean, VA",
+            description: [
+                "Built internal tools and REST API workflows to streamline onboarding and operational processes.",
+                "Supported technology and cybersecurity initiatives for internal teams and customer-facing business operations.",
+                "Improved onboarding workflows for employees through automation and internal tooling."
+            ],
             logo: spire,
             links: [
             ]
@@ -86,7 +80,11 @@ const ExperiencePage = () => {
             company: "Skylark Drones",
             period: "June 2023 - August 2023",
             position: "Research Intern",
-            description: ["As a research intern, I was incharge of conducting research to compile information on topics to train aspiring Drone Operators in India. I collaborated with the Government of India Ministry of Skill Development & Entrepreneurship to develop a comprehensive drone operator course tailored for surveying and topography. I utilized Python and the tkinter interface to develop a user-friendly UI that streamlined the conversion of extensive thermal image datasets from their native R-JPEG format to .TIFF format. This UI included features such as input validation, porgress bars and real time user feedback. "],
+            location: "Bangalore, India",
+            description: [
+                "Created technical training materials for drone operator workflows in partnership with public-sector stakeholders.",
+                "Built a Python UI that helped users convert thermal image datasets from R-JPEG to TIFF with clearer feedback and validation."
+            ],
             logo: skylark,
             links: [
             ]
@@ -95,7 +93,10 @@ const ExperiencePage = () => {
             company: "Recreational Sports - University of Michigan, Ann Arbor",
             period: "January 2024 - Present",
             position: "Intramural Official",
-            description: ["As an Intramural Sports Official for the Recreational Sports department at UofM-Ann Arbor, I was responsible for officiating and overseeing all requirements of conducting soccer and basketball games. I have demonstrated proficiency in fast-paced environments through my experience officiating basketball and soccer matches. I have experience in managing hectic and demanding environments as well as game logistics such as timekeeping, scorekeeping, and conflict resolution. Currently, I've officiated over 55+ hours of intramural sports and have exhibited excellent time management and commitment. "],
+            location: "Ann Arbor, MI",
+            description: [
+                "Managed fast-paced game operations, communication, and conflict resolution for intramural soccer and basketball."
+            ],
             logo: rec,
             links: [
             ]
@@ -104,7 +105,11 @@ const ExperiencePage = () => {
             company: "Michigan Equity Research Club (MERC)",
             period: "January 2023 - February 2024",
             position: "Vice President of Technology & Project Manager",
-            description: ["As a former VP of Tech at MERC, I was responsible for building an online presence on social media and was working on programming the organizations website to showcase MERC's educational and professional training to prospective members. I was also a Project Manager for a team that researched "],
+            location: "Ann Arbor, MI",
+            description: [
+                "Led technology and web efforts to improve the club's online presence and member communication.",
+                "Managed a student research team through market analysis, synthesis, and final presentation work."
+            ],
             logo: merc,
             links: [
 
@@ -114,10 +119,31 @@ const ExperiencePage = () => {
             company: "National Organization for Business and Engineering (NOBE)",
             period: "January 2023 - February 2024",
             position: "Consultant Member",
-            description: ["As a consultant for the NOBE organization at the University of Michigan, my project team and I collaborated to produce engineering-related solutions to our clients. During my time at NOBE, I was assigned to two project teams, the first one was the University of Michigan's Human Resources Department. This client sought after the NOBE organization's services to help optimize and streamline user flow and usage of subpage sites on their department's website. My team and I utilized workforce data analytics and Figma to conduct our analysis into the usability of the website and the ability of users to gather and retain information. For the second project, I collaborated with a company that produced bioinformatics software and data for client use called Curio Genomics. My team members and I collaborated with Curio Genomics to produce a database of crop ontologies and genome data."],
+            location: "Ann Arbor, MI",
+            description: [
+                "Worked with client teams to identify user pain points and improve technical workflows.",
+                "Contributed to website usability analysis for U-M Human Resources and data organization work for a bioinformatics client."
+            ],
             logo: nobe,
             links: [
                 
+            ]
+        },
+        {
+            company: "Center for Entrepreneurship - Perot Jain TechLab Electrification",
+            period: "August 2024 - Present",
+            position: "Student Researcher",
+            location: "Ann Arbor, MI",
+            description: [
+                "Collaborated with early-stage electrification companies to understand technical and market constraints.",
+                "Translated ambiguous startup problems into research, product, and engineering recommendations."
+            ],
+            logo: pjtl,
+            links: [
+                {
+                    name: "",
+                    url: "https://cfe.umich.edu/launch/perot-jain-techlab-series/pjtl-electrification/meet-the-cohort/"
+                }
             ]
         },
 
@@ -134,8 +160,8 @@ const ExperiencePage = () => {
                     <div className='college-details'>
                         <h2 id='college-info'>University of Michigan - College of Engineering</h2>
                         <h3 id='college-location'>Ann Arbor, MI</h3>
-                        <span id='work-time-period'> August 2022 - Present </span>
-                        <h3 id='major'>B.S.E. in Computer Science</h3>
+                        <span id='work-time-period'> August 2022 - May 2026 </span>
+                        <h3 id='major'>B.S.E. in Computer Science and Engineering</h3>
                     </div>
                 </div>
             </div>
@@ -179,6 +205,9 @@ const ExperiencePage = () => {
                             <h3 className='work-position'>
                                 {experience.position}
                             </h3>
+                            {experience.location && (
+                                <p className='work-location'>{experience.location}</p>
+                            )}
                             {experience.description.map((line, index) => (
                                 <p key={index} className='work-description'>
                                     {line}

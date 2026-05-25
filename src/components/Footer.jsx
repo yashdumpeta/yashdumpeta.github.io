@@ -1,6 +1,6 @@
 import React from 'react'
 import '../components/footer.css'
-import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6'
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa6'
 
 const Footer = () => {
   return (
@@ -14,8 +14,8 @@ const Footer = () => {
           <a href='https://www.linkedin.com/in/ydumpeta/' target='_blank' rel="noopener noreferrer" className="social-icon">
             <FaLinkedin />
           </a>
-          <a href='https://twitter.com/yashdumpeta' target='_blank' rel="noopener noreferrer" className="social-icon">
-            <FaXTwitter />
+          <a href='mailto:ydumpeta@gmail.com' className="social-icon">
+            <FaEnvelope />
           </a>
         </div>
       </div>

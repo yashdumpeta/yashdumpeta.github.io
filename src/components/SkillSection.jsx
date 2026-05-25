@@ -1,8 +1,7 @@
 import React from 'react'
 import './SkillSection.css'
-import { FaJs, FaHtml5, FaCss3, FaRProject, FaDatabase, FaJava, FaTerminal, FaCode, FaLayerGroup } from 'react-icons/fa'
-import { SiCplusplus, SiC, SiJulia, SiAnaconda, SiVisualstudiocode, SiPython, SiPostgresql, SiNumpy, SiNextdotjs, SiTypescript, SiNodedotjs, SiExpress, SiGo, SiDocker, SiRailway, SiPhp, SiKubernetes, SiMongodb, SiOracle, SiSupabase, SiRedhatopenshift, SiDjango, SiReact, SiPandas, SiSqlite, SiGithub } from "react-icons/si";
-import { BiSolidBarChartAlt2 } from 'react-icons/bi';
+import { FaJs, FaDatabase, FaTerminal, FaCode, FaLayerGroup, FaComments } from 'react-icons/fa'
+import { SiCplusplus, SiPython, SiPostgresql, SiNumpy, SiNextdotjs, SiTypescript, SiNodedotjs, SiExpress, SiDocker, SiKubernetes, SiMongodb, SiDjango, SiReact, SiPandas } from "react-icons/si";
 
 const MarqueeRow = ({ skills, direction = 'left', title, icon }) => {
   // Duplicate skills to create a seamless loop
@@ -30,69 +29,82 @@ const MarqueeRow = ({ skills, direction = 'left', title, icon }) => {
 };
 
 const SkillSection = ({ isBento }) => {
-  const languages = [
-    { icon: <SiCplusplus />, name: 'C++' },
-    { icon: <SiC />, name: 'C' },
-    { icon: <SiPython />, name: 'Python' },
-    { icon: <FaJs />, name: 'JavaScript' },
-    { icon: <FaJava />, name: 'Java' },
-    { icon: <SiPhp />, name: 'PHP' },
-    { icon: <FaHtml5 />, name: 'HTML' },
-    { icon: <FaCss3 />, name: 'CSS' },
-    { icon: <SiTypescript />, name: 'TypeScript' },
-    { icon: <SiGo />, name: 'GoLang' },
-    { icon: <FaDatabase />, name: 'SQL' },
-    { icon: <FaRProject />, name: 'R' },
-    { icon: <SiJulia />, name: 'Julia' }
-  ];
-
-  const frameworks = [
-    { icon: <SiReact />, name: 'React.js' },
-    { icon: <SiNextdotjs />, name: 'Next.js' },
-    { icon: <SiNodedotjs />, name: 'Node.js' },
-    { icon: <SiExpress />, name: 'Express.js' },
-    { icon: <SiDjango />, name: 'Django' },
-    { icon: <SiPandas />, name: 'Pandas' },
-    { icon: <SiNumpy />, name: 'NumPy' },
-    { icon: <SiSupabase />, name: 'Supabase' }, // Moved from tools to frameworks
-    { icon: <SiRedhatopenshift />, name: 'Openshift' }
-  ];
-
-  const tools = [
-    { icon: <SiDocker />, name: 'Docker' },
-    { icon: <SiKubernetes />, name: 'Kubernetes' },
-    { icon: <SiGithub />, name: 'Github' },
-    { icon: <SiMongodb />, name: 'MongoDB' },
-    { icon: <SiOracle />, name: 'OracleDB' },
-    { icon: <SiPostgresql />, name: 'PostgreSQL' },
-    { icon: <SiSqlite />, name: 'SQLite' },
-    { icon: <SiVisualstudiocode />, name: 'VSCode' },
-    { icon: <SiAnaconda />, name: 'Anaconda' },
-    { icon: <SiRailway />, name: 'Railway' },
-    { icon: <BiSolidBarChartAlt2 />, name: 'PowerBI' }
+  const skillGroups = [
+    {
+      title: 'Core Engineering',
+      icon: <FaCode />,
+      direction: 'left',
+      skills: [
+        { icon: <SiPython />, name: 'Python' },
+        { icon: <SiTypescript />, name: 'TypeScript' },
+        { icon: <FaJs />, name: 'JavaScript' },
+        { icon: <SiCplusplus />, name: 'C++' },
+        { icon: <FaDatabase />, name: 'SQL' },
+      ],
+    },
+    {
+      title: 'Frontend / Full-Stack',
+      icon: <FaLayerGroup />,
+      direction: 'right',
+      skills: [
+        { icon: <SiReact />, name: 'React.js' },
+        { icon: <SiNextdotjs />, name: 'Next.js' },
+        { icon: <SiNodedotjs />, name: 'Node.js' },
+        { icon: <SiExpress />, name: 'Express.js' },
+        { icon: <SiDjango />, name: 'Django' },
+        { name: 'Tailwind CSS' },
+      ],
+    },
+    {
+      title: 'Backend / Data / Infrastructure',
+      icon: <FaTerminal />,
+      direction: 'left',
+      skills: [
+        { icon: <SiPostgresql />, name: 'PostgreSQL' },
+        { icon: <SiMongodb />, name: 'MongoDB' },
+        { name: 'REST APIs' },
+        { icon: <SiDocker />, name: 'Docker' },
+        { icon: <SiKubernetes />, name: 'Kubernetes' },
+        { name: 'GitHub Actions' },
+      ],
+    },
+    {
+      title: 'ML / Data',
+      icon: <FaDatabase />,
+      direction: 'right',
+      skills: [
+        { name: 'PyTorch' },
+        { icon: <SiPandas />, name: 'Pandas' },
+        { icon: <SiNumpy />, name: 'NumPy' },
+        { name: 'ML Workflows' },
+        { name: 'Data Processing' },
+      ],
+    },
+    {
+      title: 'Customer-Facing Technical',
+      icon: <FaComments />,
+      direction: 'left',
+      skills: [
+        { name: 'Technical Communication' },
+        { name: 'Documentation' },
+        { name: 'User Pain Point Discovery' },
+        { name: 'Workflow Design' },
+      ],
+    },
   ];
 
   if (isBento) {
     return (
       <div className="skills-marquee-container">
-        <MarqueeRow 
-          skills={languages} 
-          direction="left" 
-          title="Languages" 
-          icon={<FaCode />}
-        />
-        <MarqueeRow 
-          skills={frameworks} 
-          direction="right" 
-          title="Frameworks" 
-          icon={<FaLayerGroup />}
-        />
-        <MarqueeRow 
-          skills={tools} 
-          direction="left" 
-          title="Tools & Databases" 
-          icon={<FaTerminal />}
-        />
+        {skillGroups.map((group) => (
+          <MarqueeRow
+            key={group.title}
+            skills={group.skills}
+            direction={group.direction}
+            title={group.title}
+            icon={group.icon}
+          />
+        ))}
       </div>
     );
   }
@@ -101,40 +113,22 @@ const SkillSection = ({ isBento }) => {
     <div className="section skill-section">
       <div id="skill-container">
         <h2 id='skills-intro'>
-          I've built proficiency in these technologies through coursework, side projects, and continuous learning.
+          A focused view of the technologies and technical practices I use across software engineering, data, infrastructure, and customer-facing problem solving.
         </h2>
-        <br />
-        <br />
-        <div id='languages_section'>
-          <span id='lang-label'>Languages : </span>
-          <div id='lang-items'>
-            {languages.map((skill, index) => (
-              <div key={`lang-${index}`} className="skill-item">
-                {skill.icon} <span className='skill-name'>{skill.name}</span>
+        <div className="skill-groups">
+          {skillGroups.map((group) => (
+            <div key={group.title} className="skill-group">
+              <span className="skill-group-label">{group.title}</span>
+              <div className="skill-group-items">
+                {group.skills.map((skill, index) => (
+                  <div key={`${group.title}-${index}`} className="skill-item">
+                    {skill.icon} <span className='skill-name'>{skill.name}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+          ))}
           </div>
-        </div>
-        <div id='frameworks_libraries_section'>
-          <span id='f_l_label'>Frameworks / Libraries :</span>
-          <div id='f_l_items'>
-            {frameworks.map((skill, index) => (
-              <div key={`fw-${index}`} className="skill-item">
-                {skill.icon} <span className='skill-name'>{skill.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div id='tools_section'>
-          <span id='tools-label'>Developer Tools :</span>
-          <div id='tools-items'>
-            {tools.map((skill, index) => (
-              <div key={`tool-${index}`} className="skill-item">
-                {skill.icon} <span className='skill-name'>{skill.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   )

@@ -103,7 +103,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 16px;
+    margin: 0 0 28px;
 }
 
 .project-tag {
@@ -117,15 +117,28 @@
 
 .project-title {
     font-size: 32px;
-    margin: 0 0 16px;
+    margin: 0 0 14px;
     color: var(--text-primary);
+}
+
+.featured-project-badge {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: 12px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(29, 78, 216, 0.1);
+    border: 1px solid rgba(29, 78, 216, 0.22);
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: 700;
 }
 
 .project-description {
     font-size: 18px;
     color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: 32px;
+    margin: 0 0 20px;
 }
 
 .project-links {

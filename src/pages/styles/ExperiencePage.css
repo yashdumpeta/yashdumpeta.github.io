@@ -137,8 +137,15 @@
 .work-position {
     color: var(--accent-color);
     font-weight: 600;
-    margin: 8px 0 16px 0;
+    margin: 8px 0 8px 0;
     font-size: 18px;
+}
+
+.work-location {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 0 16px;
 }
 
 .work-description {

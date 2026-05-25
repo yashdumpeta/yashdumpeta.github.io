@@ -2,16 +2,14 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./LandingPage.css";
 import SkillSection from "../components/SkillSection";
-import { FaArrowRight, FaCode, FaEnvelope, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaArrowRight, FaCode, FaEnvelope, FaFileLines, FaGithub, FaLinkedin } from "react-icons/fa6";
 import Footer from "../components/Footer";
-import prof2 from "../assets/images/prof-pic2.jpg";
 import CircularText from "../components/CircularText";
 import fileEarmarkCodeIcon from "../assets/images/file-earmark-code-fill.svg";
 import accountIcon from "../assets/images/account_17740774.png";
 import bagIcon from "../assets/images/bag_12565748.png";
 import { projects } from "../data/projects";
 import pfp4 from "../assets/images/pfp4.JPG";
-import pfp5 from "../assets/images/pfp5.JPG";
 
 
 // Experience images
@@ -20,19 +18,18 @@ import merc from "../assets/images/merc.jpeg";
 import skylark from "../assets/images/skylark.jpg";
 import spire from "../assets/images/spire.png";
 import nobe from "../assets/images/nobe.png";
-import rec from "../assets/images/recsports.png";
 import pjtl from "../assets/images/pjtl.png";
 import inceptev from "../assets/images/inceptev.png";
 import u5 from "../assets/images/utilidata5.png";
 import umits from "../assets/images/umits.jpg";
 
 const LandingPage = () => {
-  const firstSentence = "Through internships and research, I've contributed to backend systems, ML workflows, and production infrastructure. I care about reliability, ";
-  const secondSentence = "clarity, and making incremental improvements that compound over time";
+  const firstSentence = "Through internships, projects, and consulting-oriented work, I've contributed to backend systems, ML workflows, and technical tools. I care about reliable engineering, ";
+  const secondSentence = "clear communication, and solving problems that matter to users and teams";
   const [displayedText, setDisplayedText] = useState(firstSentence);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
 
-  const projectsSubtitle = "Over the past few years, I've worked on various projects. Here are a few of my best";
+  const projectsSubtitle = "Selected projects focused on useful products, collaborative workflows, and full-stack execution";
   const [displayedProjectsSubtitle, setDisplayedProjectsSubtitle] = useState("");
   const [isProjectsTypingComplete, setIsProjectsTypingComplete] = useState(false);
   const [threadHeight, setThreadHeight] = useState(0);
@@ -172,44 +169,30 @@ const LandingPage = () => {
     {
       company: "Utilidata",
       period: "January 2025 - Present",
-      position: "Machine Learning Intern",
+      position: "Software Engineering Intern",
       type: "Internship",
-      location: "Remote",
-      skills: ["Python", "MLOps", "TensorFlow", "Model Optimization"],
+      location: "Ann Arbor, MI",
+      skills: ["Python", "ML Workflows", "Data Processing", "MLOps", "Generative AI", "Workflow Automation"],
       description: [
-        "Working on MLOps and Model Optimization for edge-AI applications."
+        "Built and evaluated a flow matching generative model for waveform data, exploring its potential for synthetic data generation, modeling, and downstream ML experimentation.",
+        "Improved reproducibility of internal ML workflows through tooling, documentation, and environment setup across local and remote systems.",
+        "Worked across Python, data processing, and infrastructure workflows to support model experimentation and optimization.",
+        "Collaborated with engineers to turn research-oriented model experiments into practical workflows that could be evaluated for production use."
       ],
       logo: u5,
     },
     {
-      company: "U-M Information and Technology Services",
+      company: "University of Michigan Information and Technology Services",
       period: "May 2025 - December 2025",
-      position: "Software Developer Intern",
+      position: "Software Engineering Intern",
       type: "Internship",
       location: "Ann Arbor, MI",
-      skills: ["Docker", "Kubernetes", "MongoDB", "Python", "GitHub Actions"],
+      skills: ["Docker", "Kubernetes", "GitHub Actions", "Platform Support", "Documentation"],
       description: [
-        "Maintaining and enhancing Docker- and Kubernetes-based research deployments—integrating MongoDB, eXist-db, and MariaDB backends.",
-        "Automating CI/CD workflows with GitHub Actions for Python, R, and PHP applications."
+        "Supported research computing infrastructure used by university researchers and technical teams.",
+        "Contributed to infrastructure workflows involving deployment, reliability, and platform support.",
+        "Worked with engineering teams to improve technical documentation and operational processes."
       ],
-      logo: umits,
-    },
-    {
-      company: "University of Michigan - Information and Technology Services",
-      period: "August 2025 - Present",
-      position: "Computer Consultant I",
-      type: "Part-time",
-      location: "Ann Arbor, MI",
-      skills: [
-        "Systems & Device Diagnostics",
-        "Operational Problem Solving",
-        "Technical Communication",
-        "User-Centered Support"
-      ],      
-      description: [
-        "Diagnosed and resolved hardware and software issues across macOS, Windows, printers, and other campus-managed systems, performing device imaging, system diagnostics, and on-site equipment maintenance.",
-        "Worked directly with students, faculty, and staff to clarify technical issues, present solution paths, and drive timely resolution in fast-paced, high-traffic environments."
-      ],       
       logo: umits,
     },
     {
@@ -218,36 +201,24 @@ const LandingPage = () => {
       position: "Data Science Intern",
       type: "Internship",
       location: "Ann Arbor, MI",
-      skills: ["Python", "Julia", "Pandas", "Data Validation", "Fleet Management"],
+      skills: ["Python", "Julia", "Pandas", "Data Validation", "Data Analysis"],
       description: [
-        "Conducted a data validation study on the simulation accuracy of InceptEV's fleet management software.",
-        "Implemented a data pipeline for 40+ hours of data, processing raw OBDLink data from a Ford Mach-E EV."
+        "Validated simulation datasets to identify inconsistencies, anomalies, and quality issues in EV-related data workflows.",
+        "Supported data cleaning and analysis processes used to improve simulation reliability and downstream evaluation."
       ],
       logo: inceptev,
     },
     {
-      company: "PJTL Electrification",
-      period: "August 2024 - Present",
-      position: "Student Researcher",
-      type: "Part-time",
-      location: "Ann Arbor, MI",
-      skills: ["Research", "Electrification", "Startups", "Product Development"],
-      description: [
-        "Collaborating with startups to tackle real-world challenges in the electrification space.",
-        "Gaining hands-on experience and entrepreneurial skills through immersive, industry-driven projects."
-      ],
-      logo: pjtl,
-    },
-    {
       company: "Spire Investment Partners",
       period: "June 2024 - August 2024",
-      position: "Technology & Cybersecurity Intern",
+      position: "Technology and Cybersecurity Intern",
       type: "Internship",
       location: "McLean, VA",
-      skills: ["RESTful APIs", "Database Design", "Project Management", "SDLC"],
+      skills: ["REST APIs", "Internal Tools", "Automation", "Cybersecurity", "Operations"],
       description: [
-        "Engineered a centralized web portal to streamline onboarding and offboarding processes using RESTful APIs.",
-        "Designed and implemented a secure, scalable employee directory database for over 200 clients and employees."
+        "Built internal tools and REST API workflows to streamline onboarding and operational processes.",
+        "Supported technology and cybersecurity initiatives for internal teams and customer-facing business operations.",
+        "Improved onboarding workflows for employees through automation and internal tooling."
       ],
       logo: spire,
     },
@@ -257,25 +228,12 @@ const LandingPage = () => {
       position: "Research Intern",
       type: "Internship",
       location: "Bangalore, India",
-      skills: ["Python", "Tkinter", "Research", "Image Processing"],
+      skills: ["Python", "Tkinter", "Image Processing", "Technical Communication"],
       description: [
-        "Collaborated with the Government of India Ministry of Skill Development to develop a drone operator course.",
-        "Developed a Python UI to convert thermal image datasets from R-JPEG to TIFF format."
+        "Created technical training materials for drone operator workflows in partnership with public-sector stakeholders.",
+        "Built a Python UI that helped users convert thermal image datasets from R-JPEG to TIFF with clearer feedback and validation."
       ],
       logo: skylark,
-    },
-    {
-      company: "U-M Recreational Sports",
-      period: "January 2024 - Present",
-      position: "Intramural Official",
-      type: "Part-time",
-      location: "Ann Arbor, MI",
-      skills: ["Leadership", "Communication", "Time Management"],
-      description: [
-        "Officiating basketball and soccer matches, demonstrating proficiency in fast-paced environments.",
-        "Managed game logistics including timekeeping, scorekeeping, and conflict resolution."
-      ],
-      logo: rec,
     },
     {
       company: "Michigan Equity Research Club",
@@ -283,10 +241,10 @@ const LandingPage = () => {
       position: "VP of Technology & Project Manager",
       type: "Leadership",
       location: "Ann Arbor, MI",
-      skills: ["Web Development", "Project Management", "Social Media"],
+      skills: ["Web Development", "Project Management", "Technical Communication"],
       description: [
-        "Built an online presence on social media and programmed the organization's website.",
-        "Led a project team researching and presenting equity analysis."
+        "Led technology and web efforts to improve the club's online presence and member communication.",
+        "Managed a student research team through market analysis, synthesis, and final presentation work."
       ],
       logo: merc,
     },
@@ -296,12 +254,25 @@ const LandingPage = () => {
       position: "Engineering Consultant",
       type: "Consulting",
       location: "Ann Arbor, MI",
-      skills: ["Figma", "Data Analytics", "Bioinformatics", "UX Research"],
+      skills: ["Consulting", "UX Research", "Figma", "Data Analysis", "Client Communication"],
       description: [
-        "Optimized user flow for U-M Human Resources Department website using workforce data analytics and Figma.",
-        "Collaborated with Curio Genomics to produce a database of crop ontologies and genome data."
+        "Worked with client teams to identify user pain points and improve technical workflows.",
+        "Contributed to website usability analysis for U-M Human Resources and data organization work for a bioinformatics client."
       ],
       logo: nobe,
+    },
+    {
+      company: "Center for Entrepreneurship - Perot Jain TechLab Electrification",
+      period: "August 2024 - Present",
+      position: "Student Researcher",
+      type: "Research",
+      location: "Ann Arbor, MI",
+      skills: ["Research", "Electrification", "Startup Collaboration", "Product Discovery"],
+      description: [
+        "Collaborated with early-stage electrification companies to understand technical and market constraints.",
+        "Translated ambiguous startup problems into research, product, and engineering recommendations."
+      ],
+      logo: pjtl,
     },
   ];
 
@@ -380,15 +351,15 @@ const LandingPage = () => {
               <img src={michLogo} alt="U-M" className="education-bento-logo" />
               <div className="education-bento-details">
                 <h2 className="education-bento-university">University of Michigan</h2>
-                <p className="education-bento-degree">B.S.E. in Computer Science</p>
+                <p className="education-bento-degree">B.S.E. in Computer Science and Engineering</p>
                 <p className="education-bento-period">2022 - 2026</p>
               </div>
             </div>
             <div className="bio-container">
               <p className="bio-text">
-                <italic>Hello,</italic> I'm <strong>Yash</strong>, a senior at the University of Michigan's College of Engineering studying <strong>Computer Science</strong>. <br /><br />
-
-                I'm interested in <strong>backend</strong> and <strong>product engineering</strong> in startup-style environments. I enjoy working on systems and product features that support real, usable applications.
+                <strong>Hi, I'm Yash Dumpeta.</strong><br /><br />
+                I'm a recent University of Michigan College of Engineering graduate with a <strong>B.S.E. in Computer Science and Engineering</strong>, currently working as a <strong>Software Engineering Intern at Utilidata</strong>.<br /><br />
+                I'm interested in <strong>backend</strong>, <strong>full-stack</strong>, and <strong>customer-facing technical roles</strong> where I can combine engineering, problem solving, and real-world impact.
               </p>
             </div>
           </div>
@@ -405,10 +376,10 @@ const LandingPage = () => {
           <a href="https://github.com/yashdumpeta" target="_blank" rel="noopener noreferrer" className="bento-card square-card square-3">
             <FaGithub />
           </a>
-          <a href="https://twitter.com/yash_dumpeta" target="_blank" rel="noopener noreferrer" className="bento-card square-card square-4">
-            <FaXTwitter />
+          <a href="/YD - Resume.pdf" target="_blank" rel="noopener noreferrer" className="bento-card square-card square-4" aria-label="View resume">
+            <FaFileLines />
           </a>
-          <a href="mailto:ydumpeta@umich.edu" className="bento-card square-card square-1">
+          <a href="mailto:ydumpeta@gmail.com" className="bento-card square-card square-1" aria-label="Email Yash">
             <FaEnvelope />
           </a>
 
@@ -420,10 +391,19 @@ const LandingPage = () => {
           {/* Skills Card - Bottom Right (Skills) */}
           <div className="bento-card skills-card">
             <p className="skills-intro-text">
-              A growing set of technologies I've learned and used through classes, personal projects, internships, and self-directed exploration to design, deploy, and maintain real software systems.
+              Core tools and practices I use across software engineering, ML/data workflows, infrastructure, and customer-facing technical work.
             </p>
             <SkillSection isBento />
           </div>
+        </div>
+      </section>
+
+      <section className="looking-section" aria-labelledby="looking-heading">
+        <div className="looking-card">
+          <h2 id="looking-heading">What I'm looking for</h2>
+          <p>
+            I'm currently exploring early-career opportunities across software engineering, backend/full-stack engineering, forward deployed engineering, solutions engineering, and technical consulting. I'm open to roles across the U.S.
+          </p>
         </div>
       </section>
 
@@ -516,6 +496,9 @@ const LandingPage = () => {
                 <img src={project.image} alt={project.title} />
               </div>
               <div className="project-card-content">
+                {project.featured && <span className="featured-project-badge">Featured Project</span>}
+                <h2 className="project-title serif">{project.title}</h2>
+                <p className="project-description">{project.description}</p>
                 <div className="project-tags">
                   {project.tech_used.map((tech, i) => (
                     <span key={i} className="project-tag">
@@ -523,8 +506,6 @@ const LandingPage = () => {
                     </span>
                   ))}
                 </div>
-                <h2 className="project-title serif">{project.title}</h2>
-                <p className="project-description">{project.description}</p>
                 <div className="project-links">
                   {project.link && (
                     <a
@@ -550,6 +531,20 @@ const LandingPage = () => {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="contact-section" aria-labelledby="contact-heading">
+        <div className="contact-panel">
+          <h2 id="contact-heading">Contact</h2>
+          <p>
+            I'm currently open to early-career software engineering, backend/full-stack engineering, forward deployed engineering, solutions engineering, and technical consulting roles across the U.S.
+          </p>
+          <div className="contact-links">
+            <a href="mailto:ydumpeta@gmail.com">Email: ydumpeta@gmail.com</a>
+            <a href="https://www.linkedin.com/in/ydumpeta/" target="_blank" rel="noopener noreferrer">LinkedIn: https://www.linkedin.com/in/ydumpeta/</a>
+            <a href="https://github.com/yashdumpeta" target="_blank" rel="noopener noreferrer">GitHub: https://github.com/yashdumpeta</a>
+          </div>
         </div>
       </section>
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import './Header.css';
 
 const Header = () => {
@@ -99,17 +98,9 @@ const Header = () => {
                             Projects
                         </a>
                         <a className="nav-link" href="/YD - Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-                    </div>
-                    <div className="social-icons">
-                        <a href="https://github.com/yashdumpeta" target="_blank" rel="noreferrer" className="social-icon">
-                            <FaGithub />
-                        </a>
-                        <a href="https://www.linkedin.com/in/ydumpeta/" target="_blank" rel="noreferrer" className="social-icon">
-                            <FaLinkedin />
-                        </a>
-                        <a href="https://twitter.com/yash_dumpeta" target="_blank" rel="noreferrer" className="social-icon">
-                            <FaXTwitter />
-                        </a>
+                        <a className="nav-link" href="https://github.com/yashdumpeta" target="_blank" rel="noreferrer">GitHub</a>
+                        <a className="nav-link" href="https://www.linkedin.com/in/ydumpeta/" target="_blank" rel="noreferrer">LinkedIn</a>
+                        <a className="nav-link" href="mailto:ydumpeta@gmail.com">Email</a>
                     </div>
                 </div>
             </nav>

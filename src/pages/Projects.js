@@ -29,13 +29,14 @@ const ProjectPage = () => {
                 <img src={project.image} alt={project.title} />
               </div>
               <div className="project-card-content">
+                {project.featured && <span className="featured-project-badge">Featured Project</span>}
+                <h2 className="project-title serif">{project.title}</h2>
+                <p className="project-description">{project.description}</p>
                 <div className="project-tags">
                   {project.tech_used.map((tech, i) => (
                     <span key={i} className="project-tag">{tech}</span>
                   ))}
                 </div>
-                <h2 className="project-title serif">{project.title}</h2>
-                <p className="project-description">{project.description}</p>
                 <div className="project-links">
                   {project.link && (
                     <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link-btn primary">
