@@ -1,7 +1,6 @@
 import Umazing from "../assets/images/Umazing.png";
 import Selectaraunt from "../assets/images/Selectaraunt.png";
 import recalld from "../assets/images/recalld.png";
-import recipeFind from "../assets/images/recipeFind.png";
 import tabChop from "../assets/images/tabchop8.png";
 
 export const projects = [
@@ -68,13 +67,5 @@ export const projects = [
     tech_used: ["Python", "Django", "React.js", "JavaScript", "MySQL"],
     description:
       "Full-stack flashcard app built to make active recall and spaced repetition easier to manage for focused study sessions.",
-  },
-  {
-    title: "recipeFind",
-    image: recipeFind,
-    source_code: "https://github.com/yashdumpeta/recipeFind",
-    tech_used: ["React.js", "JavaScript", "Edamam API"],
-    description:
-      "Recipe discovery web app that helps users search a large recipe database and quickly evaluate meal options by query.",
   },
 ];

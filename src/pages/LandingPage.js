@@ -349,6 +349,18 @@ const LandingPage = () => {
               </div>
             ))}
           </div>
+
+          <div className="projects-footer-cta">
+            <a
+              href="https://github.com/yashdumpeta?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="projects-more-btn"
+            >
+              <span>View More Projects</span>
+              <FaArrowRight className="cta-arrow" />
+            </a>
+          </div>
         </section>
 
         {/* SKILLS SECTION */}
