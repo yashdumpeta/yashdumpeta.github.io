@@ -165,11 +165,8 @@ const LandingPage = () => {
             </div>
             <div className="hero-title-block">
               <h1 className="hero-name">Yash Dumpeta</h1>
-              <div className="hero-role-row">
-                <span className="hero-role">Software Engineer</span>
-                <span className="role-divider">•</span>
-                <span className="hero-subtext">B.S.E. CSE @ University of Michigan</span>
-              </div>
+              <div className="hero-role">Engineer</div>
+              <div className="hero-education-line">B.S.E. in CSE @ University of Michigan</div>
             </div>
           </div>
 
