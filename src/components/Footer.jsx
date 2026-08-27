@@ -6,15 +6,15 @@ const Footer = () => {
     <footer className="footer-container">
       <div className="footer-inner">
         <div className="footer-left">
-          <p className="footer-text">
-            Designed &amp; Developed by <span className="footer-author">Yash Dumpeta</span>
-          </p>
-          <p className="footer-subtext">
-            Built with React &amp; Tailwind principles
+          <p className="footer-title">Yash Dumpeta</p>
+          <p className="footer-sys-status">
+            <span className="sys-key">sys.status:</span> <span className="sys-value">open to early-career roles</span>
           </p>
         </div>
         <div className="footer-right">
-          <p className="footer-copyright">&copy; {new Date().getFullYear()} All rights reserved.</p>
+          <p className="footer-built-with">
+            <span className="sys-key">built_with:</span> [react, tailwind, next] &bull; &copy; {new Date().getFullYear()}
+          </p>
         </div>
       </div>
     </footer>
