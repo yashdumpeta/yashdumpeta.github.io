@@ -1,75 +1,63 @@
 .footer-container {
-    margin: 80px auto 0;
-    padding: 32px;
-    max-width: 1200px;
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-    /* border-radius: var(--radius-lg); */
-    border-top-left-radius:  var(--radius-lg);
-    border-top-right-radius:  var(--radius-lg);
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    opacity: 0.7;
+    max-width: var(--container-width);
+    margin: 64px auto 32px;
+    padding: 24px 24px 0;
+    border-top: 1px dashed var(--border-dashed);
 }
 
-.footer-content {
+.footer-inner {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.footer-name {
-    font-size: 24px;
-    color: var(--text-primary);
-    font-weight: 700;
-}
-
-.footer-socials {
-    display: flex;
+    align-items: flex-start;
     gap: 16px;
 }
 
-.footer-socials .social-icon {
-    color: var(--text-secondary);
-    font-size: 20px;
-    transition: all 0.2s ease;
+.footer-left, .footer-right {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.05);
+    flex-direction: column;
+    gap: 4px;
 }
 
-.footer-socials .social-icon:hover {
-    color: var(--text-primary);
-    background: rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-    opacity: 1;
-}
-
-.footer-bottom {
-    text-align: center;
-    color: var(--text-muted);
+.footer-text {
+    margin: 0;
     font-size: 13px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    padding-top: 24px;
+    color: var(--text-secondary);
 }
 
-@media (max-width: 768px) {
+.footer-author {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.footer-subtext, .footer-copyright {
+    margin: 0;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer-location {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 640px) {
     .footer-container {
-        margin: 60px 20px 0;
-        padding: 24px;
+        margin-top: 48px;
+        padding: 20px 16px 0;
     }
 
-    .footer-content {
+    .footer-inner {
         flex-direction: column;
-        gap: 20px;
-        text-align: center;
+        gap: 12px;
+    }
+
+    .footer-right {
+        text-align: left;
     }
 }

@@ -1,29 +1,25 @@
-import React from 'react'
-import '../components/footer.css'
-import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa6'
+import React from 'react';
+import '../components/footer.css';
 
 const Footer = () => {
   return (
-    <footer className='footer-container'>
-      <div className="footer-content">
-        <div className='footer-name serif'>Yash Dumpeta</div>
-        <div className='footer-socials'>
-          <a href='https://github.com/yashdumpeta' target='_blank' rel="noopener noreferrer" className="social-icon">
-            <FaGithub />
-          </a>
-          <a href='https://www.linkedin.com/in/ydumpeta/' target='_blank' rel="noopener noreferrer" className="social-icon">
-            <FaLinkedin />
-          </a>
-          <a href='mailto:ydumpeta@gmail.com' className="social-icon">
-            <FaEnvelope />
-          </a>
+    <footer className="footer-container">
+      <div className="footer-inner">
+        <div className="footer-left">
+          <p className="footer-text">
+            Designed &amp; Developed by <span className="footer-author">Yash Dumpeta</span>
+          </p>
+          <p className="footer-subtext">
+            Built with React &amp; Tailwind principles
+          </p>
+        </div>
+        <div className="footer-right">
+          <p className="footer-location">Ann Arbor, MI</p>
+          <p className="footer-copyright">&copy; {new Date().getFullYear()} All rights reserved.</p>
         </div>
       </div>
-      {/* <div className="footer-bottom">
-        <p>&copy; 2025 Yash Dumpeta. All rights reserved.</p>
-      </div> */}
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

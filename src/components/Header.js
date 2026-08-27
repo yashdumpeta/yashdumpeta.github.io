@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
+import { FaFileLines } from 'react-icons/fa6';
 
 const Header = () => {
     const [activeSection, setActiveSection] = useState('home');
+    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ['home', 'experience', 'projects'];
-            const scrollPosition = window.scrollY + 150;
+            setScrolled(window.scrollY > 20);
+
+            const sections = ['home', 'experience', 'projects', 'skills'];
+            const scrollPosition = window.scrollY + 120;
 
             for (const section of sections) {
                 const element = document.getElementById(section);
                 if (element) {
                     const offsetTop = element.offsetTop;
                     const offsetBottom = offsetTop + element.offsetHeight;
-                    
+
                     if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
                         setActiveSection(section);
                         break;
@@ -24,7 +28,7 @@ const Header = () => {
         };
 
         window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Check on mount
+        handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -32,7 +36,7 @@ const Header = () => {
         e.preventDefault();
         const element = document.getElementById(sectionId);
         if (element) {
-            const headerOffset = 100;
+            const headerOffset = 80;
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -43,69 +47,60 @@ const Header = () => {
         }
     };
 
-    const scrollToProjectsNode = (e) => {
-        e.preventDefault();
-        const node = document.getElementById('projects-thread-node');
-        if (node) {
-            const headerOffset = 100;
-            const nodePosition = node.getBoundingClientRect().top;
-            const offsetPosition = nodePosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        } else {
-            // Fallback to projects section if node not found
-            scrollToSection(e, 'projects');
-        }
-    };
-
-    const scrollToTop = (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
     return (
-        <div className="header-wrapper">
-            <nav className="nav-pill">
-                <div className="nav-left">
-                    <a className="nav-name" href="#home" onClick={scrollToTop}>
-                        Yash Dumpeta
+        <header className={`minimal-header-wrapper ${scrolled ? 'is-scrolled' : ''}`}>
+            <div className="header-inner">
+                <a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="header-brand">
+                    <span className="brand-dot"></span>
+                    <span className="brand-name">Yash Dumpeta</span>
+                </a>
+
+                <nav className="header-nav">
+                    <a
+                        href="#home"
+                        className={`nav-item ${activeSection === 'home' ? 'active' : ''}`}
+                        onClick={(e) => scrollToSection(e, 'home')}
+                    >
+                        About
+                    </a>
+                    <a
+                        href="#experience"
+                        className={`nav-item ${activeSection === 'experience' ? 'active' : ''}`}
+                        onClick={(e) => scrollToSection(e, 'experience')}
+                    >
+                        Experience
+                    </a>
+                    <a
+                        href="#projects"
+                        className={`nav-item ${activeSection === 'projects' ? 'active' : ''}`}
+                        onClick={(e) => scrollToSection(e, 'projects')}
+                    >
+                        Projects
+                    </a>
+                    <a
+                        href="#skills"
+                        className={`nav-item ${activeSection === 'skills' ? 'active' : ''}`}
+                        onClick={(e) => scrollToSection(e, 'skills')}
+                    >
+                        Skills
+                    </a>
+                </nav>
+
+                <div className="header-actions">
+                    <a
+                        href="/YD - Resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="resume-btn"
+                        title="View Resume"
+                    >
+                        <FaFileLines className="btn-icon" />
+                        <span>Resume</span>
                     </a>
                 </div>
-                <div className="nav-right">
-                    <div className="nav-links">
-                        <a 
-                            className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} 
-                            href="#home" 
-                            onClick={(e) => scrollToSection(e, 'home')}
-                        >
-                            Home
-                        </a>
-                        <a 
-                            className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`} 
-                            href="#experience" 
-                            onClick={(e) => scrollToSection(e, 'experience')}
-                        >
-                            Experience
-                        </a>
-                        <a 
-                            className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`} 
-                            href="#projects" 
-                            onClick={scrollToProjectsNode}
-                        >
-                            Projects
-                        </a>
-                        <a className="nav-link" href="/YD - Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-                        <a className="nav-link" href="https://github.com/yashdumpeta" target="_blank" rel="noreferrer">GitHub</a>
-                        <a className="nav-link" href="https://www.linkedin.com/in/ydumpeta/" target="_blank" rel="noreferrer">LinkedIn</a>
-                        <a className="nav-link" href="mailto:ydumpeta@gmail.com">Email</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
+            </div>
+        </header>
     );
-}
+};
 
 export default Header;

@@ -1,12 +1,6 @@
-/* PP Mori Font */
-@font-face {
-  font-family: 'PP Mori';
-  src: url('./assets/fonts/PP Mori - Free for Personal Use v1.0/PPMori-Extralight.otf') format('opentype');
-  font-weight: 200;
-  font-display: swap;
-  font-style: normal;
-}
+@import './assets/fonts/Satoshi_Complete/Fonts/WEB/css/satoshi.css';
 
+/* PP Mori Font */
 @font-face {
   font-family: 'PP Mori';
   src: url('./assets/fonts/PP Mori - Free for Personal Use v1.0/PPMori-Regular.otf') format('opentype');
@@ -23,74 +17,93 @@
   font-style: normal;
 }
 
+/* Geist Font */
 @font-face {
-  font-family: 'PP Mori';
-  src: url('./assets/fonts/PP Mori - Free for Personal Use v1.0/PPMori-ExtralightItalic.otf') format('opentype');
-  font-weight: 200;
+  font-family: 'Geist';
+  src: url('./assets/fonts/Geist/Geist-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
   font-display: swap;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'PP Mori';
-  src: url('./assets/fonts/PP Mori - Free for Personal Use v1.0/PPMori-RegularItalic.otf') format('opentype');
-  font-weight: 400;
-  font-display: swap;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'PP Mori';
-  src: url('./assets/fonts/PP Mori - Free for Personal Use v1.0/PPMori-SemiBoldItalic.otf') format('opentype');
-  font-weight: 600;
-  font-display: swap;
-  font-style: italic;
+  font-style: normal;
 }
 
 :root {
-  --radius-lg: 32px;
-  --radius-md: 24px;
-  --radius-sm: 12px;
-  --glass-bg: rgba(255, 255, 255, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.3);
-  --glass-blur: blur(12px);
-  --text-primary: #1a1a1a;
-  --text-secondary: #404040;
-  --text-muted: #666666;
-  --accent-color: #1D4ED8;
-  --line-color: #1e40af;
-  --accent-hover: #1e40af;
-  --anchor-bg: #171717;
-  --font-sans: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --grid-gap: 25px;
+  --bg-color: #09090b;
+  --bg-card: rgba(24, 24, 27, 0.4);
+  --bg-card-hover: rgba(39, 39, 42, 0.6);
+  --bg-badge: #18181b;
+  --bg-badge-hover: #27272a;
+  --border-color: #27272a;
+  --border-dashed: #27272a;
+  --border-hover: #3f3f46;
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --accent-blue: #3b82f6;
+  --accent-green: #22c55e;
   
-  /* Technical Grid Overlay System - Rectangular cells (long side vertical) */
-  --grid-cell-width: 40px; /* Horizontal spacing (shorter) */
-  --grid-cell-height: 60px; /* Vertical spacing (longer) */
-  --grid-accent-interval-x: 160px; /* Every 4th horizontal line (4 * 40px) */
-  --grid-accent-interval-y: 240px; /* Every 4th vertical line (4 * 60px) */
-  --grid-line-color: rgba(15, 23, 42, 0.06);
-  --grid-accent-color: rgba(15, 23, 42, 0.12);
-  --grid-dot-color: rgba(15, 23, 42, 0.15);
+  --font-sans: 'Satoshi-Variable', 'Geist', 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  
+  --container-width: 720px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-secondary);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--text-secondary);
-  background: fixed;
+  line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6, .serif {
-  font-family: var(--font-sans);
-  font-weight: 700;
+::selection {
+  background-color: rgba(244, 244, 245, 0.2);
+  color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.02em;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+code, .font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
 }
