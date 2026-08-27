@@ -15,7 +15,13 @@
 
 /* HERO / BIO SECTION */
 .hero-section-minimal {
-    padding: 48px 0 32px;
+    padding: 48px 0 16px;
+}
+
+/* SECTION DIVIDERS (INSET DASHED LINES) */
+.section-divider {
+    width: calc(100% - 64px);
+    margin: 40px auto;
     border-bottom: 1px dashed var(--border-dashed);
 }
 
@@ -186,7 +192,7 @@
 
 /* SECTION BLOCKS */
 .section-block {
-    margin-top: 48px;
+    margin-top: 0;
     scroll-margin-top: 80px;
 }
 

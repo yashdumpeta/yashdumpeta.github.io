@@ -175,10 +175,13 @@ const LandingPage = () => {
 
           <div className="hero-bio">
             <p>
-              I&apos;m a Computer Science &amp; Engineering graduate from the <strong>University of Michigan</strong>, currently working as a <strong>Software Engineering Intern at Utilidata</strong>.
+              I&apos;m a Computer Science &amp; Engineering graduate from the <strong>University of Michigan</strong> and currently work as a <strong>Software Engineering Intern at Utilidata</strong>.
             </p>
             <p>
-              I specialize in building reliable <strong>backend systems</strong>, <strong>machine learning workflows</strong>, and <strong>full-stack products</strong>. I care about high-signal execution, clean software architecture, and building software that delivers tangible value to users.
+              Coming from an international background, I&apos;ve learned to adapt quickly, wear different hats, and figure things out without needing everything mapped out. I enjoy working in close team environments, taking messy or unclear problems, and simply building practical software that gets the job done.
+            </p>
+            <p>
+              Outside of tech, I&apos;m a big sports fan, love following Formula 1, and always enjoy picking up new skills.
             </p>
           </div>
 
@@ -227,6 +230,8 @@ const LandingPage = () => {
             </span>
           </div>
         </section>
+
+        <div className="section-divider"></div>
 
         {/* EXPERIENCE SECTION */}
         <section id="experience" className="section-block">
@@ -283,6 +288,8 @@ const LandingPage = () => {
             })}
           </div>
         </section>
+
+        <div className="section-divider"></div>
 
         {/* PROJECTS SECTION */}
         <section id="projects" className="section-block">
@@ -363,8 +370,12 @@ const LandingPage = () => {
           </div>
         </section>
 
+        <div className="section-divider"></div>
+
         {/* SKILLS SECTION */}
         <SkillSection />
+
+        <div className="section-divider"></div>
 
         {/* CONTACT CALLOUT */}
         <section id="contact" className="section-block contact-block">
