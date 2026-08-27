@@ -20,7 +20,7 @@
 
 .footer-text {
     margin: 0;
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-secondary);
 }
 
@@ -31,7 +31,7 @@
 
 .footer-subtext, .footer-copyright {
     margin: 0;
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
     font-family: var(--font-mono);
 }
@@ -42,7 +42,7 @@
 
 .footer-location {
     margin: 0;
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-secondary);
 }
 

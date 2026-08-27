@@ -328,9 +328,11 @@ const LandingPage = () => {
                           href={project.source_code}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="link-pill"
+                          className="link-pill icon-only"
+                          title="View Source Code on GitHub"
+                          aria-label="View Source Code on GitHub"
                         >
-                          GitHub <FaGithub className="link-icon" />
+                          <FaGithub className="github-link-icon" />
                         </a>
                       )}
                     </div>
