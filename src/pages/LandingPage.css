@@ -18,10 +18,10 @@
     padding: 48px 0 16px;
 }
 
-/* SECTION DIVIDERS (INSET DASHED LINES) */
+/* SECTION DIVIDERS (FULL CONTENT LENGTH DASHED LINES) */
 .section-divider {
-    width: calc(100% - 64px);
-    margin: 40px auto;
+    width: 100%;
+    margin: 40px 0;
     border-bottom: 1px dashed var(--border-dashed);
 }
 

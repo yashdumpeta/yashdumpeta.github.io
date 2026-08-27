@@ -372,32 +372,6 @@ const LandingPage = () => {
         {/* SKILLS SECTION */}
         <SkillSection />
 
-        <div className="section-divider"></div>
-
-        {/* CONTACT CALLOUT */}
-        <section id="contact" className="section-block contact-block">
-          <div className="contact-card">
-            <h2 className="contact-heading">Looking for a Software Engineer?</h2>
-            <p className="contact-text">
-              I&apos;m currently exploring full-time opportunities in software engineering, backend/full-stack engineering, and technical consulting across the U.S. Let&apos;s build something great together.
-            </p>
-            <div className="contact-actions">
-              <button className="contact-btn-primary" onClick={handleCopyEmail}>
-                {copiedEmail ? <FaCheck /> : <FaEnvelope />}
-                <span>{copiedEmail ? "Email Copied!" : "ydumpeta@gmail.com"}</span>
-              </button>
-              <a
-                href="https://www.linkedin.com/in/ydumpeta/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-btn-secondary"
-              >
-                <FaLinkedin /> LinkedIn
-              </a>
-            </div>
-          </div>
-        </section>
-
         <Footer />
       </div>
     </div>
