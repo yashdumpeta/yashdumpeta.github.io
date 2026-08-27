@@ -14,7 +14,6 @@ const Footer = () => {
           </p>
         </div>
         <div className="footer-right">
-          <p className="footer-location">Ann Arbor, MI</p>
           <p className="footer-copyright">&copy; {new Date().getFullYear()} All rights reserved.</p>
         </div>
       </div>
