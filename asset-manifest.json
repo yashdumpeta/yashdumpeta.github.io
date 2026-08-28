@@ -1,12 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.7b8b7df7.css",
-    "main.js": "/static/js/main.92762e20.js",
+    "main.js": "/static/js/main.17be9773.js",
     "static/js/453.acca0757.chunk.js": "/static/js/453.acca0757.chunk.js",
     "static/media/tabchop-mockup.png": "/static/media/tabchop-mockup.81279e669967454706d0.png",
     "static/media/Umazing.png": "/static/media/Umazing.6575a75ac6be9dc07d7d.png",
     "static/media/Selectaraunt.png": "/static/media/Selectaraunt.734e0be29ca068bad744.png",
     "static/media/nobe.png": "/static/media/nobe.e87834316ade6eb03052.png",
+    "static/media/curb_telemetry_mock.webp": "/static/media/curb_telemetry_mock.2ffee6380de19ef9bcd2.webp",
     "static/media/skylark.jpg": "/static/media/skylark.6c748b3adcd62802c34f.jpg",
     "static/media/pfp4.JPG": "/static/media/pfp4.16b87ff541e79d3c2e34.JPG",
     "static/media/pjtl.png": "/static/media/pjtl.f28ece8edc678de8dce6.png",
@@ -15,11 +16,11 @@
     "static/media/merc.jpeg": "/static/media/merc.182188414064cd966229.jpeg",
     "index.html": "/index.html",
     "main.7b8b7df7.css.map": "/static/css/main.7b8b7df7.css.map",
-    "main.92762e20.js.map": "/static/js/main.92762e20.js.map",
+    "main.17be9773.js.map": "/static/js/main.17be9773.js.map",
     "453.acca0757.chunk.js.map": "/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7b8b7df7.css",
-    "static/js/main.92762e20.js"
+    "static/js/main.17be9773.js"
   ]
 }
