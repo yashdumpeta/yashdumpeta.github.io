@@ -112,12 +112,9 @@
     transform: scale(1.05);
 }
 
-.theme-sun {
-    color: #f59e0b;
-}
-
+.theme-sun,
 .theme-moon {
-    color: #818cf8;
+    color: var(--text-primary);
 }
 
 @media (max-width: 640px) {
