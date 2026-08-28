@@ -1,21 +1,12 @@
 import Umazing from "../assets/images/Umazing.png";
 import Selectaraunt from "../assets/images/Selectaraunt.png";
-import recalld from "../assets/images/recalld.png";
-import tabChop from "../assets/images/tabchop8.png";
-import recipeFind from "../assets/images/recipeFind.png";
+import tabChopMockup from "../assets/images/tabchop-mockup.png";
 
 export const projects = [
   {
-    title: "@open-tracker/core",
-    source_code: "https://github.com/yashdumpeta/open-tracker-core",
-    tech_used: ["TypeScript", "Zod", "Node.js", "SDK Architecture", "Exponential Backoff"],
-    description:
-      "Lightweight, framework-agnostic TypeScript SDK core for tracking analytics and ad events with Zod runtime type validation, exponential backoff network retries, and automatic metadata extraction.",
-  },
-  {
     title: "TabChop",
     featured: true,
-    image: tabChop,
+    image: tabChopMockup,
     tech_used: [
       "TypeScript",
       "Next.js",
@@ -28,6 +19,13 @@ export const projects = [
     description:
       "Real-time bill-splitting app for groups at restaurants. Users can upload a receipt, invite friends with a code or QR link, claim items live, and generate transparent payment summaries.",
     link: "https://tabchop.app/overview",
+  },
+  {
+    title: "@open-tracker/core",
+    source_code: "https://github.com/yashdumpeta/open-tracker-core",
+    tech_used: ["TypeScript", "Zod", "Node.js", "SDK Architecture", "Exponential Backoff"],
+    description:
+      "Lightweight, framework-agnostic TypeScript SDK core for tracking analytics and ad events with Zod runtime type validation, exponential backoff network retries, and automatic metadata extraction.",
   },
   {
     title: "UMazing",
@@ -67,21 +65,5 @@ export const projects = [
     description:
       "Real-time group restaurant decision app that lets friends compare options, vote together, and converge on a place faster.",
     link: "https://selectaraunt.up.railway.app/",
-  },
-  {
-    title: "recalld",
-    image: recalld,
-    source_code: "https://github.com/yashdumpeta/recalld",
-    tech_used: ["Python", "Django", "React.js", "JavaScript", "MySQL"],
-    description:
-      "Full-stack flashcard app built to make active recall and spaced repetition easier to manage for focused study sessions.",
-  },
-  {
-    title: "recipeFind",
-    image: recipeFind,
-    source_code: "https://github.com/yashdumpeta/recipeFind",
-    tech_used: ["JavaScript", "HTML5", "CSS3", "Spoonacular API"],
-    description:
-      "Interactive recipe search engine that filters meals by ingredients on hand, dietary constraints, and caloric targets.",
   },
 ];
