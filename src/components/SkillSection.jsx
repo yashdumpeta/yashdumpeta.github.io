@@ -1,7 +1,23 @@
 import React from 'react';
 import './SkillSection.css';
-import { FaCode, FaLayerGroup, FaTerminal, FaDatabase, FaComments } from 'react-icons/fa6';
-import { SiPython, SiTypescript, SiPostgresql, SiNextdotjs, SiReact, SiNodedotjs, SiExpress, SiDocker, SiKubernetes, SiDjango, SiPandas, SiNumpy, SiMongodb } from 'react-icons/si';
+import { FaCode, FaLayerGroup, FaTerminal, FaDatabase, FaGears } from 'react-icons/fa6';
+import {
+  SiPython,
+  SiTypescript,
+  SiPostgresql,
+  SiNextdotjs,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiDocker,
+  SiKubernetes,
+  SiPandas,
+  SiNumpy,
+  SiGo,
+  SiFastapi,
+  SiRedhatopenshift,
+  SiGithub
+} from 'react-icons/si';
 
 const skillGroups = [
   {
@@ -11,6 +27,7 @@ const skillGroups = [
       { name: 'Python', icon: <SiPython /> },
       { name: 'TypeScript', icon: <SiTypescript /> },
       { name: 'JavaScript' },
+      { name: 'Go', icon: <SiGo /> },
       { name: 'C++' },
       { name: 'SQL' },
     ],
@@ -22,9 +39,9 @@ const skillGroups = [
       { name: 'React.js', icon: <SiReact /> },
       { name: 'Next.js', icon: <SiNextdotjs /> },
       { name: 'Node.js', icon: <SiNodedotjs /> },
-      { name: 'Express.js', icon: <SiExpress /> },
-      { name: 'Django', icon: <SiDjango /> },
       { name: 'Tailwind CSS' },
+      { name: 'Convex' },
+      { name: 'Express.js', icon: <SiExpress /> },
     ],
   },
   {
@@ -32,32 +49,34 @@ const skillGroups = [
     icon: <FaTerminal />,
     skills: [
       { name: 'PostgreSQL', icon: <SiPostgresql /> },
-      { name: 'MongoDB', icon: <SiMongodb /> },
       { name: 'REST APIs' },
       { name: 'Docker', icon: <SiDocker /> },
       { name: 'Kubernetes', icon: <SiKubernetes /> },
-      { name: 'GitHub Actions' },
+      { name: 'Red Hat OpenShift', icon: <SiRedhatopenshift /> },
+      { name: 'Git / GitHub', icon: <SiGithub /> },
     ],
   },
   {
-    title: 'ML & Data Engineering',
+    title: 'Data Engineering & Processing',
     icon: <FaDatabase />,
     skills: [
-      { name: 'PyTorch' },
+      { name: 'ETL Pipelines' },
       { name: 'Pandas', icon: <SiPandas /> },
       { name: 'NumPy', icon: <SiNumpy /> },
-      { name: 'ML Workflows' },
-      { name: 'Synthetic Data' },
+      { name: 'Parquet' },
+      { name: 'FastAPI', icon: <SiFastapi /> },
+      { name: 'API Integrations' },
     ],
   },
   {
-    title: 'Technical Execution',
-    icon: <FaComments />,
+    title: 'Operational & Team Execution',
+    icon: <FaGears />,
     skills: [
-      { name: 'Tech Communication' },
+      { name: 'Technical Troubleshooting' },
       { name: 'System Documentation' },
-      { name: 'UX & Pain Discovery' },
-      { name: 'Consulting Workflows' },
+      { name: 'Cross-Functional Collaboration' },
+      { name: 'Fast Onboarding & Ramp-Up' },
+      { name: 'High Agency & Ownership' },
     ],
   },
 ];
@@ -68,7 +87,7 @@ const SkillSection = () => {
       <div className="section-header">
         <h2 className="section-title">Skills &amp; Technologies</h2>
         <p className="section-subtitle">
-          Core tools, frameworks, and engineering practices I use to build scalable software.
+          Core tools, frameworks, and workflows I use to build reliable software, data pipelines, and full-stack products.
         </p>
       </div>
 

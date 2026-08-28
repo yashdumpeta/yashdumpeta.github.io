@@ -219,13 +219,6 @@ const LandingPage = () => {
               <span>Resume</span>
             </a>
           </div>
-
-          <div className="hero-status-box">
-            <span className="pulse-dot"></span>
-            <span className="status-box-text">
-              Exploring early-career Software Engineering, Backend/Full-Stack, and Forward Deployed roles across the U.S.
-            </span>
-          </div>
         </section>
 
         <div className="section-divider"></div>
@@ -371,6 +364,49 @@ const LandingPage = () => {
 
         {/* SKILLS SECTION */}
         <SkillSection />
+
+        <div className="section-divider"></div>
+
+        {/* CONNECT SECTION */}
+        <section id="contact" className="section-block connect-block">
+          <div className="connect-card">
+            <h2 className="block-title">Let&apos;s Connect</h2>
+            <div className="connect-body">
+              <p>
+                I&apos;m always open to discussing new opportunities, collaborating on practical projects, or just chatting about sports, food, travelling, etc.
+              </p>
+              <p>
+                Whether you&apos;re hiring for an engineering role, have feedback on my work, or just want to connect, feel free to reach out.
+              </p>
+            </div>
+            <div className="connect-actions">
+              <button className="connect-pill primary" onClick={handleCopyEmail}>
+                {copiedEmail ? <FaCheck className="pill-icon green" /> : <FaEnvelope className="pill-icon" />}
+                <span>{copiedEmail ? "Email Copied!" : "Send an Email"}</span>
+              </button>
+              <span className="connect-dot">•</span>
+              <a
+                href="https://www.linkedin.com/in/ydumpeta/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="connect-pill"
+              >
+                <FaLinkedin className="pill-icon" />
+                <span>LinkedIn</span>
+              </a>
+              <span className="connect-dot">•</span>
+              <a
+                href="https://github.com/yashdumpeta"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="connect-pill"
+              >
+                <FaGithub className="pill-icon" />
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </section>
 
         <Footer />
       </div>
