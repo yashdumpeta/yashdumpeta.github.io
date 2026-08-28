@@ -349,15 +349,19 @@ const LandingPage = () => {
                         <span className="code-dot red"></span>
                         <span className="code-dot yellow"></span>
                         <span className="code-dot green"></span>
-                        <span className="code-filename">tracker.ts</span>
+                        <span className="code-filename">{project.code_filename || "tracker.ts"}</span>
                       </div>
                       <div className="code-body">
-                        <div><span className="code-kw">import</span> EventTracker <span className="code-kw">from</span> <span className="code-str">&quot;@open-tracker/core&quot;</span>;</div>
-                        <div><span className="code-kw">const</span> tracker = <span className="code-kw">new</span> <span className="code-fn">EventTracker</span>(&#123;</div>
-                        <div>&nbsp;&nbsp;apiKey: <span className="code-str">&quot;evt_test_12345&quot;</span>,</div>
-                        <div>&nbsp;&nbsp;maxRetries: <span className="code-num">3</span></div>
-                        <div>&#125;);</div>
-                        <div><span className="code-kw">await</span> tracker.<span className="code-fn">trackEvent</span>(<span className="code-str">&quot;user_signup&quot;</span>);</div>
+                        {project.code_snippet ? project.code_snippet : (
+                          <>
+                            <div><span className="code-kw">import</span> EventTracker <span className="code-kw">from</span> <span className="code-str">&quot;@open-tracker/core&quot;</span>;</div>
+                            <div><span className="code-kw">const</span> tracker = <span className="code-kw">new</span> <span className="code-fn">EventTracker</span>(&#123;</div>
+                            <div>&nbsp;&nbsp;apiKey: <span className="code-str">&quot;evt_test_12345&quot;</span>,</div>
+                            <div>&nbsp;&nbsp;maxRetries: <span className="code-num">3</span></div>
+                            <div>&#125;);</div>
+                            <div><span className="code-kw">await</span> tracker.<span className="code-fn">trackEvent</span>(<span className="code-str">&quot;user_signup&quot;</span>);</div>
+                          </>
+                        )}
                       </div>
                     </div>
                   )}

@@ -1,8 +1,25 @@
 import Umazing from "../assets/images/Umazing.png";
 import Selectaraunt from "../assets/images/Selectaraunt.png";
 import tabChopMockup from "../assets/images/tabchop-mockup.png";
+import curbTelemetryMock from "../assets/images/curb_telemetry_mock.webp";
 
 export const projects = [
+  {
+    title: "NYC Curb Telemetry",
+    image: curbTelemetryMock,
+    source_code: "https://github.com/yashdumpeta/nyc-parking-analytics-roboflow",
+    tech_used: [
+      "Python",
+      "FastAPI",
+      "React",
+      "TypeScript",
+      "YOLOv8",
+      "OpenCV",
+      "Tailwind CSS",
+    ],
+    description:
+      "Real-time AI telemetry platform that ingests live NYC DOT traffic cameras to track curbside parking occupancy. Detects vehicles in calibrated curb zones using YOLOv8 and calculates unrealized municipal revenue based on Manhattan meter rates.",
+  },
   {
     title: "TabChop",
     featured: true,
