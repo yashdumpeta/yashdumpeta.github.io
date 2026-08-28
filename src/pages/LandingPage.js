@@ -172,7 +172,32 @@ const LandingPage = () => {
 
           <div className="hero-bio">
             <p>
-              I&apos;m a Computer Science &amp; Engineering graduate from the <strong>University of Michigan</strong> and currently work as a <strong>Software Engineering Intern at Utilidata</strong>.
+              I&apos;m a Computer Science &amp; Engineering graduate from the{' '}
+              <span className="tooltip-trigger">
+                <strong>University of Michigan</strong>
+                <div className="tooltip-card side-right">
+                  <div className="tooltip-title">University of Michigan</div>
+                  <div className="tooltip-item">
+                    <span className="tooltip-label">Top-Tier Global Institution:</span> Consistently ranked among the top 3 public universities in the U.S. and top 20 globally.
+                  </div>
+                  <div className="tooltip-item">
+                    <span className="tooltip-label">World-Class Engineering &amp; CS:</span> Home to a top-5 nationally ranked undergraduate engineering program, known for rigorous systems, distributed computing, and AI research.
+                  </div>
+                </div>
+              </span>{' '}
+              and currently work as a Software Engineering Intern at{' '}
+              <span className="tooltip-trigger">
+                <strong>Utilidata</strong>
+                <div className="tooltip-card bottom-left">
+                  <div className="tooltip-title">Utilidata</div>
+                  <div className="tooltip-item">
+                    <span className="tooltip-label">Grid-Edge AI Pioneer:</span> Leading technology company bringing real-time artificial intelligence and power orchestration to electrical grid infrastructure and data centers.
+                  </div>
+                  <div className="tooltip-item">
+                    <span className="tooltip-label">NVIDIA Strategic Co-Development:</span> Co-developed the Karman distributed AI platform with NVIDIA, leveraging custom Jetson edge modules to run high-speed compute directly inside grid-connected hardware.
+                  </div>
+                </div>
+              </span>.
             </p>
             <p>
               Coming from an international background, I&apos;ve learned to adapt quickly, wear different hats, and figure things out without needing everything mapped out. I enjoy working in close team environments, taking messy or unclear problems, and simply building practical software that gets the job done.
@@ -189,15 +214,6 @@ const LandingPage = () => {
               <span>{copiedEmail ? "Email Copied!" : "Copy Email"}</span>
             </button>
 
-            <a
-              href="https://github.com/yashdumpeta"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="action-pill"
-            >
-              <FaGithub className="pill-icon" />
-              <span>GitHub</span>
-            </a>
 
             <a
               href="https://www.linkedin.com/in/ydumpeta/"
@@ -207,6 +223,15 @@ const LandingPage = () => {
             >
               <FaLinkedin className="pill-icon" />
               <span>LinkedIn</span>
+            </a>
+            <a
+              href="https://github.com/yashdumpeta"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="action-pill"
+            >
+              <FaGithub className="pill-icon" />
+              <span>GitHub</span>
             </a>
 
             <a

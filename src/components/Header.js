@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
-import { FaFileLines } from 'react-icons/fa6';
+import { FaSun, FaMoon } from 'react-icons/fa6';
 
 const Header = () => {
     const [activeSection, setActiveSection] = useState('home');
     const [scrolled, setScrolled] = useState(false);
+    const [theme, setTheme] = useState(() => {
+        return localStorage.getItem('theme') || 'dark';
+    });
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }, [theme]);
+
+    const toggleTheme = () => {
+        setTheme(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -87,16 +99,14 @@ const Header = () => {
                 </nav>
 
                 <div className="header-actions">
-                    <a
-                        href="/YD - Resume.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="resume-btn"
-                        title="View Resume"
+                    <button
+                        className="theme-toggle-btn"
+                        onClick={toggleTheme}
+                        title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+                        aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
                     >
-                        <FaFileLines className="btn-icon" />
-                        <span>Resume</span>
-                    </a>
+                        {theme === 'dark' ? <FaSun className="btn-icon theme-sun" /> : <FaMoon className="btn-icon theme-moon" />}
+                    </button>
                 </div>
             </div>
         </header>

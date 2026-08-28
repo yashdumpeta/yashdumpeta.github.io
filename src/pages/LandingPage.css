@@ -104,6 +104,92 @@
     font-weight: 600;
 }
 
+/* TOOLTIP CARDS FOR HERO BIO */
+.tooltip-trigger {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    line-height: 1.15;
+    padding-bottom: 1px;
+    border-bottom: 1.5px dashed var(--text-muted);
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.tooltip-trigger:hover {
+    color: var(--text-primary);
+    border-color: var(--accent-blue);
+}
+
+.tooltip-card {
+    position: absolute;
+    width: 380px;
+    background-color: var(--bg-color);
+    border: 1px dashed var(--border-dashed);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+    padding: 16px 18px;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    z-index: 200;
+    text-align: left;
+}
+
+/* Side Right Positioning */
+.tooltip-card.side-right {
+    top: 50%;
+    left: calc(100% + 14px);
+    transform: translateY(-50%) translateX(-8px);
+}
+
+.tooltip-trigger:hover .tooltip-card.side-right {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* Bottom Left Positioning */
+.tooltip-card.bottom-left {
+    top: calc(100% + 10px);
+    right: 0;
+    left: auto;
+    transform: translateY(-6px);
+}
+
+.tooltip-trigger:hover .tooltip-card.bottom-left {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.tooltip-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed var(--border-dashed);
+}
+
+.tooltip-item {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 8px;
+}
+
+.tooltip-item:last-child {
+    margin-bottom: 0;
+}
+
+.tooltip-label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
 /* Action Pills */
 .hero-action-pills {
     display: flex;
@@ -405,7 +491,7 @@
     width: 100%;
     height: 160px;
     overflow: hidden;
-    background-color: #121215;
+    background-color: var(--bg-badge);
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -431,6 +517,12 @@
     gap: 8px;
     font-family: var(--font-mono);
     font-size: 12px;
+    transition: background-color 0.25s ease;
+}
+
+[data-theme='light'] .project-preview-wrapper,
+[data-theme='light'] .project-preview-code {
+    background-color: #f1f5f9;
 }
 
 .code-header {
@@ -465,11 +557,11 @@
     line-height: 1.5;
 }
 
-.code-kw { color: #f43f5e; font-weight: 600; }
-.code-str { color: #10b981; }
+.code-kw { color: #e11d48; font-weight: 600; }
+.code-str { color: #059669; }
 .code-comment { color: var(--text-muted); font-style: italic; }
-.code-fn { color: #3b82f6; }
-.code-num { color: #f59e0b; }
+.code-fn { color: #2563eb; }
+.code-num { color: #d97706; }
 
 .project-details {
     padding: 14px 16px;
@@ -523,14 +615,16 @@
 }
 
 .link-pill.primary {
-    color: #ffffff;
-    background-color: rgba(59, 130, 246, 0.2);
-    border-color: rgba(59, 130, 246, 0.4);
+    color: var(--accent-blue);
+    background-color: rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.35);
+    font-weight: 500;
 }
 
 .link-pill.primary:hover {
-    background-color: rgba(59, 130, 246, 0.35);
-    border-color: rgba(59, 130, 246, 0.6);
+    color: var(--text-primary);
+    background-color: rgba(59, 130, 246, 0.25);
+    border-color: var(--accent-blue);
 }
 
 .link-icon {
@@ -646,14 +740,16 @@
 }
 
 .connect-pill.primary {
-    color: #ffffff;
-    background-color: rgba(59, 130, 246, 0.2);
-    border-color: rgba(59, 130, 246, 0.4);
+    color: var(--accent-blue);
+    background-color: rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.35);
+    font-weight: 500;
 }
 
 .connect-pill.primary:hover {
-    background-color: rgba(59, 130, 246, 0.35);
-    border-color: rgba(59, 130, 246, 0.6);
+    color: var(--text-primary);
+    background-color: rgba(59, 130, 246, 0.25);
+    border-color: var(--accent-blue);
 }
 
 .connect-dot {
@@ -697,5 +793,21 @@
 
     .contact-card {
         padding: 20px 16px;
+    }
+}
+
+@media (max-width: 820px) {
+    .tooltip-card.side-right,
+    .tooltip-card.bottom-left {
+        top: calc(100% + 8px);
+        left: 0;
+        right: auto;
+        width: min(320px, 85vw);
+        transform: translateY(-4px);
+    }
+
+    .tooltip-trigger:hover .tooltip-card.side-right,
+    .tooltip-trigger:hover .tooltip-card.bottom-left {
+        transform: translateY(0);
     }
 }
