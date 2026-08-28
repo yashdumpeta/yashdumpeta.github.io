@@ -323,14 +323,6 @@ const LandingPage = () => {
         <section id="projects" className="section-block">
           <div className="block-header">
             <h2 className="block-title">Things I&apos;ve Built</h2>
-            <a
-              href="https://github.com/yashdumpeta"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block-link"
-            >
-              All Projects <FaArrowRight className="link-arrow" />
-            </a>
           </div>
 
           <div className="projects-grid-list">
@@ -406,17 +398,19 @@ const LandingPage = () => {
                 </div>
               </div>
             ))}
-          </div>
 
-          <div className="projects-footer-cta">
+            {/* 6th Slot CTA Card */}
             <a
               href="https://github.com/yashdumpeta?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
-              className="projects-more-btn"
+              className="minimal-project-card view-more-card"
             >
-              <span>View More Projects</span>
-              <FaArrowRight className="cta-arrow" />
+              <div className="view-more-card-content">
+                <FaGithub className="view-more-icon" />
+                <span className="view-more-text">View More Projects</span>
+                <FaArrowRight className="view-more-arrow" />
+              </div>
             </a>
           </div>
         </section>

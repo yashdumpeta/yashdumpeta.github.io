@@ -647,32 +647,68 @@
     margin: 0;
 }
 
-/* Projects Footer CTA */
-.projects-footer-cta {
+/* 6TH SLOT VIEW MORE PROJECTS CARD */
+.minimal-project-card.view-more-card {
+    border: 1.5px dashed var(--border-dashed);
+    background-color: var(--bg-card);
     display: flex;
-    justify-content: flex-end;
-    margin-top: 16px;
-}
-
-.projects-more-btn {
-    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13.5px;
-    font-family: var(--font-mono);
-    color: var(--text-muted);
-    background-color: var(--bg-badge);
-    border: 1px dashed var(--border-dashed);
-    padding: 8px 14px;
-    border-radius: 6px;
+    justify-content: center;
     text-decoration: none;
-    transition: all 0.2s ease;
+    cursor: pointer;
+    min-height: 280px;
+    height: 100%;
+    transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
 }
 
-.projects-more-btn:hover {
+.minimal-project-card.view-more-card:hover {
+    border-color: var(--accent-blue);
+    background-color: var(--bg-card-hover);
+    transform: translateY(-2px);
+}
+
+.view-more-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--text-muted);
+    padding: 24px;
+    text-align: center;
+    transition: color 0.25s ease;
+}
+
+.minimal-project-card.view-more-card:hover .view-more-card-content {
     color: var(--text-primary);
-    background-color: var(--bg-badge-hover);
-    border-color: var(--border-hover);
+}
+
+.view-more-icon {
+    font-size: 32px;
+    color: var(--text-secondary);
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.minimal-project-card.view-more-card:hover .view-more-icon {
+    color: var(--text-primary);
+    transform: scale(1.1);
+}
+
+.view-more-text {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.view-more-arrow {
+    font-size: 14px;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.minimal-project-card.view-more-card:hover .view-more-arrow {
+    transform: translateX(4px);
+    color: var(--accent-blue);
 }
 
 .cta-arrow {
