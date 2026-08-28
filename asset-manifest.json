@@ -1,37 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.66f85c4c.css",
-    "main.js": "/static/js/main.6574f6bb.js",
+    "main.css": "/static/css/main.7b8b7df7.css",
+    "main.js": "/static/js/main.92762e20.js",
     "static/js/453.acca0757.chunk.js": "/static/js/453.acca0757.chunk.js",
-    "static/media/recipeFind.png": "/static/media/recipeFind.8a7564b0d90ff6747d1d.png",
-    "static/media/gray.jpg": "/static/media/gray.464ae73ca7d62b04bd2c.jpg",
+    "static/media/tabchop-mockup.png": "/static/media/tabchop-mockup.81279e669967454706d0.png",
     "static/media/Umazing.png": "/static/media/Umazing.6575a75ac6be9dc07d7d.png",
-    "static/media/recalld.png": "/static/media/recalld.98db811e910298786481.png",
     "static/media/Selectaraunt.png": "/static/media/Selectaraunt.734e0be29ca068bad744.png",
     "static/media/nobe.png": "/static/media/nobe.e87834316ade6eb03052.png",
-    "static/media/PPMori-SemiBoldItalic.otf": "/static/media/PPMori-SemiBoldItalic.e01f0721fd62284717b8.otf",
-    "static/media/PPMori-SemiBold.otf": "/static/media/PPMori-SemiBold.336abfe2da355e4fa8dd.otf",
-    "static/media/PPMori-ExtralightItalic.otf": "/static/media/PPMori-ExtralightItalic.f0b522be7bd446b93246.otf",
-    "static/media/PPMori-RegularItalic.otf": "/static/media/PPMori-RegularItalic.a3634370c49d37ffb7ef.otf",
-    "static/media/PPMori-Extralight.otf": "/static/media/PPMori-Extralight.78d084cbf7ae991057eb.otf",
-    "static/media/PPMori-Regular.otf": "/static/media/PPMori-Regular.e647e964441593fd7fdf.otf",
-    "static/media/michengineering2.jpeg": "/static/media/michengineering2.5fbddd1eb1bcc407b0dc.jpeg",
     "static/media/skylark.jpg": "/static/media/skylark.6c748b3adcd62802c34f.jpg",
     "static/media/pfp4.JPG": "/static/media/pfp4.16b87ff541e79d3c2e34.JPG",
-    "static/media/tabchop8.png": "/static/media/tabchop8.f97f42f7ae497509072f.png",
-    "static/media/account_17740774.png": "/static/media/account_17740774.2ab023171e8fc39c87cc.png",
     "static/media/pjtl.png": "/static/media/pjtl.f28ece8edc678de8dce6.png",
     "static/media/utilidata5.png": "/static/media/utilidata5.792e56076302c9156296.png",
     "static/media/umits.jpg": "/static/media/umits.022bfc874112b00f6e89.jpg",
     "static/media/merc.jpeg": "/static/media/merc.182188414064cd966229.jpeg",
     "index.html": "/index.html",
-    "static/media/file-earmark-code-fill.svg": "/static/media/file-earmark-code-fill.c772f5ad8a488321d7aafa83fbb393df.svg",
-    "main.66f85c4c.css.map": "/static/css/main.66f85c4c.css.map",
-    "main.6574f6bb.js.map": "/static/js/main.6574f6bb.js.map",
+    "main.7b8b7df7.css.map": "/static/css/main.7b8b7df7.css.map",
+    "main.92762e20.js.map": "/static/js/main.92762e20.js.map",
     "453.acca0757.chunk.js.map": "/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.66f85c4c.css",
-    "static/js/main.6574f6bb.js"
+    "static/css/main.7b8b7df7.css",
+    "static/js/main.92762e20.js"
   ]
 }
