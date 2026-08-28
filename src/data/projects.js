@@ -2,8 +2,16 @@ import Umazing from "../assets/images/Umazing.png";
 import Selectaraunt from "../assets/images/Selectaraunt.png";
 import recalld from "../assets/images/recalld.png";
 import tabChop from "../assets/images/tabchop8.png";
+import recipeFind from "../assets/images/recipeFind.png";
 
 export const projects = [
+  {
+    title: "@open-tracker/core",
+    source_code: "https://github.com/yashdumpeta/open-tracker-core",
+    tech_used: ["TypeScript", "Zod", "Node.js", "SDK Architecture", "Exponential Backoff"],
+    description:
+      "Lightweight, framework-agnostic TypeScript SDK core for tracking analytics and ad events with Zod runtime type validation, exponential backoff network retries, and automatic metadata extraction.",
+  },
   {
     title: "TabChop",
     featured: true,
@@ -67,5 +75,13 @@ export const projects = [
     tech_used: ["Python", "Django", "React.js", "JavaScript", "MySQL"],
     description:
       "Full-stack flashcard app built to make active recall and spaced repetition easier to manage for focused study sessions.",
+  },
+  {
+    title: "recipeFind",
+    image: recipeFind,
+    source_code: "https://github.com/yashdumpeta/recipeFind",
+    tech_used: ["JavaScript", "HTML5", "CSS3", "Spoonacular API"],
+    description:
+      "Interactive recipe search engine that filters meals by ingredients on hand, dietary constraints, and caloric targets.",
   },
 ];
