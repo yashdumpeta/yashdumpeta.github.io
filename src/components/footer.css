@@ -39,6 +39,25 @@
 
 .sys-value {
     color: var(--accent-green);
+    display: inline-flex;
+    align-items: center;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    margin-left: 2px;
+    font-size: 11px;
+    color: var(--accent-green);
+    animation: blink-cursor 1s step-start infinite;
+}
+
+@keyframes blink-cursor {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
 }
 
 .footer-right {
