@@ -255,10 +255,12 @@
 }
 
 .exp-company-logo {
-    width: 56px;
-    height: 56px;
-    border-radius: 10px;
-    object-fit: cover;
+    width: 68px;
+    height: 68px;
+    border-radius: 12px;
+    object-fit: contain;
+    padding: 4px;
+    background-color: var(--bg-badge);
     border: 1px solid var(--border-color);
     flex-shrink: 0;
 }
