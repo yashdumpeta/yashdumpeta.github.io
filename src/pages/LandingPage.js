@@ -27,18 +27,18 @@ import {
   FaLocationDot
 } from 'react-icons/fa6';
 
-const workExperiences = [
+export const workExperiences = [
   {
     company: "Utilidata",
     period: "Jan 2025 - Present",
     position: "Software Engineering Intern",
     type: "Internship",
     location: "Ann Arbor, MI",
-    skills: ["Python", "ML Workflows", "Data Processing", "MLOps", "Generative AI", "Workflow Automation"],
+    skills: ["Python", "Parquet", "ETL Pipelines", "REST APIs", "Generative ML", "Data Ingestion", "Docker"],
     description: [
-      "Built and evaluated a flow matching generative model for waveform data, exploring synthetic data generation and downstream ML experimentation.",
-      "Improved reproducibility of internal ML workflows through tooling, documentation, and environment setup across local and remote systems.",
-      "Worked across Python, data processing, and infrastructure workflows to support model experimentation and optimization."
+      "Designed and deployed a production ETL pipeline ingesting high-frequency (5.5 MB/min) telemetry into structured Parquet storage on the Gen7 platform for live analytics and ML experimentation.",
+      "Built and deployed a generative ML inference query interface to reconstruct electrical load patterns, integrating the model into live pipelines via REST APIs.",
+      "Improved developer onboarding and workflow reproducibility by establishing standardized local/remote environments, automated scripts, and internal ML tooling."
     ],
     logo: u5,
   },
@@ -48,11 +48,24 @@ const workExperiences = [
     position: "Software Engineering Intern",
     type: "Internship",
     location: "Ann Arbor, MI",
-    skills: ["Docker", "Kubernetes", "GitHub Actions", "Platform Support", "Infrastructure"],
+    skills: ["Kubernetes", "OpenShift", "Docker", "Django", "PostgreSQL", "CI/CD"],
     description: [
-      "Supported research computing infrastructure used by university researchers and technical teams.",
-      "Contributed to infrastructure workflows involving deployment, reliability, and platform support.",
-      "Worked with engineering teams to improve technical documentation and operational processes."
+      "Led containerization and migration of Ape-db (3,000+ research records) to Kubernetes and OpenShift, reducing environment setup errors by 40% and minimizing researcher downtime.",
+      "Upgraded the MICUSP corpus platform (829 academic papers) with Django, eXist-db, and multi-stage Docker builds, reducing image size by 60% and build times by 30%.",
+      "Standardized deployment workflows, container registries, and technical documentation across research engineering teams."
+    ],
+    logo: umits,
+  },
+  {
+    company: "U-M Information & Technology Services",
+    period: "Aug 2025 - May 2026",
+    position: "Technology Consultant",
+    type: "Part-time",
+    location: "Ann Arbor, MI",
+    skills: ["System Administration", "Log Diagnostics", "macOS / Windows", "Troubleshooting", "Incident Triage"],
+    description: [
+      "Triaged, diagnosed, and resolved real-time hardware, network, and software issues across macOS and Windows systems for campus students, faculty, and staff.",
+      "Investigated system access logs and configuration bottlenecks, translating technical issues into clear next steps and collaborating with backend teams on permanent fixes."
     ],
     logo: umits,
   },
@@ -62,12 +75,25 @@ const workExperiences = [
     position: "Data Science Intern",
     type: "Internship",
     location: "Ann Arbor, MI",
-    skills: ["Python", "Julia", "Pandas", "Data Validation", "Data Analysis"],
+    skills: ["Python", "Julia", "Pandas", "Data Validation", "Simulation Analytics"],
     description: [
-      "Validated simulation datasets to identify anomalies and quality issues in EV-related data workflows.",
-      "Supported data cleaning and analysis processes used to improve simulation reliability."
+      "Engineered automated data validation and anomaly detection workflows across EV telemetry datasets to improve simulation reliability.",
+      "Developed cleaning and transformation pipelines using Python, Julia, and Pandas to catch dataset edge cases and improve downstream modeling fidelity."
     ],
     logo: inceptev,
+  },
+  {
+    company: "Perot Jain TechLab Electrification",
+    period: "Aug 2024 - Dec 2025",
+    position: "Student Researcher",
+    type: "Research",
+    location: "Ann Arbor, MI",
+    skills: ["Electrification", "Product Discovery", "Technical Roadmapping", "Startup Advisory"],
+    description: [
+      "Collaborated directly with early-stage electrification startups to identify infrastructure, market, and technical constraints.",
+      "Translated ambiguous startup challenges into actionable product specifications, feasibility studies, and engineering recommendations."
+    ],
+    logo: pjtl,
   },
   {
     company: "Spire Investment Partners",
@@ -75,10 +101,10 @@ const workExperiences = [
     position: "Technology & Cybersecurity Intern",
     type: "Internship",
     location: "McLean, VA",
-    skills: ["REST APIs", "Internal Tools", "Automation", "Cybersecurity", "Operations"],
+    skills: ["Python", "REST APIs", "Automation", "Access Management", "Cybersecurity"],
     description: [
-      "Built internal tools and REST API workflows to streamline employee onboarding and operations.",
-      "Supported technology and cybersecurity initiatives for internal teams and business operations."
+      "Architected and deployed a 300+ employee directory platform and REST API automations, reducing onboarding cycle times by 70% across 200+ customer accounts.",
+      "Automated internal user provisioning and access-control workflows within the SDLC to streamline operational security and compliance."
     ],
     logo: spire,
   },
@@ -88,10 +114,10 @@ const workExperiences = [
     position: "Research Intern",
     type: "Internship",
     location: "Bangalore, India",
-    skills: ["Python", "Tkinter", "Image Processing", "Technical Communication"],
+    skills: ["Python", "Tkinter", "Image Processing", "Technical Training"],
     description: [
-      "Built a Python UI that helped users convert thermal image datasets from R-JPEG to TIFF with data validation.",
-      "Created technical training materials for drone operator workflows in partnership with public stakeholders."
+      "Built a desktop Python/Tkinter application to batch-convert and validate thermal imagery datasets from R-JPEG to TIFF formats for geospatial pipelines.",
+      "Partnered with the Government of India Ministry of Skill Development & Entrepreneurship to develop standardized training coursework for surveying and topography workflows."
     ],
     logo: skylark,
   },
@@ -101,10 +127,10 @@ const workExperiences = [
     position: "VP of Technology & Project Manager",
     type: "Leadership",
     location: "Ann Arbor, MI",
-    skills: ["Web Development", "Project Management", "Technical Communication"],
+    skills: ["Web Development", "Project Management", "Financial Modeling", "Team Leadership"],
     description: [
-      "Led web development efforts to improve the club's online presence and member communication.",
-      "Managed a student research team through market analysis, synthesis, and final presentation work."
+      "Engineered and maintained the organization's web platform to improve public presence, applicant recruitment, and research distribution.",
+      "Mentored student research cohorts through financial modeling, valuation analysis, economic reporting, and final investment pitch deliverables."
     ],
     logo: merc,
   },
@@ -114,25 +140,12 @@ const workExperiences = [
     position: "Engineering Consultant",
     type: "Consulting",
     location: "Ann Arbor, MI",
-    skills: ["Consulting", "UX Research", "Figma", "Data Analysis", "Client Communication"],
+    skills: ["UX Research", "Figma", "Data Architecture", "Client Advisory"],
     description: [
-      "Worked with client teams to identify user pain points and optimize technical workflows.",
-      "Contributed to website usability analysis for U-M Human Resources and bioinformatics data organization."
+      "Conducted user experience audits and workflow optimizations for client organizations, including usability research for U-M Human Resources.",
+      "Designed structured data organization frameworks for bioinformatics datasets to eliminate navigation friction and optimize research discoverability."
     ],
     logo: nobe,
-  },
-  {
-    company: "Perot Jain TechLab Electrification",
-    period: "Aug 2024 - Present",
-    position: "Student Researcher",
-    type: "Research",
-    location: "Center for Entrepreneurship",
-    skills: ["Research", "Electrification", "Startup Collaboration", "Product Discovery"],
-    description: [
-      "Collaborated with early-stage electrification companies to understand technical and market constraints.",
-      "Translated ambiguous startup problems into research, product, and engineering recommendations."
-    ],
-    logo: pjtl,
   },
 ];
 

@@ -26,11 +26,11 @@
     letter-spacing: -0.01em;
 }
 
-.footer-sys-status, .footer-built-with {
+.footer-sys-status, .footer-built-with, .footer-copyright {
     margin: 0;
     font-size: 13px;
     font-family: var(--font-mono);
-    color: var(--text-secondary);
+    color: var(--text-muted);
 }
 
 .sys-key {

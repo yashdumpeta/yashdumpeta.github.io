@@ -43,9 +43,7 @@ const Footer = () => {
           </p>
         </div>
         <div className="footer-right">
-          <p className="footer-built-with">
-            <span className="sys-key">built_with:</span> [react, tailwind, next] &bull; &copy; {new Date().getFullYear()}
-          </p>
+          <p className="footer-copyright">&copy; {new Date().getFullYear()}</p>
         </div>
       </div>
     </footer>
