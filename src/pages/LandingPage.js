@@ -291,7 +291,7 @@ const LandingPage = () => {
               rel="noopener noreferrer"
               className="block-link"
             >
-              All Projects on GitHub <FaArrowRight className="link-arrow" />
+              All Projects <FaArrowRight className="link-arrow" />
             </a>
           </div>
 
