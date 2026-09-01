@@ -173,7 +173,15 @@ const LandingPage = () => {
         <section id="home" className="hero-section-minimal">
           <div className="hero-profile-header">
             <div className="avatar-wrapper">
-              <img src={pfp4} alt="Yash Dumpeta" className="hero-avatar" />
+              <img
+                src={pfp4}
+                alt="Yash Dumpeta"
+                className="hero-avatar"
+                width="84"
+                height="84"
+                fetchPriority="high"
+                decoding="sync"
+              />
               <span className="status-badge-dot" title="Available for work"></span>
             </div>
             <div className="hero-title-block">
@@ -248,7 +256,7 @@ const LandingPage = () => {
             </a>
 
             <a
-              href="/YD - Resume.pdf"
+              href="/YD%20-%20Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="action-pill"
@@ -273,11 +281,21 @@ const LandingPage = () => {
               const isExpanded = expandedExperiences[index];
               return (
                 <div key={index} className="experience-card">
-                  <div
+                  <button
+                    type="button"
                     className="exp-card-main"
                     onClick={() => toggleExperience(index)}
+                    aria-expanded={isExpanded}
                   >
-                    <img src={exp.logo} alt={exp.company} className="exp-company-logo" />
+                    <img
+                      src={exp.logo}
+                      alt={exp.company}
+                      className="exp-company-logo"
+                      width="68"
+                      height="68"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div className="exp-info-primary">
                       <div className="exp-top-line">
                         <h3 className="exp-company-name">{exp.company}</h3>
@@ -291,10 +309,10 @@ const LandingPage = () => {
                         </span>
                       </div>
                     </div>
-                    <button className="exp-toggle-btn" aria-label="Toggle details">
+                    <span className="exp-toggle-btn" aria-hidden="true">
                       {isExpanded ? <FaChevronUp /> : <FaChevronDown />}
-                    </button>
-                  </div>
+                    </span>
+                  </button>
 
                   {isExpanded && (
                     <div className="exp-card-details">
@@ -334,6 +352,8 @@ const LandingPage = () => {
                       src={project.image}
                       alt={project.title}
                       className="project-preview-img"
+                      loading="lazy"
+                      decoding="async"
                     />
                   ) : (
                     <div className="project-preview-code">

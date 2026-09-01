@@ -6,12 +6,17 @@ const Header = () => {
     const [activeSection, setActiveSection] = useState('home');
     const [scrolled, setScrolled] = useState(false);
     const [theme, setTheme] = useState(() => {
-        return localStorage.getItem('theme') || 'dark';
+        if (typeof document !== 'undefined') {
+            return document.documentElement.getAttribute('data-theme') || localStorage.getItem('theme') || 'dark';
+        }
+        return 'dark';
     });
 
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
+        try {
+            localStorage.setItem('theme', theme);
+        } catch (e) {}
     }, [theme]);
 
     const toggleTheme = () => {
