@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 import LandingPage from './pages/LandingPage';
 import Header from './components/Header';
+import SideAsciiSpace from './components/SideAsciiSpace';
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 
 // Component to handle hash-based scroll on page load
@@ -28,6 +29,7 @@ const ScrollToHash = () => {
 function App() {
   return (
     <div className="app-container">
+      <SideAsciiSpace />
       <Router>
         <Header />
         <ScrollToHash />
