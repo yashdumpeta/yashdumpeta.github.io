@@ -1,21 +1,122 @@
 import React, { useEffect, useRef } from 'react';
 import './SideAsciiSpace.css';
 
-// Rich dithered ASCII ramp for volumetric clouds
-const CLOUD_ASCII_RAMP = [
-  ' ', '.', '·', '°', ':', '-', '=', '+', 'i', 'x', '*', '%', 'S', '#', 'W', '@', '✦'
-];
+// Atmospheric phase profiles based on visitor's local time of day
+const SKY_THEMES = {
+  dawn: {
+    name: 'DAWN',
+    // Soft, airy morning mist and dew
+    ramp: [' ', '.', '·', '°', '░', '▒', ':', '~', '≈', '⁕', '✦'],
+    densityCutoff: 0.24,
+    densityExponent: 1.5,
+    noiseScaleX: 0.0028,
+    noiseScaleY: 0.0045, // horizontally stretched mist layers
+    speedMult: 0.85,
+    puffChars: ['·', '°', '⁕', '~'],
+    darkRgb: '245, 212, 190', // soft sunrise peach / amber tint
+    lightRgb: '75, 55, 50',
+    telemetry: [
+      "[DAWN-BREAK]",
+      "[MIST.VAPOR: 92%]",
+      "✦ MORNING-GLOW",
+      "[SOLAR.ELEV: +4°]",
+      "::: AM.ATMOS :::",
+      "<DAWN.FLOW>",
+      "[AM.DEWPOINT: 11°C]",
+      "[SUNRISE.AZIMUTH: 072°]"
+    ]
+  },
+  day: {
+    name: 'DAY',
+    // Rich volumetric cumulus clouds
+    ramp: [' ', '.', '·', '°', ':', '-', '=', '+', 'i', 'x', '*', '%', 'S', '#', 'W', '@', '✦'],
+    densityCutoff: 0.28,
+    densityExponent: 1.4,
+    noiseScaleX: 0.0035,
+    noiseScaleY: 0.0035,
+    speedMult: 1.0,
+    puffChars: ['°', '·'],
+    darkRgb: '212, 212, 216', // neutral crisp slate
+    lightRgb: '30, 41, 59',
+    telemetry: [
+      "[ALT.CUMULUS]",
+      "10.4k FT",
+      "[CLOUD.MASS]",
+      "[WIND-DRIFT: 7kt]",
+      "✦ STRATUS-VEIL",
+      "::: ATMOS-GRID :::",
+      "<SKY.FLOW>",
+      "[BARO: 1014 hPa]"
+    ]
+  },
+  dusk: {
+    name: 'DUSK',
+    // Striated sunset layers and twilight haze
+    ramp: [' ', '.', '·', '—', '-', '=', '≡', '░', '▒', '▓', '✦'],
+    densityCutoff: 0.26,
+    densityExponent: 1.45,
+    noiseScaleX: 0.004,
+    noiseScaleY: 0.0026, // horizontal sunset cloud bands
+    speedMult: 0.9,
+    puffChars: ['-', '·', '~', '°'],
+    darkRgb: '235, 185, 175', // warm twilight rose / amber
+    lightRgb: '70, 42, 60',
+    telemetry: [
+      "[CREPUSCULAR]",
+      "[TWILIGHT.DECAY]",
+      "✦ EVENING-HAZE",
+      "[HORIZON.GLOW]",
+      "[AZIMUTH: 284°]",
+      "<DUSK.DRIFT>",
+      "[SOLAR.ELEV: -2°]",
+      "[GOLDEN-HOUR]"
+    ]
+  },
+  night: {
+    name: 'NIGHT',
+    // Celestial starfield and sparse luminous cosmic cirrus
+    ramp: [' ', '.', '·', ':', '✧', '*', '✦', '★', '○', '☽', '✦'],
+    densityCutoff: 0.36, // higher cutoff so sky remains mostly open starfield with wispy nebulae
+    densityExponent: 1.6,
+    noiseScaleX: 0.0032,
+    noiseScaleY: 0.0032,
+    speedMult: 0.65, // slow hypnotic nocturnal drift
+    puffChars: ['✦', '✧', '★', '·', '*', '·'],
+    darkRgb: '180, 205, 245', // cool starlight / indigo tint
+    lightRgb: '25, 40, 75',
+    telemetry: [
+      "[LUNAR.PHASE]",
+      "⁕ ⁖ ⁘ NEBULA",
+      "[STARFIELD.NAV]",
+      "✦ DEEP.SKY: CLEAR",
+      "[NOCTURNAL.DRIFT]",
+      "✧ CASSIOPEIA",
+      "<ZENITH.ORBIT>",
+      "[ORBITAL.VEIL]"
+    ]
+  }
+};
 
-const TELEMETRY_PHRASES = [
-  "[ALT.CUMULUS]",
-  "10.4k FT",
-  "[CLOUD.MASS]",
-  "⁕ ⁖ ⁘ NEBULA",
-  "[WIND-DRIFT: 7kt]",
-  "✦ STRATUS-VEIL",
-  "::: ATMOS-GRID :::",
-  "<SKY.FLOW>"
-];
+// Backward-compatibility aliases for HMR and fallback safety
+export const CLOUD_ASCII_RAMP = SKY_THEMES.day.ramp;
+export const TELEMETRY_PHRASES = SKY_THEMES.day.telemetry;
+
+// Resolves phase based on visitor's local hour (or URL parameter ?time=dawn|day|dusk|night)
+function getSkyPhase() {
+  if (typeof window !== 'undefined') {
+    const params = new URLSearchParams(window.location.search);
+    const override = params.get('time')?.toLowerCase();
+    if (override && SKY_THEMES[override]) {
+      return override;
+    }
+  }
+
+  const hour = new Date().getHours();
+  if (hour >= 5 && hour < 8) return 'dawn';
+  if (hour >= 8 && hour < 17) return 'day';
+  if (hour >= 17 && hour < 20) return 'dusk';
+  return 'night';
+}
 
 // Compact smooth 2D value noise for procedural cumulus cloud FBM
 function hash2d(x, y) {
@@ -70,6 +171,10 @@ const SideAsciiSpace = () => {
     const fontSize = 10;
     const font = `${fontSize}px 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace`;
 
+    let phase = getSkyPhase();
+    let currentTheme = SKY_THEMES[phase] || SKY_THEMES.day;
+    let lastPhaseCheck = Date.now();
+
     let floatingPuffs = [];
     let telemetries = [];
 
@@ -108,20 +213,24 @@ const SideAsciiSpace = () => {
 
       if (width < 1050 || leftGutterWidth < 60) return;
 
-      // Generate floating wispy cloud particles with slightly boosted drift speed
-      const numPuffs = 45;
+      // Generate floating wispy cloud particles or twinkling celestial stars
+      const numPuffs = phase === 'night' ? 52 : 42;
       for (let i = 0; i < numPuffs; i++) {
         const isLeft = i % 2 === 0;
         const x = isLeft
           ? Math.random() * (leftGutterWidth - 40) + 20
           : rightGutterStart + Math.random() * (width - rightGutterStart - 40) + 20;
 
+        const char = currentTheme.puffChars[Math.floor(Math.random() * currentTheme.puffChars.length)];
+
         floatingPuffs.push({
           x,
           y: Math.random() * (height + 200) - 100,
-          driftSpeed: Math.random() * 0.12 + 0.04,
-          char: Math.random() > 0.5 ? '°' : '·',
-          opacity: Math.random() * 0.30 + 0.12
+          driftSpeed: (Math.random() * 0.12 + 0.04) * currentTheme.speedMult,
+          char,
+          baseOpacity: Math.random() * 0.30 + 0.12,
+          twinklePhase: Math.random() * Math.PI * 2,
+          twinkleSpeed: Math.random() * 0.04 + 0.015
         });
       }
 
@@ -130,7 +239,16 @@ const SideAsciiSpace = () => {
 
     const spawnTelemetry = (leftGutterWidth, rightGutterStart) => {
       const side = Math.random() > 0.5 ? 'left' : 'right';
-      const text = TELEMETRY_PHRASES[Math.floor(Math.random() * TELEMETRY_PHRASES.length)];
+
+      // 35% chance to display live visitor local clock
+      let text;
+      if (Math.random() < 0.35) {
+        const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        text = `[LOCAL-TIME ${timeStr}]`;
+      } else {
+        const phrases = currentTheme?.telemetry || TELEMETRY_PHRASES;
+        text = phrases[Math.floor(Math.random() * phrases.length)];
+      }
 
       let minX = 16;
       let maxX = leftGutterWidth - 120;
@@ -154,9 +272,32 @@ const SideAsciiSpace = () => {
     };
 
     let frameCount = 0;
+    let lastFrameTime = 0;
+    const targetInterval = 1000 / 38; // ~38 FPS frame pacing: smooth drift while saving CPU
+    const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const render = () => {
+    const render = (currentTime = 0) => {
+      if (!prefersReducedMotion) {
+        animationFrameId = requestAnimationFrame(render);
+      }
+
+      // Frame pacing throttle
+      if (currentTime - lastFrameTime < targetInterval) return;
+      lastFrameTime = currentTime;
+
       frameCount++;
+
+      // Check phase transition once every 60 seconds (for visitors staying through hour shifts)
+      const now = Date.now();
+      if (now - lastPhaseCheck > 60000) {
+        lastPhaseCheck = now;
+        const newPhase = getSkyPhase();
+        if (newPhase !== phase) {
+          phase = newPhase;
+          currentTheme = SKY_THEMES[phase] || SKY_THEMES.day;
+        }
+      }
+
       ctx.clearRect(0, 0, width, height);
 
       const containerWidth = 860;
@@ -165,14 +306,12 @@ const SideAsciiSpace = () => {
 
       if (width >= 1050 && leftGutterWidth >= 60) {
         const isLightTheme = document.documentElement.getAttribute('data-theme') === 'light';
-        // More apparent dark slate monotone color in light mode for crisp contrast
-        const baseRgb = isLightTheme ? '30, 41, 59' : '212, 212, 216';
+        const baseRgb = isLightTheme ? currentTheme.lightRgb : currentTheme.darkRgb;
 
         // Grid resolution for cloud dither texture
         const stepX = 9;
         const stepY = 12;
-        // Slightly increased time evolution multiplier for dynamic motion
-        const time = frameCount * 0.009;
+        const time = frameCount * 0.009 * currentTheme.speedMult;
 
         // 1. Render Billowy Volumetric Cloud Field in ASCII
         for (let y = 6; y < height; y += stepY) {
@@ -188,7 +327,7 @@ const SideAsciiSpace = () => {
           }
         }
 
-        // 2. Render Wispy Cloud Tendril Puffs
+        // 2. Render Wispy Cloud Tendril Puffs / Twinkling Stars
         floatingPuffs.forEach((puff) => {
           puff.y -= puff.driftSpeed;
           if (puff.y < -100) puff.y = height + 100;
@@ -197,7 +336,15 @@ const SideAsciiSpace = () => {
           const currentY = py < -100 ? py + height + 200 : py;
 
           if (puff.x < leftGutterWidth || puff.x > rightGutterStart) {
-            const finalPuffOpacity = isLightTheme ? puff.opacity * 1.3 : puff.opacity;
+            let puffOpacity = puff.baseOpacity;
+            if (phase === 'night') {
+              // Gentle twinkle for stars
+              puff.twinklePhase += puff.twinkleSpeed;
+              const twinkle = 0.5 + 0.5 * Math.sin(puff.twinklePhase);
+              puffOpacity = puff.baseOpacity * (0.55 + 0.65 * twinkle);
+            }
+
+            const finalPuffOpacity = isLightTheme ? puffOpacity * 1.3 : puffOpacity;
             ctx.fillStyle = `rgba(${baseRgb}, ${finalPuffOpacity.toFixed(3)})`;
             ctx.fillText(puff.char, puff.x, currentY);
           }
@@ -230,21 +377,23 @@ const SideAsciiSpace = () => {
           }
         });
       }
-
-      animationFrameId = requestAnimationFrame(render);
     };
 
     // Evaluates FBM cloud density field and renders stippled ASCII cloud cell
     const drawCloudCell = (x, y, time, baseRgb, mult) => {
-      const nx = x * 0.0035;
-      const ny = (y + scrollY * 0.08) * 0.0035;
+      const nx = x * currentTheme.noiseScaleX;
+      const ny = (y + scrollY * 0.08) * currentTheme.noiseScaleY;
 
       const rawNoise = fbmCloud(nx, ny, time);
-      const cloudDensity = Math.pow(Math.max(0, rawNoise - 0.28) / 0.72, 1.4);
+      const cloudDensity = Math.pow(
+        Math.max(0, rawNoise - currentTheme.densityCutoff) / (1 - currentTheme.densityCutoff),
+        currentTheme.densityExponent
+      );
 
       if (cloudDensity > 0.04) {
-        const rampIdx = Math.floor(cloudDensity * (CLOUD_ASCII_RAMP.length - 1));
-        const char = CLOUD_ASCII_RAMP[rampIdx];
+        const ramp = currentTheme.ramp;
+        const rampIdx = Math.floor(cloudDensity * (ramp.length - 1));
+        const char = ramp[rampIdx];
 
         if (char !== ' ') {
           const opacity = Math.max(0.04, Math.min(0.55, cloudDensity * 0.50 * mult));
@@ -254,6 +403,17 @@ const SideAsciiSpace = () => {
       }
     };
 
+    // Pause animation when tab is inactive to preserve 100% CPU/GPU
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      } else {
+        lastFrameTime = performance.now();
+        animationFrameId = requestAnimationFrame(render);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     animationFrameId = requestAnimationFrame(render);
@@ -261,7 +421,8 @@ const SideAsciiSpace = () => {
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       window.removeEventListener('scroll', handleScroll);
-      cancelAnimationFrame(animationFrameId);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
