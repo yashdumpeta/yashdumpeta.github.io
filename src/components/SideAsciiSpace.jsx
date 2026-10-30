@@ -1,20 +1,28 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './SideAsciiSpace.css';
 
 // Atmospheric phase profiles based on visitor's local time of day
 const SKY_THEMES = {
   dawn: {
     name: 'DAWN',
-    // Soft, airy morning mist and dew
-    ramp: [' ', '.', '·', '°', '░', '▒', ':', '~', '≈', '⁕', '✦'],
-    densityCutoff: 0.24,
-    densityExponent: 1.5,
-    noiseScaleX: 0.0028,
-    noiseScaleY: 0.0045, // horizontally stretched mist layers
+    // Soft morning mist and dawn vapor
+    ramp: [' ', '·', '.', '°', '~', '≈', 'c', 'o', '⁕', '✦'],
+    densityCutoff: 0.32,
+    densityExponent: 1.4,
+    noiseScaleX: 0.0026,
+    noiseScaleY: 0.0040,
     speedMult: 0.85,
-    puffChars: ['·', '°', '⁕', '~'],
-    darkRgb: '245, 212, 190', // soft sunrise peach / amber tint
-    lightRgb: '75, 55, 50',
+    puffChars: ['·', '°', '⁕', '~', 'c'],
+    darkPalette: {
+      rim: [251, 191, 36],     // warm sunrise amber
+      core: [255, 248, 240],    // soft morning mist white
+      telemetry: '251, 191, 36'
+    },
+    lightPalette: {
+      rim: [245, 158, 11],     // soft warm amber glow
+      core: [194, 65, 12],      // gentle morning terracotta rose
+      telemetry: '217, 119, 6'
+    },
     telemetry: [
       "[DAWN-BREAK]",
       "[MIST.VAPOR: 92%]",
@@ -28,16 +36,24 @@ const SKY_THEMES = {
   },
   day: {
     name: 'DAY',
-    // Rich volumetric cumulus clouds
-    ramp: [' ', '.', '·', '°', ':', '-', '=', '+', 'i', 'x', '*', '%', 'S', '#', 'W', '@', '✦'],
-    densityCutoff: 0.28,
-    densityExponent: 1.4,
-    noiseScaleX: 0.0035,
-    noiseScaleY: 0.0035,
+    // Rounded cumulus billows, airy dither & wisps
+    ramp: [' ', '·', '.', '°', '~', 'c', 'o', 'C', 'O', '☁', '▒'],
+    densityCutoff: 0.33,
+    densityExponent: 1.35,
+    noiseScaleX: 0.0028,
+    noiseScaleY: 0.0042, // horizontally elongated cumulus formations
     speedMult: 1.0,
-    puffChars: ['°', '·'],
-    darkRgb: '212, 212, 216', // neutral crisp slate
-    lightRgb: '30, 41, 59',
+    puffChars: ['°', '·', '~', 'c', 'o'],
+    darkPalette: {
+      rim: [56, 189, 248],     // vibrant sky-blue contour
+      core: [240, 248, 255],    // luminous fluffy cloud white
+      telemetry: '56, 189, 248'
+    },
+    lightPalette: {
+      rim: [56, 189, 248],      // soft airy sky-blue at wispy edges
+      core: [3, 105, 161],       // calm cerulean / slate cloud density tone
+      telemetry: '2, 132, 199'
+    },
     telemetry: [
       "[ALT.CUMULUS]",
       "10.4k FT",
@@ -52,15 +68,23 @@ const SKY_THEMES = {
   dusk: {
     name: 'DUSK',
     // Striated sunset layers and twilight haze
-    ramp: [' ', '.', '·', '—', '-', '=', '≡', '░', '▒', '▓', '✦'],
-    densityCutoff: 0.26,
-    densityExponent: 1.45,
-    noiseScaleX: 0.004,
-    noiseScaleY: 0.0026, // horizontal sunset cloud bands
+    ramp: [' ', '·', '.', '—', '-', '=', '≡', 'c', 'O', '▒', '✦'],
+    densityCutoff: 0.32,
+    densityExponent: 1.4,
+    noiseScaleX: 0.0024,
+    noiseScaleY: 0.0036,
     speedMult: 0.9,
-    puffChars: ['-', '·', '~', '°'],
-    darkRgb: '235, 185, 175', // warm twilight rose / amber
-    lightRgb: '70, 42, 60',
+    puffChars: ['-', '·', '~', '°', 'c'],
+    darkPalette: {
+      rim: [244, 114, 182],    // sunset rose/coral
+      core: [255, 235, 225],    // warm twilight white
+      telemetry: '244, 114, 182'
+    },
+    lightPalette: {
+      rim: [236, 72, 153],     // soft sunset rose/pink
+      core: [147, 51, 234],     // subtle twilight purple
+      telemetry: '192, 38, 211'
+    },
     telemetry: [
       "[CREPUSCULAR]",
       "[TWILIGHT.DECAY]",
@@ -75,15 +99,23 @@ const SKY_THEMES = {
   night: {
     name: 'NIGHT',
     // Celestial starfield and sparse luminous cosmic cirrus
-    ramp: [' ', '.', '·', ':', '✧', '*', '✦', '★', '○', '☽', '✦'],
-    densityCutoff: 0.36, // higher cutoff so sky remains mostly open starfield with wispy nebulae
-    densityExponent: 1.6,
-    noiseScaleX: 0.0032,
-    noiseScaleY: 0.0032,
-    speedMult: 0.65, // slow hypnotic nocturnal drift
+    ramp: [' ', '.', '·', ':', '✧', '*', '✦', '★', '○', '☽'],
+    densityCutoff: 0.36,
+    densityExponent: 1.5,
+    noiseScaleX: 0.0030,
+    noiseScaleY: 0.0030,
+    speedMult: 0.65,
     puffChars: ['✦', '✧', '★', '·', '*', '·'],
-    darkRgb: '180, 205, 245', // cool starlight / indigo tint
-    lightRgb: '25, 40, 75',
+    darkPalette: {
+      rim: [96, 165, 250],     // deep nocturnal sapphire / celestial glow
+      core: [240, 248, 255],    // pure starlight / lunar silver
+      telemetry: '96, 165, 250'
+    },
+    lightPalette: {
+      rim: [99, 102, 241],      // soft celestial periwinkle/indigo
+      core: [67, 56, 202],      // deep nocturnal slate
+      telemetry: '79, 70, 229'
+    },
     telemetry: [
       "[LUNAR.PHASE]",
       "⁕ ⁖ ⁘ NEBULA",
@@ -143,21 +175,30 @@ function smoothNoise(x, y) {
 
 function fbmCloud(x, y, time) {
   let val = 0;
-  let amp = 0.52;
+  let amp = 0.54;
   let freq = 1.0;
 
-  // Slightly increased time evolution speed for dynamic cloud flow
   for (let o = 0; o < 4; o++) {
-    val += amp * smoothNoise(x * freq + time * 0.024, y * freq - time * 0.016);
+    val += amp * smoothNoise(x * freq + time * 0.030, y * freq - time * 0.006);
     freq *= 2.05;
     amp *= 0.48;
   }
 
-  return val;
+  // Billow transformation: creates cauliflower-like puffy cumulus tops
+  // and distinct separated cloud masses
+  const billow = 1.0 - Math.abs(val - 0.52) * 1.95;
+  return Math.max(0, val * 0.55 + billow * 0.45);
 }
 
 const SideAsciiSpace = () => {
   const canvasRef = useRef(null);
+  const [selectedPhase, setSelectedPhase] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const p = new URLSearchParams(window.location.search).get('time')?.toLowerCase();
+      if (p && SKY_THEMES[p]) return p;
+    }
+    return 'auto';
+  });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -171,7 +212,7 @@ const SideAsciiSpace = () => {
     const fontSize = 10;
     const font = `${fontSize}px 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace`;
 
-    let phase = getSkyPhase();
+    let phase = selectedPhase === 'auto' ? getSkyPhase() : selectedPhase;
     let currentTheme = SKY_THEMES[phase] || SKY_THEMES.day;
     let lastPhaseCheck = Date.now();
 
@@ -214,7 +255,7 @@ const SideAsciiSpace = () => {
       if (width < 1050 || leftGutterWidth < 60) return;
 
       // Generate floating wispy cloud particles or twinkling celestial stars
-      const numPuffs = phase === 'night' ? 52 : 42;
+      const numPuffs = phase === 'night' ? 48 : 38;
       for (let i = 0; i < numPuffs; i++) {
         const isLeft = i % 2 === 0;
         const x = isLeft
@@ -228,7 +269,7 @@ const SideAsciiSpace = () => {
           y: Math.random() * (height + 200) - 100,
           driftSpeed: (Math.random() * 0.12 + 0.04) * currentTheme.speedMult,
           char,
-          baseOpacity: Math.random() * 0.30 + 0.12,
+          baseOpacity: Math.random() * 0.35 + 0.15,
           twinklePhase: Math.random() * Math.PI * 2,
           twinkleSpeed: Math.random() * 0.04 + 0.015
         });
@@ -287,9 +328,9 @@ const SideAsciiSpace = () => {
 
       frameCount++;
 
-      // Check phase transition once every 60 seconds (for visitors staying through hour shifts)
+      // Check phase transition once every 60 seconds if in auto mode
       const now = Date.now();
-      if (now - lastPhaseCheck > 60000) {
+      if (selectedPhase === 'auto' && now - lastPhaseCheck > 60000) {
         lastPhaseCheck = now;
         const newPhase = getSkyPhase();
         if (newPhase !== phase) {
@@ -306,24 +347,34 @@ const SideAsciiSpace = () => {
 
       if (width >= 1050 && leftGutterWidth >= 60) {
         const isLightTheme = document.documentElement.getAttribute('data-theme') === 'light';
-        const baseRgb = isLightTheme ? currentTheme.lightRgb : currentTheme.darkRgb;
+        const palette = isLightTheme ? currentTheme.lightPalette : currentTheme.darkPalette;
 
         // Grid resolution for cloud dither texture
         const stepX = 9;
         const stepY = 12;
         const time = frameCount * 0.009 * currentTheme.speedMult;
 
-        // 1. Render Billowy Volumetric Cloud Field in ASCII
+        const fadeMarginL = Math.min(80, leftGutterWidth * 0.45);
+        const rightGutterWidth = width - rightGutterStart;
+        const fadeMarginR = Math.min(80, rightGutterWidth * 0.45);
+
+        // 1. Render Billowy Volumetric Cloud Field in Left Gutter
         for (let y = 6; y < height; y += stepY) {
           for (let x = 6; x < leftGutterWidth; x += stepX) {
-            drawCloudCell(x, y, time, baseRgb, isLightTheme ? 1.25 : 1.0);
+            const innerFade = Math.min(1, Math.max(0, (leftGutterWidth - x) / fadeMarginL));
+            const outerFade = Math.min(1, Math.max(0, x / 30));
+            const fadeX = innerFade * outerFade;
+            drawCloudCell(x, y, time, palette, fadeX, isLightTheme);
           }
+        }
+
+        // Render Billowy Volumetric Cloud Field in Right Gutter
+        for (let y = 6; y < height; y += stepY) {
           for (let x = rightGutterStart; x < width; x += stepX) {
-            drawCloudCell(x, y, time, baseRgb, isLightTheme ? 1.25 : 1.0);
-          }
-          // Ultra faint cloud connection trace across central content
-          for (let x = leftGutterWidth + 14; x < rightGutterStart - 14; x += stepX * 2) {
-            drawCloudCell(x, y, time, baseRgb, isLightTheme ? 0.12 : 0.08);
+            const innerFade = Math.min(1, Math.max(0, (x - rightGutterStart) / fadeMarginR));
+            const outerFade = Math.min(1, Math.max(0, (width - x) / 30));
+            const fadeX = innerFade * outerFade;
+            drawCloudCell(x, y, time, palette, fadeX, isLightTheme);
           }
         }
 
@@ -335,17 +386,29 @@ const SideAsciiSpace = () => {
           const py = (puff.y - scrollY * 0.06) % (height + 200);
           const currentY = py < -100 ? py + height + 200 : py;
 
-          if (puff.x < leftGutterWidth || puff.x > rightGutterStart) {
+          let gutterFade = 0;
+          if (puff.x < leftGutterWidth) {
+            const innerFade = Math.min(1, Math.max(0, (leftGutterWidth - puff.x) / fadeMarginL));
+            const outerFade = Math.min(1, Math.max(0, puff.x / 30));
+            gutterFade = innerFade * outerFade;
+          } else if (puff.x > rightGutterStart) {
+            const innerFade = Math.min(1, Math.max(0, (puff.x - rightGutterStart) / fadeMarginR));
+            const outerFade = Math.min(1, Math.max(0, (width - puff.x) / 30));
+            gutterFade = innerFade * outerFade;
+          }
+
+          if (gutterFade > 0.05) {
             let puffOpacity = puff.baseOpacity;
             if (phase === 'night') {
-              // Gentle twinkle for stars
               puff.twinklePhase += puff.twinkleSpeed;
               const twinkle = 0.5 + 0.5 * Math.sin(puff.twinklePhase);
               puffOpacity = puff.baseOpacity * (0.55 + 0.65 * twinkle);
             }
 
-            const finalPuffOpacity = isLightTheme ? puffOpacity * 1.3 : puffOpacity;
-            ctx.fillStyle = `rgba(${baseRgb}, ${finalPuffOpacity.toFixed(3)})`;
+            const finalPuffOpacity = puffOpacity * (isLightTheme ? 0.38 : 0.60) * gutterFade;
+            const pColor = isLightTheme ? palette.core : palette.rim;
+            ctx.shadowBlur = 0;
+            ctx.fillStyle = `rgba(${pColor[0]}, ${pColor[1]}, ${pColor[2]}, ${finalPuffOpacity.toFixed(3)})`;
             ctx.fillText(puff.char, puff.x, currentY);
           }
         });
@@ -370,37 +433,56 @@ const SideAsciiSpace = () => {
             }
           }
 
-          if (t.x < leftGutterWidth || t.x > rightGutterStart) {
-            const finalTOpacity = isLightTheme ? Math.max(0, t.opacity) * 1.2 : Math.max(0, t.opacity);
-            ctx.fillStyle = `rgba(${baseRgb}, ${finalTOpacity.toFixed(3)})`;
+          if (t.x < leftGutterWidth - 20 || t.x > rightGutterStart + 10) {
+            const finalTOpacity = t.opacity * (isLightTheme ? 0.40 : 0.50);
+            ctx.shadowBlur = 0;
+            ctx.fillStyle = `rgba(${palette.telemetry}, ${finalTOpacity.toFixed(3)})`;
             ctx.fillText(t.text, t.x, t.y - scrollY * 0.04);
           }
         });
       }
     };
 
-    // Evaluates FBM cloud density field and renders stippled ASCII cloud cell
-    const drawCloudCell = (x, y, time, baseRgb, mult) => {
+    // Evaluates FBM cloud density field and renders dual-tone stippled ASCII cloud cell
+    const drawCloudCell = (x, y, time, palette, fadeX, isLightTheme) => {
+      if (fadeX <= 0.01) return;
+
       const nx = x * currentTheme.noiseScaleX;
       const ny = (y + scrollY * 0.08) * currentTheme.noiseScaleY;
 
       const rawNoise = fbmCloud(nx, ny, time);
+      if (rawNoise <= currentTheme.densityCutoff) return;
+
       const cloudDensity = Math.pow(
-        Math.max(0, rawNoise - currentTheme.densityCutoff) / (1 - currentTheme.densityCutoff),
+        (rawNoise - currentTheme.densityCutoff) / (1 - currentTheme.densityCutoff),
         currentTheme.densityExponent
       );
 
-      if (cloudDensity > 0.04) {
-        const ramp = currentTheme.ramp;
-        const rampIdx = Math.floor(cloudDensity * (ramp.length - 1));
-        const char = ramp[rampIdx];
+      if (cloudDensity <= 0.02) return;
 
-        if (char !== ' ') {
-          const opacity = Math.max(0.04, Math.min(0.55, cloudDensity * 0.50 * mult));
-          ctx.fillStyle = `rgba(${baseRgb}, ${opacity.toFixed(3)})`;
-          ctx.fillText(char, x, y);
-        }
-      }
+      const ramp = currentTheme?.ramp || CLOUD_ASCII_RAMP;
+      const rampIdx = Math.min(ramp.length - 1, Math.floor(cloudDensity * ramp.length));
+      const char = ramp[rampIdx];
+
+      if (char === ' ') return;
+
+      // Dual-tone blend: rim (sky contour at wispy edges) -> core (cloud body)
+      const t = Math.max(0, Math.min(1, (cloudDensity - 0.04) / 0.55));
+      const r = Math.round(palette.rim[0] + (palette.core[0] - palette.rim[0]) * t);
+      const g = Math.round(palette.rim[1] + (palette.core[1] - palette.rim[1]) * t);
+      const b = Math.round(palette.rim[2] + (palette.core[2] - palette.rim[2]) * t);
+
+      // Smooth opacity curve with no artificial floor:
+      // Clouds feather gracefully from wispy edges to comfortable core
+      const maxOp = isLightTheme ? 0.42 : 0.55;
+      const opacity = Math.pow(cloudDensity, 1.15) * maxOp * fadeX;
+
+      if (opacity < 0.02) return;
+
+      // Crisp rendering with zero blur for clean readability
+      ctx.shadowBlur = 0;
+      ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacity.toFixed(3)})`;
+      ctx.fillText(char, x, y);
     };
 
     // Pause animation when tab is inactive to preserve 100% CPU/GPU
@@ -424,9 +506,27 @@ const SideAsciiSpace = () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [selectedPhase]);
 
-  return <canvas ref={canvasRef} className="side-ascii-canvas" aria-hidden="true" />;
+  return (
+    <>
+      <canvas ref={canvasRef} className="side-ascii-canvas" aria-hidden="true" />
+      <div className="sky-phase-control" aria-label="Sky Time Preview">
+        <span className="sky-control-icon">☁</span>
+        <span className="sky-control-title">SKY:</span>
+        {(['auto', 'dawn', 'day', 'dusk', 'night']).map((p) => (
+          <button
+            key={p}
+            type="button"
+            onClick={() => setSelectedPhase(p)}
+            className={`sky-control-btn ${selectedPhase === p ? 'active' : ''}`}
+          >
+            {p.toUpperCase()}
+          </button>
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default SideAsciiSpace;

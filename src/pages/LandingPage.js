@@ -12,7 +12,7 @@ import spire from '../assets/images/spire.png';
 import nobe from '../assets/images/nobe.png';
 import pjtl from '../assets/images/pjtl.png';
 import inceptev from '../assets/images/inceptev.png';
-import u5 from '../assets/images/utilidata5.png';
+import karman from '../assets/images/karman.svg';
 import umits from '../assets/images/umits.jpg';
 
 import {
@@ -29,8 +29,8 @@ import {
 
 export const workExperiences = [
   {
-    company: "Utilidata",
-    period: "Jan 2025 - Present",
+    company: "Karman (formerly Utilidata)",
+    period: "Jan 2025 - May 2026",
     position: "Software Engineering Intern",
     type: "Internship",
     location: "Ann Arbor, MI",
@@ -40,7 +40,8 @@ export const workExperiences = [
       "Built and deployed a generative ML inference query interface to reconstruct electrical load patterns, integrating the model into live pipelines via REST APIs.",
       "Improved developer onboarding and workflow reproducibility by establishing standardized local/remote environments, automated scripts, and internal ML tooling."
     ],
-    logo: u5,
+    logo: karman,
+    logoClassName: "exp-company-logo-karman",
   },
   {
     company: "U-M Information & Technology Services",
@@ -205,17 +206,16 @@ const LandingPage = () => {
                     <span className="tooltip-label">World-Class Engineering &amp; CS:</span> Home to a top-5 nationally ranked undergraduate engineering program, known for rigorous systems, distributed computing, and AI research.
                   </div>
                 </div>
-              </span>{' '}
-              and currently work as a Software Engineering Intern at{' '}
+              </span>, and most recently worked as a Software Engineering Intern at{' '}
               <span className="tooltip-trigger">
-                <strong>Utilidata</strong>
+                <strong>Karman</strong> (formerly Utilidata)
                 <div className="tooltip-card bottom-left">
-                  <div className="tooltip-title">Utilidata</div>
+                  <div className="tooltip-title">Karman (formerly Utilidata)</div>
                   <div className="tooltip-item">
-                    <span className="tooltip-label">Grid-Edge AI Pioneer:</span> Leading technology company bringing real-time artificial intelligence and power orchestration to electrical grid infrastructure and data centers.
+                    <span className="tooltip-label">AI for Power Infrastructure:</span> Embedded AI and power orchestration for electrical grids and AI data centers, bringing real-time visibility and control to unlock stranded power capacity.
                   </div>
                   <div className="tooltip-item">
-                    <span className="tooltip-label">NVIDIA Strategic Co-Development:</span> Co-developed the Karman distributed AI platform with NVIDIA, leveraging custom Jetson edge modules to run high-speed compute directly inside grid-connected hardware.
+                    <span className="tooltip-label">NVIDIA-Powered Platform:</span> The Karman platform combines high-resolution metrology with local processing and AI, powered by a custom NVIDIA module embedded directly into power infrastructure.
                   </div>
                 </div>
               </span>.
@@ -290,7 +290,7 @@ const LandingPage = () => {
                     <img
                       src={exp.logo}
                       alt={exp.company}
-                      className="exp-company-logo"
+                      className={`exp-company-logo ${exp.logoClassName || ''}`}
                       width="68"
                       height="68"
                       loading="lazy"

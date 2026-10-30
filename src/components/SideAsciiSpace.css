@@ -13,4 +13,96 @@
     .side-ascii-canvas {
         display: none;
     }
+    .sky-phase-control {
+        display: none !important;
+    }
+}
+
+.sky-phase-control {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(9, 9, 11, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9999px;
+    padding: 0.25rem 0.5rem;
+    font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    pointer-events: auto;
+    transition: all 0.2s ease;
+}
+
+[data-theme='light'] .sky-phase-control {
+    background: rgba(255, 255, 255, 0.90);
+    border: 1px solid rgba(14, 165, 233, 0.28);
+    box-shadow: 0 8px 24px rgba(14, 165, 233, 0.15);
+}
+
+.sky-control-icon {
+    font-size: 0.85rem;
+    margin-left: 0.2rem;
+    color: #38bdf8;
+}
+
+[data-theme='light'] .sky-control-icon {
+    color: #0284c7;
+}
+
+.sky-control-title {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-right: 0.15rem;
+    letter-spacing: 0.05em;
+}
+
+[data-theme='light'] .sky-control-title {
+    color: #0284c7;
+}
+
+.sky-control-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #a1a1aa;
+    padding: 0.2rem 0.5rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.65rem;
+    font-weight: 500;
+    transition: all 0.15s ease;
+}
+
+.sky-control-btn:hover {
+    color: #f4f4f5;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='light'] .sky-control-btn {
+    color: #64748b;
+}
+
+[data-theme='light'] .sky-control-btn:hover {
+    color: #0f172a;
+    background: rgba(14, 165, 233, 0.08);
+}
+
+.sky-control-btn.active {
+    background: rgba(14, 165, 233, 0.25);
+    border-color: rgba(56, 189, 248, 0.5);
+    color: #38bdf8;
+    font-weight: 600;
+}
+
+[data-theme='light'] .sky-control-btn.active {
+    background: rgba(14, 165, 233, 0.15);
+    border-color: rgba(14, 165, 233, 0.5);
+    color: #0284c7;
+    font-weight: 600;
 }
